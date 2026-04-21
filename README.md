@@ -89,7 +89,6 @@ This project uses Tailwind CSS for styling. The configuration includes:
 
 The app is built with responsive design using Tailwind CSS breakpoints.
 
-
 ## 📦 Deployment
 
 Build the application for production:
@@ -97,6 +96,8 @@ Build the application for production:
 ```bash
 npm run build
 ```
+
+**GitHub Pages**: This project is deployed to GitHub Pages via GitHub Actions. Live at: https://delviss.github.io/descale_agency/
 
 ## 🙏 Acknowledgments
 
