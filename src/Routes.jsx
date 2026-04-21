@@ -12,7 +12,7 @@ import GrowthAssessmentContact from './pages/growth-assessment-contact';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ErrorBoundary>
       <ScrollToTop />
       <RouterRoutes>
