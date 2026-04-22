@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/ui/Header';
+import Footer from '../../components/ui/Footer';
 import ServiceCard from './components/ServiceCard';
 import ServiceModal from './components/ServiceModal';
 import TrustSignals from './components/TrustSignals';
@@ -522,6 +523,7 @@ const ServicesHub = () => {
         selectedService={selectedService}
         onClose={() => setShowContactForm(false)}
       />
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/ui/Header';
+import Footer from '../../components/ui/Footer';
 import HeroSection from './components/HeroSection';
 import OriginStory from './components/OriginStory';
 import TeamShowcase from './components/TeamShowcase';
@@ -39,6 +40,7 @@ const AboutExperience = () => {
           <CultureShowcase />
           <CallToAction />
         </main>
+        <Footer />
       </div>
     </>
   );

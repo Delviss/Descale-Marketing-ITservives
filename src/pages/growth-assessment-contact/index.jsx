@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/ui/Header';
+import Footer from '../../components/ui/Footer';
 import GrowthAssessmentTool from './components/GrowthAssessmentTool';
 import ContactOptions from './components/ContactOptions';
 import TrustElements from './components/TrustElements';
@@ -159,6 +160,7 @@ const GrowthAssessmentContact = () => {
           assessmentData={assessmentData}
         />
       )}
+      <Footer />
     </div>
   );
 };

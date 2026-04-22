@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - claude/deploy-github-pages-frxOd
+      - claude/modernize-website-design-6MdZv
   workflow_dispatch:
 
 permissions:

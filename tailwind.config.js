@@ -76,13 +76,14 @@ export default {
         full: "var(--radius-full)", // 9999px
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['Inter', '"Space Grotesk"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'Consolas', 'monospace'],
-        headline: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
-        body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        cta: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        headline: ['Inter', '"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['Inter', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        cta: ['Inter', '"Space Grotesk"', 'system-ui', 'sans-serif'],
         accent: ['"JetBrains Mono"', 'Consolas', 'monospace'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       fontSize: {
         'brand-xs': ['0.75rem', { lineHeight: '1rem' }], // 12px

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -131,15 +131,23 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Inter', 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
     @apply tracking-tight;
     text-wrap: balance;
+    font-feature-settings: "ss01" 1, "cv11" 1, "calt" 1;
+    letter-spacing: -0.02em;
   }
 
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold; }
-  h3 { @apply text-2xl md:text-3xl font-semibold; }
+  h1 { @apply text-5xl md:text-6xl lg:text-7xl font-bold; letter-spacing: -0.035em; }
+  h2 { @apply text-4xl md:text-5xl lg:text-6xl font-bold; letter-spacing: -0.03em; }
+  h3 { @apply text-2xl md:text-3xl lg:text-4xl font-semibold; letter-spacing: -0.02em; }
   h4 { @apply text-xl md:text-2xl font-semibold; }
+
+  .font-serif-accent {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
 
   p {
     @apply text-base leading-relaxed;
@@ -341,6 +349,77 @@
 @keyframes shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+/* Marquee scroll for logo strips */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+/* Aurora / gradient shift used in hero background */
+@keyframes aurora {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+  50% { transform: translate3d(2%, -2%, 0) scale(1.08); opacity: 0.85; }
+}
+.animate-aurora {
+  animation: aurora 14s ease-in-out infinite;
+}
+
+/* Soft floating orbs */
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-18px) translateX(8px); }
+  66% { transform: translateY(10px) translateX(-12px); }
+}
+.animate-float-orb { animation: float-orb 12s ease-in-out infinite; }
+
+/* Text reveal for scroll sections */
+@keyframes text-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+.animate-text-reveal { animation: text-reveal 1s var(--animation-easing) forwards; }
+
+/* Conic spin for badges */
+@keyframes conic-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-conic-spin { animation: conic-spin 8s linear infinite; }
+
+/* Modern gradient mesh backgrounds */
+.bg-mesh-dark {
+  background-color: #0B0B0F;
+  background-image:
+    radial-gradient(at 20% 20%, rgba(167, 41, 6, 0.35) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 107, 53, 0.25) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(6, 73, 167, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(255, 107, 53, 0.18) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(167, 41, 6, 0.30) 0px, transparent 50%);
+}
+.bg-mesh-light {
+  background-color: #FBFAF7;
+  background-image:
+    radial-gradient(at 10% 10%, rgba(255, 107, 53, 0.15) 0px, transparent 55%),
+    radial-gradient(at 90% 20%, rgba(6, 73, 167, 0.10) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(167, 41, 6, 0.10) 0px, transparent 50%);
+}
+
+/* Noise overlay for cinematic texture */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
 }
 
 @media print {
