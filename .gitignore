@@ -1,8 +1,36 @@
+# OS
 .DS_Store
-node_modules
-.idea
-package-lock.json
-/build
-.vscode/
+Thumbs.db
+
+# Editor
 .idea/
-vite.config.*s.*
+.vscode/
+*.swp
+*.swo
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+/build
+/dist
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment (keep .env.example tracked)
+.env.local
+.env.*.local
+
+# Test output
+coverage/
+
+# Docker
+*.pid

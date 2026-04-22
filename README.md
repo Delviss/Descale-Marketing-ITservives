@@ -1,108 +1,158 @@
-# React
+# Descale Agency
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+A self-owned, platform-independent marketing site for Descale Agency. Originally scaffolded on Rocket.new / DhiWise, this codebase has been **fully audited and extracted** — every vendor runtime hook, proprietary tagger, and lock-in dependency has been removed. The project can be hosted anywhere: Vercel, Netlify, AWS, a VPS, or your own Docker host.
 
-## 🚀 Features
+## Tech stack
 
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **Redux Toolkit** - State management with simplified Redux setup
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router v6** - Declarative routing for React applications
-- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** - React Hook Form for efficient form handling
-- **Animation** - Framer Motion for smooth UI animations
-- **Testing** - Jest and React Testing Library setup
+| Layer      | Choice                                      |
+| ---------- | ------------------------------------------- |
+| Framework  | React 18 + Vite 5                           |
+| Routing    | React Router v6                             |
+| Styling    | Tailwind CSS v3 with CSS custom properties  |
+| UI         | Custom components (Radix Slot, CVA)         |
+| Icons      | lucide-react                                |
+| Charts     | recharts                                    |
+| Meta       | react-helmet-async                          |
+| Animation  | framer-motion                               |
+| Forms      | react-hook-form                             |
+| Deployment | Dockerfile · docker-compose · Vercel · Netlify |
 
-## 📋 Prerequisites
+No backend, no database, no auth — this is a pure static marketing site. Deploy the contents of `build/` to any CDN or static host.
 
-- Node.js (v14.x or higher)
-- npm or yarn
+## Local development
 
-## 🛠️ Installation
+```bash
+# 1. install deps
+npm install
 
-1. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-   
-2. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
+# 2. copy env template
+cp .env.example .env.local
 
-## 📁 Project Structure
-
-```
-react_app/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
+# 3. run dev server
+npm run dev          # http://localhost:4028
 ```
 
-## 🧩 Adding Routes
+## Scripts
 
-To add new routes to the application, update the `Routes.jsx` file:
+| Command          | Purpose                            |
+| ---------------- | ---------------------------------- |
+| `npm run dev`    | Vite dev server on port 4028       |
+| `npm run build`  | Production build to `./build`      |
+| `npm run preview`| Serve the production build locally |
 
-```jsx
-import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
+## Environment variables
 
-const ProjectRoutes = () => {
-  let element = useRoutes([
-    { path: "/", element: <HomePage /> },
-    { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
-  ]);
+All runtime-visible variables must be prefixed with `VITE_` (Vite convention).
 
-  return element;
-};
+| Variable                    | Required | Description                           |
+| --------------------------- | -------- | ------------------------------------- |
+| `VITE_SITE_URL`             | no       | Canonical site URL (used in metadata) |
+| `VITE_CONTACT_FORM_ENDPOINT`| no       | POST target if wiring a backend       |
+| `VITE_PLAUSIBLE_DOMAIN`     | no       | Plausible analytics domain            |
+| `VITE_UMAMI_WEBSITE_ID`     | no       | Umami analytics website ID            |
+
+Never commit `.env.local`. Only `.env.example` should be tracked.
+
+## Project structure
+
+```
+descale_agency/
+├── Dockerfile                ← production container (nginx + SPA fallback)
+├── docker-compose.yml        ← one-command self-host
+├── nginx.conf                ← SPA routing, caching, security headers
+├── vercel.json               ← Vercel deploy config
+├── netlify.toml              ← Netlify deploy config
+├── vite.config.mjs
+├── tailwind.config.js
+├── postcss.config.js
+├── index.html                ← no vendor scripts injected
+├── public/                   ← favicon, manifest, robots, og-image
+└── src/
+    ├── App.jsx               ← wraps HelmetProvider + theme hook
+    ├── Routes.jsx            ← React Router v6 route table
+    ├── index.jsx             ← entry point
+    ├── components/
+    │   ├── ui/               ← Button, Input, Select, Checkbox, Header
+    │   ├── AppIcon.jsx
+    │   ├── AppImage.jsx
+    │   ├── ErrorBoundary.jsx
+    │   └── ScrollToTop.jsx
+    ├── hooks/
+    │   └── useTheme.js       ← light/dark theme + system preference
+    ├── pages/
+    │   ├── homepage/
+    │   ├── about-experience/
+    │   ├── services-hub/
+    │   ├── work-portfolio/
+    │   ├── interactive-taxi-ads-innovation-lab/
+    │   ├── growth-assessment-contact/
+    │   └── NotFound.jsx
+    ├── styles/
+    │   ├── tailwind.css      ← design tokens, light/dark, keyframes
+    │   └── index.css
+    └── utils/
+        └── cn.js             ← classnames helper (clsx + tailwind-merge)
 ```
 
-## 🎨 Styling
+## Deployment
 
-This project uses Tailwind CSS for styling. The configuration includes:
+### Vercel
 
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
+```bash
+npm i -g vercel
+vercel deploy --prod
+```
 
-## 📱 Responsive Design
+`vercel.json` handles SPA rewrites, asset caching, and security headers.
 
-The app is built with responsive design using Tailwind CSS breakpoints.
+### Netlify
 
-## 📦 Deployment
+```bash
+npm i -g netlify-cli
+netlify deploy --prod
+```
 
-Build the application for production:
+`netlify.toml` handles the same.
+
+### Docker (self-hosted)
+
+```bash
+# single container
+docker build -t descale-agency .
+docker run --rm -p 8080:80 descale-agency
+
+# or compose
+docker compose up -d --build
+# open http://localhost:8080
+```
+
+### Static host (S3 / R2 / any CDN)
 
 ```bash
 npm run build
+# upload ./build to your bucket; configure SPA fallback to /index.html
 ```
 
-**GitHub Pages**: This project is deployed to GitHub Pages via GitHub Actions. Live at: https://delviss.github.io/descale_agency/
+## Design system
 
-## 🙏 Acknowledgments
+Tokens live in `src/styles/tailwind.css` as CSS custom properties and are consumed by `tailwind.config.js`. Dark mode toggles via the `.dark` class on `<html>`, managed by `src/hooks/useTheme.js` with respect for `prefers-color-scheme`.
 
-- Built with [Rocket.new](https://rocket.new)
-- Powered by React and Vite
-- Styled with Tailwind CSS
+- **Palette:** brand red (`#A72906`), deep blue (`#0649A7`), accent orange (`#FF6B35`)
+- **Typography:** Space Grotesk (display), Plus Jakarta Sans (body), JetBrains Mono (accent)
+- **Radii:** 4 / 8 / 12 / 20 / full
+- **Motion:** `cubic-bezier(0.22, 1, 0.36, 1)`, reduced-motion aware
 
-Built with ❤️ on Rocket.new
+## What was removed
+
+- `https://static.rocket.new/rocket-web.js` runtime injection
+- `@dhiwise/component-tagger` Vite plugin
+- `<div class="dhiwise-code">` branding
+- `rocketCritical` vendor-enforced dependency block
+- `.builtwithrocket.new` allowed-hosts entry
+- Rocket.new acknowledgments
+- Unused dependencies: `redux`, `@reduxjs/toolkit`, `d3`, `dotenv`, `react-router-hash-link`, `@tailwindcss/forms`, `@tailwindcss/aspect-ratio`, `@tailwindcss/container-queries`, `@tailwindcss/line-clamp`, `@tailwindcss/typography`, `tailwindcss-elevation`, `tailwindcss-fluid-type`, `@testing-library/*`, `date-fns`, `axios`
+- `react-helmet` (deprecated) → replaced by `react-helmet-async`
+
+## License
+
+UNLICENSED — private project.

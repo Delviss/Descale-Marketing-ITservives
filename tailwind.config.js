@@ -76,12 +76,13 @@ export default {
         full: "var(--radius-full)", // 9999px
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Consolas', 'monospace'],
-        headline: ['Inter', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        cta: ['Inter', 'system-ui', 'sans-serif'],
-        accent: ['JetBrains Mono', 'Consolas', 'monospace'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Consolas', 'monospace'],
+        headline: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        cta: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        accent: ['"JetBrains Mono"', 'Consolas', 'monospace'],
       },
       fontSize: {
         'brand-xs': ['0.75rem', { lineHeight: '1rem' }], // 12px
@@ -108,6 +109,7 @@ export default {
         'brand-3xl': 'var(--spacing-3xl)', // 64px
       },
       boxShadow: {
+        'brand-xs': 'var(--shadow-xs)',
         'brand-sm': 'var(--shadow-sm)',
         'brand-md': 'var(--shadow-md)',
         'brand-lg': 'var(--shadow-lg)',
