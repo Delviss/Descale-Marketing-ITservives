@@ -81,14 +81,16 @@ const Footer = () => {
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16">
           <div className="col-span-2 md:col-span-1">
-            <a href="/homepage" className="inline-flex items-center gap-3 mb-5">
-              <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-brand">
-                <span className="font-display font-black text-xl text-white">D</span>
-                <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-white border-2 border-[#0B0B0F]" />
-              </div>
+            <a href="/homepage" className="inline-flex items-center gap-3 mb-5" aria-label="Descale Agency home">
+              <img
+                src="/assets/images/logo-mark.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-11 w-auto drop-shadow-[0_4px_20px_rgba(255,107,53,0.45)]"
+              />
               <div className="flex flex-col">
                 <span className="font-display font-black text-lg tracking-tight text-white">DESCALE</span>
-                <span className="text-[10px] tracking-[0.3em] text-white/50 uppercase">Agency</span>
+                <span className="text-[10px] tracking-[0.3em] text-white/70 uppercase font-semibold">Agency</span>
               </div>
             </a>
             <p className="text-sm text-white/60 leading-relaxed">
