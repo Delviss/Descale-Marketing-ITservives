@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" role="img" aria-label="Descale Agency — Marketing and sales">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" role="img" aria-label="Descale Agency — Marketing and sales">
   <title>Descale Agency</title>
 
-  <!-- Arch mark: solid block with a half-circle cutout at the bottom -->
-  <path d="M0 30 H170 V150 H135 A50 50 0 0 1 35 150 H0 Z" fill="#C0370A"/>
+  <!-- Arch mark -->
+  <path d="M10 22 H140 V130 H110 A40 40 0 0 1 40 130 H10 Z" fill="#C0370A"/>
 
   <!-- Wordmark -->
-  <g fill="#C0370A" font-family="Inter, 'Space Grotesk', system-ui, sans-serif" font-weight="900" letter-spacing="-1.5">
-    <text x="195" y="78" font-size="62">DESCALE</text>
-    <text x="195" y="138" font-size="62">AGENCY</text>
-    <text x="468" y="42" font-size="18" font-weight="700">TM</text>
+  <g font-family="Inter, 'Space Grotesk', system-ui, sans-serif" font-weight="900" letter-spacing="-2">
+    <text x="160" y="78" font-size="56" fill="#C0370A">DESCALE</text>
+    <text x="160" y="128" font-size="56" fill="#C0370A">AGENCY</text>
+    <text x="410" y="46" font-size="14" font-weight="700" fill="#C0370A">TM</text>
   </g>
 
-  <!-- Tagline (dark for light header background) -->
-  <text x="197" y="170" fill="#1F1A17" font-family="Inter, 'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="500" letter-spacing="0.5">Marketing and sales</text>
+  <!-- Tagline -->
+  <text x="162" y="152" font-family="Inter, 'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="3" fill="#C0370A" opacity="0.85">MARKETING · SALES</text>
 </svg>

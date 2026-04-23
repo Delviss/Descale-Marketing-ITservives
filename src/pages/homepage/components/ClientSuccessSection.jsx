@@ -127,14 +127,15 @@ const ClientSuccessSection = () => {
                 <div className={`absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-to-br ${client?.accent} opacity-[0.08] group-hover:opacity-20 group-hover:scale-125 transition-all duration-700`} />
 
                 <motion.div
-                  className="relative flex items-center justify-center mb-6 h-24"
-                  whileHover={{ scale: 1.08 }}
+                  className="relative flex items-center justify-center mb-6 h-28 w-full"
+                  whileHover={{ scale: 1.06, rotate: -1 }}
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 >
-                  <Image
+                  <img
                     src={client?.logo}
                     alt={`${client?.name} logo`}
-                    className="max-h-24 w-auto object-contain transition-all duration-500 group-hover:drop-shadow-[0_6px_18px_rgba(192,55,10,0.25)]"
+                    className="max-h-28 w-full object-contain transition-all duration-500 group-hover:drop-shadow-[0_8px_20px_rgba(192,55,10,0.30)]"
+                    loading="lazy"
                   />
                 </motion.div>
 
@@ -246,11 +247,14 @@ const ClientSuccessSection = () => {
               className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
             >
               <div className="flex items-start space-x-4">
-                <Image
-                  src={testimonial?.avatar}
-                  alt={testimonial?.author}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="w-16 h-16 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center flex-shrink-0 p-2">
+                  <img
+                    src={testimonial?.avatar}
+                    alt={testimonial?.author}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="flex-1">
                   <blockquote className="text-lg text-gray-700 mb-4 leading-relaxed">
                     "{testimonial?.quote}"
