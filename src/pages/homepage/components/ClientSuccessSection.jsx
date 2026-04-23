@@ -9,78 +9,51 @@ const ClientSuccessSection = () => {
   const clients = [
     {
       id: 1,
-      name: "TechFlow",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop",
-      industry: "SaaS",
-      growth: "450%",
-      metric: "Revenue Growth",
-      timeframe: "18 months",
-      description: "From $2M to $11M ARR through strategic performance marketing and brand positioning"
+      name: "Blitzon Consulting",
+      logo: "https://logo.clearbit.com/blitzon.de",
+      industry: "D2D Sales — Munich",
+      growth: "#1",
+      metric: "D2D Sales Company",
+      timeframe: "Munich",
+      website: "https://blitzon.de/",
+      description: "Munich's leading door-to-door sales consultancy, driving field-sales performance for ambitious brands."
     },
     {
       id: 2,
-      name: "EcoVibe",
-      logo: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=200&h=100&fit=crop",
-      industry: "E-commerce",
-      growth: "320%",
-      metric: "Customer Acquisition",
-      timeframe: "12 months",
-      description: "Scaled from 10K to 42K monthly customers through omnichannel growth strategies"
+      name: "Klaxo GmbH",
+      logo: "https://logo.clearbit.com/klaxo.eu",
+      industry: "Car Rental & Daytrips",
+      growth: "#1",
+      metric: "Car Rental & Daytrips",
+      timeframe: "Munich",
+      website: "https://www.klaxo.eu/",
+      description: "Munich's #1 car rental and day-trip experience, delivering premium mobility for locals and tourists alike."
     },
     {
       id: 3,
-      name: "FinanceForward",
-      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
-      industry: "FinTech",
-      growth: "280%",
-      metric: "User Base Growth",
-      timeframe: "15 months",
-      description: "Achieved 2.8x user growth through targeted digital campaigns and conversion optimization"
-    },
-    {
-      id: 4,
-      name: "HealthTech Pro",
-      logo: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=100&fit=crop",
-      industry: "HealthTech",
-      growth: "390%",
-      metric: "Market Expansion",
-      timeframe: "20 months",
-      description: "Expanded from 2 to 15 markets with 3.9x revenue increase through strategic scaling"
-    },
-    {
-      id: 5,
-      name: "RetailRise",
-      logo: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&h=100&fit=crop",
-      industry: "Retail",
-      growth: "510%",
-      metric: "Online Sales",
-      timeframe: "14 months",
-      description: "Transformed traditional retail with 5.1x online sales growth through digital transformation"
-    },
-    {
-      id: 6,
-      name: "EduNext",
-      logo: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=100&fit=crop",
-      industry: "EdTech",
-      growth: "425%",
-      metric: "Student Enrollment",
-      timeframe: "16 months",
-      description: "Scaled from 5K to 26K students through innovative marketing and user experience optimization"
+      name: "Woodfellas",
+      logo: "https://logo.clearbit.com/wood-fellas.com",
+      industry: "Accessories",
+      growth: "DTC",
+      metric: "Lifestyle Accessories",
+      timeframe: "Europe",
+      website: "https://www.wood-fellas.com/en/",
+      description: "Design-led wood & lifestyle accessories, scaled across European DTC channels with bold brand storytelling."
     }
   ];
 
   const testimonials = [
     {
       quote: "DESCALE didn\'t just scale our campaigns—they transformed our entire approach to growth. The results speak for themselves.",
-      author: "Sarah Chen",
-      position: "CEO, TechFlow",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face"
+      author: "Blitzon Consulting",
+      position: "#1 D2D Sales Company, Munich",
+      avatar: "https://logo.clearbit.com/blitzon.de"
     },
     {
       quote: "The strategic depth and execution excellence is unmatched. They understand scaling at a level most agencies never reach.",
-      author: "Marcus Rodriguez",
-      position: "CMO, FinanceForward",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
+      author: "Klaxo GmbH",
+      position: "#1 Car Rental & Daytrips, Munich",
+      avatar: "https://logo.clearbit.com/klaxo.eu"
     }
   ];
 
@@ -113,57 +86,65 @@ const ClientSuccessSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            50+ brands have chosen exponential growth over incremental improvement. Here's how we transformed their market position.
+            We partner with market leaders who choose exponential growth over incremental improvement. Here's how we transformed their market position.
           </p>
         </motion.div>
 
         {/* Client Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-5xl mx-auto">
           {clients?.map((client, index) => (
-            <motion.div
+            <motion.a
               key={client?.id}
+              href={client?.website}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group cursor-pointer"
+              className="relative group cursor-pointer block"
               onMouseEnter={() => setHoveredClient(client?.id)}
               onMouseLeave={() => setHoveredClient(null)}
             >
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-brand-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                <div className="aspect-w-16 aspect-h-9 mb-4">
+              <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-brand-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100 h-full">
+                <div className="flex items-center justify-center mb-6 h-20">
                   <Image
                     src={client?.logo}
                     alt={`${client?.name} logo`}
-                    className="w-full h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="max-h-20 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="text-center">
-                  <h3 className="font-bold text-gray-900 mb-1">{client?.name}</h3>
+                  <h3 className="font-bold text-gray-900 mb-1 text-lg">{client?.name}</h3>
                   <p className="text-sm text-gray-500 mb-2">{client?.industry}</p>
-                  
+                  <p className="text-sm text-gray-600 leading-relaxed mt-3">{client?.description}</p>
+
                   {/* Hover Metrics */}
                   {hoveredClient === client?.id && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute inset-0 bg-primary/95 rounded-xl p-4 flex flex-col justify-center text-white z-10"
+                      className="absolute inset-0 bg-primary/95 rounded-xl p-6 flex flex-col justify-center items-center text-white z-10"
                     >
-                      <div className="text-3xl font-bold text-accent mb-1">
+                      <div className="text-5xl font-bold text-accent mb-2">
                         {client?.growth}
                       </div>
-                      <div className="text-sm opacity-90 mb-2">
+                      <div className="text-base opacity-90 mb-2 text-center">
                         {client?.metric}
                       </div>
-                      <div className="text-xs opacity-75">
-                        in {client?.timeframe}
+                      <div className="text-sm opacity-75 mb-4">
+                        {client?.timeframe}
+                      </div>
+                      <div className="text-xs opacity-90 inline-flex items-center gap-1">
+                        Visit site
+                        <Icon name="ExternalLink" size={12} />
                       </div>
                     </motion.div>
                   )}
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 

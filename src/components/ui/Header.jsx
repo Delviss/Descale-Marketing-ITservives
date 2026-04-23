@@ -42,22 +42,11 @@ const Header = ({ className = '' }) => {
   };
 
   const Logo = () => (
-    <div className="flex items-center gap-3">
-      <img
-        src="/assets/images/logo-mark.svg"
-        alt=""
-        aria-hidden="true"
-        className="h-9 w-auto drop-shadow-[0_2px_8px_rgba(192,55,10,0.35)]"
-      />
-      <div className="flex flex-col leading-none">
-        <span className="text-brand-headline text-xl font-extrabold text-primary tracking-tight">
-          DESCALE
-        </span>
-        <span className="text-[0.7rem] mt-0.5 text-primary/80 font-semibold tracking-[0.2em]">
-          AGENCY
-        </span>
-      </div>
-    </div>
+    <img
+      src="/assets/images/logo-full.svg"
+      alt="Descale Agency"
+      className="h-12 w-auto"
+    />
   );
 
   return (
