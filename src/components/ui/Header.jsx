@@ -9,8 +9,12 @@ const Header = ({ className = '' }) => {
   const location = useLocation();
 
   const navigationItems = [
-    { name: 'Marketing Services', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
+    { name: 'Marketing', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
     { name: 'IT Services', path: '/it', icon: 'Cpu', matches: ['/it'] },
+    { name: 'Services', path: '/services', icon: 'Layers', matches: ['/services', '/services-hub'] },
+    { name: 'Work', path: '/work', icon: 'Briefcase', matches: ['/work', '/work-portfolio'] },
+    { name: 'Taxi Ads Lab', path: '/taxi-ads', icon: 'Navigation', matches: ['/taxi-ads', '/interactive-taxi-ads-innovation-lab'] },
+    { name: 'About', path: '/about', icon: 'Users', matches: ['/about', '/about-experience'] },
   ];
 
   useEffect(() => {

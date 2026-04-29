@@ -4,21 +4,21 @@ import Icon from '../AppIcon';
 
 const footerLinks = {
   marketing: [
-    { name: 'Brand Strategy', href: '/marketing' },
-    { name: 'Performance Marketing', href: '/marketing' },
-    { name: 'Creative Content', href: '/marketing' },
-    { name: 'Interactive Taxi Ads', href: '/marketing' },
+    { name: 'Marketing Home', href: '/marketing' },
+    { name: 'Services', href: '/services' },
+    { name: 'Our Work', href: '/work' },
+    { name: 'Interactive Taxi Ads', href: '/taxi-ads' },
   ],
   it: [
+    { name: 'IT Home', href: '/it' },
     { name: 'Platforms', href: '/it' },
     { name: 'Applications', href: '/it' },
-    { name: 'Design', href: '/it' },
     { name: 'Websites', href: '/it' },
   ],
   resources: [
+    { name: 'About', href: '/about' },
     { name: 'Get Started', href: '/get-started' },
-    { name: 'Marketing Services', href: '/marketing' },
-    { name: 'IT Services', href: '/it' },
+    { name: 'Services', href: '/services' },
     { name: 'Contact', href: '/get-started' },
   ],
 };

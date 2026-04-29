@@ -6,6 +6,10 @@ import NotFound from "pages/NotFound";
 import Homepage from './pages/homepage';
 import ITHome from './pages/it';
 import GrowthAssessmentContact from './pages/growth-assessment-contact';
+import AboutExperience from './pages/about-experience';
+import ServicesHub from './pages/services-hub';
+import WorkPortfolio from './pages/work-portfolio';
+import InteractiveTaxiAdsInnovationLab from './pages/interactive-taxi-ads-innovation-lab';
 
 const Routes = () => {
   return (
@@ -17,13 +21,17 @@ const Routes = () => {
           <Route path="/marketing" element={<Homepage />} />
           <Route path="/it" element={<ITHome />} />
           <Route path="/get-started" element={<GrowthAssessmentContact />} />
+          <Route path="/about" element={<AboutExperience />} />
+          <Route path="/about-experience" element={<AboutExperience />} />
+          <Route path="/services" element={<ServicesHub />} />
+          <Route path="/services-hub" element={<ServicesHub />} />
+          <Route path="/work" element={<WorkPortfolio />} />
+          <Route path="/work-portfolio" element={<WorkPortfolio />} />
+          <Route path="/taxi-ads" element={<InteractiveTaxiAdsInnovationLab />} />
+          <Route path="/interactive-taxi-ads-innovation-lab" element={<InteractiveTaxiAdsInnovationLab />} />
 
           <Route path="/homepage" element={<Navigate to="/marketing" replace />} />
           <Route path="/growth-assessment-contact" element={<Navigate to="/get-started" replace />} />
-          <Route path="/services-hub" element={<Navigate to="/" replace />} />
-          <Route path="/work-portfolio" element={<Navigate to="/" replace />} />
-          <Route path="/about-experience" element={<Navigate to="/" replace />} />
-          <Route path="/interactive-taxi-ads-innovation-lab" element={<Navigate to="/" replace />} />
 
           <Route path="*" element={<NotFound />} />
         </RouterRoutes>
