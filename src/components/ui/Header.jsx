@@ -9,15 +9,8 @@ const Header = ({ className = '' }) => {
   const location = useLocation();
 
   const navigationItems = [
-    { name: 'Home', path: '/homepage', icon: 'Home' },
-    { name: 'Services', path: '/services-hub', icon: 'Briefcase' },
-    { name: 'Work', path: '/work-portfolio', icon: 'FolderOpen' },
-    { name: 'Innovation Lab', path: '/interactive-taxi-ads-innovation-lab', icon: 'Lightbulb' },
-    { name: 'About', path: '/about-experience', icon: 'Users' },
-  ];
-
-  const secondaryItems = [
-    { name: 'Growth Assessment', path: '/growth-assessment-contact', icon: 'TrendingUp' },
+    { name: 'Marketing Services', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
+    { name: 'IT Services', path: '/it', icon: 'Cpu', matches: ['/it'] },
   ];
 
   useEffect(() => {
@@ -37,8 +30,8 @@ const Header = ({ className = '' }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isActivePath = (path) => {
-    return location?.pathname === path;
+  const isActivePath = (item) => {
+    return item?.matches?.includes(location?.pathname);
   };
 
   const Logo = () => (
@@ -62,7 +55,7 @@ const Header = ({ className = '' }) => {
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/homepage" className="block hover-lift" aria-label="Descale Agency home">
+            <a href="/" className="block hover-lift" aria-label="Descale Agency home">
               <Logo />
             </a>
           </div>
@@ -74,7 +67,7 @@ const Header = ({ className = '' }) => {
                 key={item?.path}
                 href={item?.path}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-brand-fast hover-lift ${
-                  isActivePath(item?.path)
+                  isActivePath(item)
                     ? 'bg-primary text-primary-foreground shadow-brand'
                     : 'text-foreground hover:bg-muted hover:text-primary'
                 }`}
@@ -89,12 +82,12 @@ const Header = ({ className = '' }) => {
             <Button
               variant="default"
               size="sm"
-              iconName="TrendingUp"
-              iconPosition="left"
-              onClick={() => window.location.href = '/growth-assessment-contact'}
+              iconName="ArrowUpRight"
+              iconPosition="right"
+              onClick={() => window.location.href = '/get-started'}
               className="hover-brand"
             >
-              Growth Assessment
+              Get Started
             </Button>
           </div>
 
@@ -129,7 +122,7 @@ const Header = ({ className = '' }) => {
                 key={item?.path}
                 href={item?.path}
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-brand-fast ${
-                  isActivePath(item?.path)
+                  isActivePath(item)
                     ? 'bg-primary text-primary-foreground shadow-brand'
                     : 'text-foreground hover:bg-muted hover:text-primary'
                 }`}
@@ -140,16 +133,13 @@ const Header = ({ className = '' }) => {
             ))}
 
             <div className="pt-4 border-t border-border">
-              {secondaryItems?.map((item) => (
-                <a
-                  key={item?.path}
-                  href={item?.path}
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-semibold text-primary hover:bg-primary/10 transition-all duration-brand-fast"
-                >
-                  <Icon name={item?.icon} size={20} />
-                  <span>{item?.name}</span>
-                </a>
-              ))}
+              <a
+                href="/get-started"
+                className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg text-base font-semibold bg-primary text-primary-foreground shadow-brand hover:opacity-95 transition-all duration-brand-fast"
+              >
+                <span>Get Started</span>
+                <Icon name="ArrowUpRight" size={18} />
+              </a>
             </div>
           </div>
         </div>

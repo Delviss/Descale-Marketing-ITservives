@@ -227,7 +227,7 @@ const InteractiveTaxiAdsSection = () => {
                 size="lg"
                 iconName="ArrowRight"
                 iconPosition="right"
-                onClick={() => window.location.href = '/interactive-taxi-ads-innovation-lab'}
+                onClick={() => window.location.href = '/get-started'}
                 className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg font-semibold shadow-brand-lg"
               >
                 Explore Innovation Lab

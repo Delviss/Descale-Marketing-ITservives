@@ -185,20 +185,20 @@ const HeroSection = () => {
           className="mt-12 flex flex-col sm:flex-row gap-4"
         >
           <a
-            href="/growth-assessment-contact"
+            href="/get-started"
             className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-black font-medium hover:bg-accent hover:text-white transition-all duration-300 shadow-2xl"
           >
-            Start Growth Assessment
+            Get Started
             <span className="w-8 h-8 rounded-full bg-black/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
               <Icon name="ArrowRight" size={16} />
             </span>
           </a>
           <a
-            href="/work-portfolio"
+            href="/it"
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-white/20 text-white hover:border-white hover:bg-white/5 transition-all duration-300"
           >
-            <Icon name="Play" size={16} />
-            Watch our story
+            <Icon name="ArrowRight" size={16} />
+            Explore IT Services
           </a>
         </motion.div>
 

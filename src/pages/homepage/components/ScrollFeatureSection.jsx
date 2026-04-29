@@ -115,7 +115,7 @@ const ScrollFeatureSection = () => {
                   </div>
                 </div>
                 <a
-                  href="/services-hub"
+                  href="/get-started"
                   className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-accent transition-colors"
                 >
                   Learn more

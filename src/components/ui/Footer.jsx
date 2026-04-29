@@ -3,23 +3,23 @@ import { motion } from 'framer-motion';
 import Icon from '../AppIcon';
 
 const footerLinks = {
-  company: [
-    { name: 'About', href: '/about-experience' },
-    { name: 'Work', href: '/work-portfolio' },
-    { name: 'Services', href: '/services-hub' },
-    { name: 'Innovation Lab', href: '/interactive-taxi-ads-innovation-lab' },
+  marketing: [
+    { name: 'Brand Strategy', href: '/marketing' },
+    { name: 'Performance Marketing', href: '/marketing' },
+    { name: 'Creative Content', href: '/marketing' },
+    { name: 'Interactive Taxi Ads', href: '/marketing' },
   ],
-  services: [
-    { name: 'Brand Strategy', href: '/services-hub' },
-    { name: 'Performance Marketing', href: '/services-hub' },
-    { name: 'Creative Content', href: '/services-hub' },
-    { name: 'Interactive Taxi Ads', href: '/interactive-taxi-ads-innovation-lab' },
+  it: [
+    { name: 'Platforms', href: '/it' },
+    { name: 'Applications', href: '/it' },
+    { name: 'Design', href: '/it' },
+    { name: 'Websites', href: '/it' },
   ],
   resources: [
-    { name: 'Case Studies', href: '/work-portfolio' },
-    { name: 'Growth Assessment', href: '/growth-assessment-contact' },
-    { name: 'Contact', href: '/growth-assessment-contact' },
-    { name: 'Careers', href: '/about-experience' },
+    { name: 'Get Started', href: '/get-started' },
+    { name: 'Marketing Services', href: '/marketing' },
+    { name: 'IT Services', href: '/it' },
+    { name: 'Contact', href: '/get-started' },
   ],
 };
 
@@ -68,10 +68,10 @@ const Footer = () => {
             </h2>
           </div>
           <a
-            href="/growth-assessment-contact"
+            href="/get-started"
             className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-white text-black font-medium hover:bg-accent hover:text-white transition-all duration-300 shadow-lg"
           >
-            Start Growth Assessment
+            Get Started
             <span className="w-8 h-8 rounded-full bg-black/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
               <Icon name="ArrowUpRight" size={16} />
             </span>
@@ -81,7 +81,7 @@ const Footer = () => {
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16">
           <div className="col-span-2 md:col-span-1">
-            <a href="/homepage" className="inline-flex items-center gap-3 mb-5" aria-label="Descale Agency home">
+            <a href="/" className="inline-flex items-center gap-3 mb-5" aria-label="Descale Agency home">
               <img
                 src={`${import.meta.env.BASE_URL}assets/images/logo-mark.svg`}
                 alt=""
@@ -99,9 +99,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">Company</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">Marketing</h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((l) => (
+              {footerLinks.marketing.map((l) => (
                 <li key={l.name}>
                   <a href={l.href} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
                     {l.name}
@@ -113,9 +113,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">Services</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">IT Services</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((l) => (
+              {footerLinks.it.map((l) => (
                 <li key={l.name}>
                   <a href={l.href} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
                     {l.name}
@@ -145,9 +145,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-10 border-t border-white/10">
           <div className="flex flex-wrap items-center gap-6 text-xs text-white/50">
             <span>© {new Date().getFullYear()} DESCALE Agency. All rights reserved.</span>
-            <a href="/growth-assessment-contact" className="hover:text-white transition-colors">Privacy</a>
-            <a href="/growth-assessment-contact" className="hover:text-white transition-colors">Terms</a>
-            <a href="/growth-assessment-contact" className="hover:text-white transition-colors">Cookies</a>
+            <a href="/get-started" className="hover:text-white transition-colors">Privacy</a>
+            <a href="/get-started" className="hover:text-white transition-colors">Terms</a>
+            <a href="/get-started" className="hover:text-white transition-colors">Cookies</a>
           </div>
           <div className="flex items-center gap-2">
             {socials.map((s) => (
