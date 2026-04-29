@@ -66,7 +66,7 @@ const GrowthAssessmentSection = () => {
   const handleSubmit = () => {
     // Simulate form submission
     console.log('Growth Assessment Submitted:', formData);
-    window.location.href = '/growth-assessment-contact';
+    window.location.href = '/get-started';
   };
 
   const getStepContent = () => {

@@ -74,6 +74,14 @@
     --radius-full: 9999px;
   }
 
+  /* IT Services domain — subtle accent shift to a tech-blue */
+  body[data-domain="it"] {
+    --color-primary: #0649A7;
+    --color-ring: #0649A7;
+    --shadow-brand: 0 12px 32px -8px rgba(6, 73, 167, 0.28);
+    --shadow-brand-lg: 0 24px 60px -12px rgba(6, 73, 167, 0.4);
+  }
+
   .dark {
     --color-background: #0B0B0F;
     --color-foreground: #F5F2EA;

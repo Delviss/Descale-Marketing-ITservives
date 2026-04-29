@@ -278,7 +278,7 @@ const ClientSuccessSection = () => {
           className="text-center mt-16"
         >
           <button
-            onClick={() => window.location.href = '/work-portfolio'}
+            onClick={() => window.location.href = '/get-started'}
             className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-300 inline-flex items-center space-x-2 shadow-brand-lg hover-brand"
           >
             <span>View All Case Studies</span>

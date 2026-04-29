@@ -23,10 +23,15 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Descale Agency — Descale the noise. Scale the signal.</title>
+        <title>Marketing Services — Descale Agency · Descale the noise. Scale the signal.</title>
         <meta
           name="description"
           content="Growth systems, cinematic creative, and interactive taxi-ad campaigns that compound revenue — not ad spend."
+        />
+        <meta property="og:title" content="Marketing Services — Descale Agency" />
+        <meta
+          property="og:description"
+          content="Growth systems, cinematic creative, and interactive taxi-ad campaigns that compound revenue."
         />
       </Helmet>
       <Header />

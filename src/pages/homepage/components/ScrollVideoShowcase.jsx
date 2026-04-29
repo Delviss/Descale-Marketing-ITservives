@@ -57,7 +57,7 @@ const ScrollVideoShowcase = () => {
             </h2>
           </div>
           <a
-            href="/work-portfolio"
+            href="/get-started"
             className="inline-flex items-center gap-2 text-sm font-medium text-black/70 hover:text-primary transition-colors"
           >
             View all case studies <Icon name="ArrowUpRight" size={16} />
@@ -72,7 +72,7 @@ const ScrollVideoShowcase = () => {
           {reels.map((r, i) => (
             <motion.a
               key={r.title}
-              href="/work-portfolio"
+              href="/get-started"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}

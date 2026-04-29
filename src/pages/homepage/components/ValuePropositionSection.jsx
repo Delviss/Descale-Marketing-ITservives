@@ -101,7 +101,7 @@ const ValuePropositionSection = () => {
               Join 50+ brands that chose exponential growth over incremental improvement
             </p>
             <button
-              onClick={() => window.location.href = '/services-hub'}
+              onClick={() => window.location.href = '/get-started'}
               className="bg-white text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center space-x-2"
             >
               <span>Explore Our Services</span>
