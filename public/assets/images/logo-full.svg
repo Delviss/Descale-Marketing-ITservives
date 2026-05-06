@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" role="img" aria-label="Descale Agency — Marketing and sales">
+  <title>Descale Agency</title>
+
+  <!-- Arch mark -->
+  <path d="M10 22 H140 V130 H110 A40 40 0 0 1 40 130 H10 Z" fill="#C0370A"/>
+
+  <!-- Wordmark -->
+  <g font-family="Inter, 'Space Grotesk', system-ui, sans-serif" font-weight="900" letter-spacing="-2">
+    <text x="160" y="78" font-size="56" fill="#C0370A">DESCALE</text>
+    <text x="160" y="128" font-size="56" fill="#C0370A">AGENCY</text>
+    <text x="410" y="46" font-size="14" font-weight="700" fill="#C0370A">TM</text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="162" y="152" font-family="Inter, 'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="3" fill="#C0370A" opacity="0.85">MARKETING · SALES</text>
+</svg>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,7 +20,7 @@
     --color-ring: #A72906;
 
     /* Brand */
-    --color-primary: #A72906;
+    --color-primary: #C0370A;
     --color-primary-foreground: #FFFFFF;
     --color-secondary: #0649A7;
     --color-secondary-foreground: #FFFFFF;
@@ -74,42 +74,65 @@
     --radius-full: 9999px;
   }
 
+  /* IT Services domain — subtle accent shift to a tech-blue */
+  body[data-domain="it"] {
+    --color-primary: #0649A7;
+    --color-ring: #0649A7;
+    --shadow-brand: 0 12px 32px -8px rgba(6, 73, 167, 0.28);
+    --shadow-brand-lg: 0 24px 60px -12px rgba(6, 73, 167, 0.4);
+  }
+
+  /* Dark Mode / High Contrast — vibrant neon accents */
   .dark {
-    --color-background: #0B0B0F;
-    --color-foreground: #F5F2EA;
-    --color-card: #15141B;
-    --color-card-foreground: #F5F2EA;
-    --color-popover: #15141B;
-    --color-popover-foreground: #F5F2EA;
-    --color-muted: #1C1B24;
-    --color-muted-foreground: #9C9AA4;
-    --color-border: #26252F;
-    --color-input: #15141B;
-    --color-ring: #FF6B35;
+    --color-background: #05060A;
+    --color-foreground: #F5F8FF;
+    --color-card: #0E1018;
+    --color-card-foreground: #F5F8FF;
+    --color-popover: #0E1018;
+    --color-popover-foreground: #F5F8FF;
+    --color-muted: #11141C;
+    --color-muted-foreground: #B8BCD0;
+    --color-border: #2A2F45;
+    --color-input: #0E1018;
+    --color-ring: #00E5FF;
 
-    --color-primary: #E74A1F;
-    --color-primary-foreground: #FFFFFF;
-    --color-secondary: #5B8BF5;
-    --color-secondary-foreground: #0B0B0F;
-    --color-accent: #FF8F5E;
-    --color-accent-foreground: #0B0B0F;
+    /* Vibrant neon brand */
+    --color-primary: #00E5FF;
+    --color-primary-foreground: #05060A;
+    --color-secondary: #7C4DFF;
+    --color-secondary-foreground: #FFFFFF;
+    --color-accent: #FF2E9A;
+    --color-accent-foreground: #FFFFFF;
 
-    --color-success: #34D399;
-    --color-warning: #FBBF24;
-    --color-error: #F87171;
-    --color-destructive: #F87171;
+    --color-success: #00FFA3;
+    --color-success-foreground: #05060A;
+    --color-warning: #FFD60A;
+    --color-warning-foreground: #05060A;
+    --color-error: #FF3B6B;
+    --color-error-foreground: #FFFFFF;
+    --color-destructive: #FF3B6B;
+    --color-destructive-foreground: #FFFFFF;
 
-    --color-surface: #15141B;
-    --color-text-primary: #F5F2EA;
-    --color-text-secondary: #9C9AA4;
+    --color-surface: #0E1018;
+    --color-text-primary: #F5F8FF;
+    --color-text-secondary: #B8BCD0;
 
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.45);
-    --shadow-md: 0 8px 20px -4px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.55);
-    --shadow-xl: 0 32px 64px -12px rgba(0, 0, 0, 0.65);
-    --shadow-brand: 0 12px 32px -8px rgba(231, 74, 31, 0.4);
-    --shadow-brand-lg: 0 24px 60px -12px rgba(231, 74, 31, 0.5);
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.65);
+    --shadow-md: 0 8px 20px -4px rgba(0, 0, 0, 0.7);
+    --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.75);
+    --shadow-xl: 0 32px 64px -12px rgba(0, 0, 0, 0.85);
+    --shadow-brand: 0 0 28px -2px rgba(0, 229, 255, 0.45), 0 12px 32px -8px rgba(124, 77, 255, 0.35);
+    --shadow-brand-lg: 0 0 60px -4px rgba(0, 229, 255, 0.55), 0 24px 60px -12px rgba(255, 46, 154, 0.45);
+  }
+
+  /* IT Services in dark mode — keep neon palette but anchor on electric blue */
+  .dark body[data-domain="it"],
+  body[data-domain="it"].dark {
+    --color-primary: #00E5FF;
+    --color-ring: #00E5FF;
+    --shadow-brand: 0 0 28px -2px rgba(0, 229, 255, 0.5), 0 12px 32px -8px rgba(124, 77, 255, 0.4);
+    --shadow-brand-lg: 0 0 60px -4px rgba(0, 229, 255, 0.6), 0 24px 60px -12px rgba(255, 46, 154, 0.5);
   }
 
   * {
@@ -131,15 +154,23 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Inter', 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
     @apply tracking-tight;
     text-wrap: balance;
+    font-feature-settings: "ss01" 1, "cv11" 1, "calt" 1;
+    letter-spacing: -0.02em;
   }
 
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold; }
-  h3 { @apply text-2xl md:text-3xl font-semibold; }
+  h1 { @apply text-5xl md:text-6xl lg:text-7xl font-bold; letter-spacing: -0.035em; }
+  h2 { @apply text-4xl md:text-5xl lg:text-6xl font-bold; letter-spacing: -0.03em; }
+  h3 { @apply text-2xl md:text-3xl lg:text-4xl font-semibold; letter-spacing: -0.02em; }
   h4 { @apply text-xl md:text-2xl font-semibold; }
+
+  .font-serif-accent {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
 
   p {
     @apply text-base leading-relaxed;
@@ -341,6 +372,96 @@
 @keyframes shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+/* Marquee scroll for logo strips */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+/* Aurora / gradient shift used in hero background */
+@keyframes aurora {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+  50% { transform: translate3d(2%, -2%, 0) scale(1.08); opacity: 0.85; }
+}
+.animate-aurora {
+  animation: aurora 14s ease-in-out infinite;
+}
+
+/* Soft floating orbs */
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-18px) translateX(8px); }
+  66% { transform: translateY(10px) translateX(-12px); }
+}
+.animate-float-orb { animation: float-orb 12s ease-in-out infinite; }
+
+/* Text reveal for scroll sections */
+@keyframes text-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+.animate-text-reveal { animation: text-reveal 1s var(--animation-easing) forwards; }
+
+/* Conic spin for badges */
+@keyframes conic-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-conic-spin { animation: conic-spin 8s linear infinite; }
+
+/* Modern gradient mesh backgrounds */
+.bg-mesh-dark {
+  background-color: #05060A;
+  background-image:
+    radial-gradient(at 18% 18%, rgba(0, 229, 255, 0.30) 0px, transparent 55%),
+    radial-gradient(at 82% 6%, rgba(124, 77, 255, 0.28) 0px, transparent 55%),
+    radial-gradient(at 4% 52%, rgba(255, 46, 154, 0.22) 0px, transparent 55%),
+    radial-gradient(at 84% 78%, rgba(0, 255, 163, 0.18) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(124, 77, 255, 0.30) 0px, transparent 55%);
+}
+.bg-mesh-light {
+  background-color: #FBFAF7;
+  background-image:
+    radial-gradient(at 10% 10%, rgba(255, 107, 53, 0.15) 0px, transparent 55%),
+    radial-gradient(at 90% 20%, rgba(6, 73, 167, 0.10) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(167, 41, 6, 0.10) 0px, transparent 50%);
+}
+
+/* In dark mode, swap any light mesh usage to the neon dark mesh automatically */
+.dark .bg-mesh-light {
+  background-color: #05060A;
+  background-image:
+    radial-gradient(at 18% 18%, rgba(0, 229, 255, 0.30) 0px, transparent 55%),
+    radial-gradient(at 82% 6%, rgba(124, 77, 255, 0.28) 0px, transparent 55%),
+    radial-gradient(at 4% 52%, rgba(255, 46, 154, 0.22) 0px, transparent 55%),
+    radial-gradient(at 84% 78%, rgba(0, 255, 163, 0.18) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(124, 77, 255, 0.30) 0px, transparent 55%);
+}
+
+/* Neon glow utilities for dark mode emphasis */
+.dark .neon-text {
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.55), 0 0 28px rgba(124, 77, 255, 0.35);
+}
+.dark .neon-ring {
+  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.5), 0 0 24px -4px rgba(0, 229, 255, 0.45);
+}
+
+/* Noise overlay for cinematic texture */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
 }
 
 @media print {

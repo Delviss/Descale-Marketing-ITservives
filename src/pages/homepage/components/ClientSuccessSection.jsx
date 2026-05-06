@@ -1,86 +1,66 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 
 const ClientSuccessSection = () => {
+  const navigate = useNavigate();
   const [hoveredClient, setHoveredClient] = useState(null);
+
+  const base = import.meta.env.BASE_URL;
 
   const clients = [
     {
       id: 1,
-      name: "TechFlow",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop",
-      industry: "SaaS",
-      growth: "450%",
-      metric: "Revenue Growth",
-      timeframe: "18 months",
-      description: "From $2M to $11M ARR through strategic performance marketing and brand positioning"
+      name: "Blitzon Consulting",
+      logo: `${base}assets/images/partners/blitzon.svg`,
+      industry: "D2D Sales — Munich",
+      growth: "#1",
+      metric: "D2D Sales Company",
+      timeframe: "Munich",
+      website: "https://blitzon.de/",
+      description: "Munich's leading door-to-door sales consultancy, driving field-sales performance for ambitious brands.",
+      accent: "from-amber-400 to-orange-500"
     },
     {
       id: 2,
-      name: "EcoVibe",
-      logo: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=200&h=100&fit=crop",
-      industry: "E-commerce",
-      growth: "320%",
-      metric: "Customer Acquisition",
-      timeframe: "12 months",
-      description: "Scaled from 10K to 42K monthly customers through omnichannel growth strategies"
+      name: "Klaxo GmbH",
+      logo: `${base}assets/images/partners/klaxo.svg`,
+      industry: "Car Rental & Daytrips",
+      growth: "#1",
+      metric: "Car Rental & Daytrips",
+      timeframe: "Munich",
+      website: "https://www.klaxo.eu/",
+      description: "Munich's #1 car rental and day-trip experience, delivering premium mobility for locals and tourists alike.",
+      accent: "from-sky-400 to-blue-600"
     },
     {
       id: 3,
-      name: "FinanceForward",
-      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
-      industry: "FinTech",
-      growth: "280%",
-      metric: "User Base Growth",
-      timeframe: "15 months",
-      description: "Achieved 2.8x user growth through targeted digital campaigns and conversion optimization"
-    },
-    {
-      id: 4,
-      name: "HealthTech Pro",
-      logo: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=100&fit=crop",
-      industry: "HealthTech",
-      growth: "390%",
-      metric: "Market Expansion",
-      timeframe: "20 months",
-      description: "Expanded from 2 to 15 markets with 3.9x revenue increase through strategic scaling"
-    },
-    {
-      id: 5,
-      name: "RetailRise",
-      logo: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&h=100&fit=crop",
-      industry: "Retail",
-      growth: "510%",
-      metric: "Online Sales",
-      timeframe: "14 months",
-      description: "Transformed traditional retail with 5.1x online sales growth through digital transformation"
-    },
-    {
-      id: 6,
-      name: "EduNext",
-      logo: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=100&fit=crop",
-      industry: "EdTech",
-      growth: "425%",
-      metric: "Student Enrollment",
-      timeframe: "16 months",
-      description: "Scaled from 5K to 26K students through innovative marketing and user experience optimization"
+      name: "Woodfellas",
+      logo: `${base}assets/images/partners/woodfellas.svg`,
+      industry: "Accessories",
+      growth: "DTC",
+      metric: "Lifestyle Accessories",
+      timeframe: "Europe",
+      website: "https://www.wood-fellas.com/en/",
+      description: "Design-led wood & lifestyle accessories, scaled across European DTC channels with bold brand storytelling.",
+      accent: "from-amber-700 to-stone-800"
     }
   ];
 
   const testimonials = [
     {
       quote: "DESCALE didn\'t just scale our campaigns—they transformed our entire approach to growth. The results speak for themselves.",
-      author: "Sarah Chen",
-      position: "CEO, TechFlow",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face"
+      author: "Blitzon Consulting",
+      position: "#1 D2D Sales Company, Munich",
+      avatar: `${base}assets/images/partners/blitzon.svg`
     },
     {
       quote: "The strategic depth and execution excellence is unmatched. They understand scaling at a level most agencies never reach.",
-      author: "Marcus Rodriguez",
-      position: "CMO, FinanceForward",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
+      author: "Klaxo GmbH",
+      position: "#1 Car Rental & Daytrips, Munich",
+      avatar: `${base}assets/images/partners/klaxo.svg`
     }
   ];
 
@@ -113,57 +93,122 @@ const ClientSuccessSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            50+ brands have chosen exponential growth over incremental improvement. Here's how we transformed their market position.
+            We partner with market leaders who choose exponential growth over incremental improvement. Here's how we transformed their market position.
           </p>
         </motion.div>
 
         {/* Client Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
           {clients?.map((client, index) => (
-            <motion.div
+            <motion.a
               key={client?.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative group cursor-pointer"
+              href={client?.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 60, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.18, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: "-80px" }}
+              whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.35, ease: "easeOut" } }}
+              whileTap={{ scale: 0.98 }}
+              className="relative group cursor-pointer block"
+              style={{ perspective: 1000 }}
               onMouseEnter={() => setHoveredClient(client?.id)}
               onMouseLeave={() => setHoveredClient(null)}
             >
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-brand-lg transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                <div className="aspect-w-16 aspect-h-9 mb-4">
-                  <Image
+              {/* Animated gradient glow */}
+              <motion.div
+                aria-hidden
+                className={`absolute -inset-0.5 rounded-2xl bg-gradient-to-br ${client?.accent} opacity-0 blur-lg group-hover:opacity-60 transition-opacity duration-500`}
+                animate={hoveredClient === client?.id ? { opacity: [0.4, 0.8, 0.4] } : { opacity: 0 }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              <div className="relative bg-white rounded-2xl p-8 shadow-md group-hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full overflow-hidden">
+                {/* Decorative corner accent */}
+                <div className={`absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-to-br ${client?.accent} opacity-[0.08] group-hover:opacity-20 group-hover:scale-125 transition-all duration-700`} />
+
+                <motion.div
+                  className="relative flex items-center justify-center mb-6 h-28 w-full"
+                  whileHover={{ scale: 1.06, rotate: -1 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                >
+                  <img
                     src={client?.logo}
                     alt={`${client?.name} logo`}
-                    className="w-full h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="max-h-28 w-full object-contain transition-all duration-500 group-hover:drop-shadow-[0_8px_20px_rgba(192,55,10,0.30)]"
+                    loading="lazy"
                   />
-                </div>
-                <div className="text-center">
-                  <h3 className="font-bold text-gray-900 mb-1">{client?.name}</h3>
-                  <p className="text-sm text-gray-500 mb-2">{client?.industry}</p>
-                  
-                  {/* Hover Metrics */}
-                  {hoveredClient === client?.id && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute inset-0 bg-primary/95 rounded-xl p-4 flex flex-col justify-center text-white z-10"
+                </motion.div>
+
+                <div className="relative text-center">
+                  <h3 className="font-bold text-gray-900 mb-1 text-xl tracking-tight">{client?.name}</h3>
+                  <p className="text-sm text-primary font-semibold mb-3 tracking-wide uppercase">{client?.industry}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{client?.description}</p>
+
+                  <motion.div
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.18 }}
+                    viewport={{ once: true }}
+                  >
+                    <span>Visit site</span>
+                    <motion.span
+                      animate={hoveredClient === client?.id ? { x: [0, 6, 0] } : { x: 0 }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <div className="text-3xl font-bold text-accent mb-1">
-                        {client?.growth}
-                      </div>
-                      <div className="text-sm opacity-90 mb-2">
-                        {client?.metric}
-                      </div>
-                      <div className="text-xs opacity-75">
-                        in {client?.timeframe}
-                      </div>
-                    </motion.div>
-                  )}
+                      <Icon name="ArrowUpRight" size={16} />
+                    </motion.span>
+                  </motion.div>
                 </div>
+
+                {/* Hover Metrics Overlay */}
+                {hoveredClient === client?.id && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.92, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className={`absolute inset-0 rounded-2xl p-6 flex flex-col justify-center items-center text-white z-10 bg-gradient-to-br ${client?.accent}`}
+                  >
+                    <motion.div
+                      initial={{ scale: 0.6, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.1, type: "spring", stiffness: 220 }}
+                      className="text-6xl font-extrabold mb-2 drop-shadow-lg"
+                    >
+                      {client?.growth}
+                    </motion.div>
+                    <motion.div
+                      initial={{ y: 8, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.18 }}
+                      className="text-base font-semibold mb-1 text-center"
+                    >
+                      {client?.metric}
+                    </motion.div>
+                    <motion.div
+                      initial={{ y: 8, opacity: 0 }}
+                      animate={{ y: 0, opacity: 0.9 }}
+                      transition={{ delay: 0.24 }}
+                      className="text-sm mb-5"
+                    >
+                      {client?.timeframe}
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.32 }}
+                      className="text-xs font-semibold inline-flex items-center gap-1 bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full"
+                    >
+                      Visit site
+                      <Icon name="ExternalLink" size={12} />
+                    </motion.div>
+                  </motion.div>
+                )}
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
@@ -204,11 +249,14 @@ const ClientSuccessSection = () => {
               className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
             >
               <div className="flex items-start space-x-4">
-                <Image
-                  src={testimonial?.avatar}
-                  alt={testimonial?.author}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                <div className="w-16 h-16 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center flex-shrink-0 p-2">
+                  <img
+                    src={testimonial?.avatar}
+                    alt={testimonial?.author}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="flex-1">
                   <blockquote className="text-lg text-gray-700 mb-4 leading-relaxed">
                     "{testimonial?.quote}"
@@ -232,7 +280,7 @@ const ClientSuccessSection = () => {
           className="text-center mt-16"
         >
           <button
-            onClick={() => window.location.href = '/work-portfolio'}
+            onClick={() => navigate('/get-started')}
             className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-300 inline-flex items-center space-x-2 shadow-brand-lg hover-brand"
           >
             <span>View All Case Studies</span>

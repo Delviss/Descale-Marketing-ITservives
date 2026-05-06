@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - claude/deploy-github-pages-frxOd
+      - claude/add-partners-Pwy5m
   workflow_dispatch:
 
 permissions:
@@ -12,9 +12,12 @@ permissions:
   pages: write
   id-token: write
 
+# Queue concurrent runs instead of cancelling them — cancelled runs
+# show up as failures in the Actions tab and create false-positive
+# "errors" when several pushes land in quick succession.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -54,8 +57,13 @@ jobs:
         with:
           path: build
 
+  # Only the main branch is allowed to publish to the live Pages site.
+  # Builds on preview branches still run (above) so we know the code
+  # compiles, but the deploy step is skipped to avoid environment-
+  # protection failures (github-pages env restricts deploys to main).
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

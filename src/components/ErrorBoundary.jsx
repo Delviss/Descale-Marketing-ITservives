@@ -32,12 +32,12 @@ class ErrorBoundary extends React.Component {
             </div>
             <div className="flex flex-col gap-1 text-center">
               <h1 className="text-2xl font-medium text-neutral-800">Something went wrong</h1>
-              <p className="text-neutral-600 text-base w w-8/12 mx-auto">We encountered an unexpected error while processing your request.</p>
+              <p className="text-neutral-600 text-base w-8/12 mx-auto">We encountered an unexpected error while processing your request.</p>
             </div>
             <div className="flex justify-center items-center mt-6">
               <button
                 onClick={() => {
-                  window.location.href = "/";
+                  window.location.href = import.meta.env.BASE_URL || "/";
                 }}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded flex items-center gap-2 transition-colors duration-200 shadow-sm"
               >
@@ -45,8 +45,8 @@ class ErrorBoundary extends React.Component {
                 Back
               </button>
             </div>
-          </div >
-        </div >
+          </div>
+        </div>
       );
     }
 

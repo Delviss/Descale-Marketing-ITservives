@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
 const CallToAction = () => {
+  const navigate = useNavigate();
   const stats = [
     {
       number: "400%",
@@ -111,7 +113,7 @@ const CallToAction = () => {
               size="lg"
               iconName="TrendingUp"
               iconPosition="left"
-              onClick={() => window.location.href = '/growth-assessment-contact'}
+              onClick={() => navigate('/growth-assessment-contact')}
               className="bg-white text-primary hover:bg-white/90 shadow-brand-lg"
             >
               Start Growth Assessment
@@ -121,7 +123,7 @@ const CallToAction = () => {
               size="lg"
               iconName="Calendar"
               iconPosition="left"
-              onClick={() => window.location.href = '/growth-assessment-contact'}
+              onClick={() => navigate('/growth-assessment-contact')}
               className="border-white text-white hover:bg-white/10"
             >
               Schedule Strategy Call
@@ -168,7 +170,7 @@ const CallToAction = () => {
                     size="sm"
                     iconName="ArrowRight"
                     iconPosition="right"
-                    onClick={() => window.location.href = '/growth-assessment-contact'}
+                    onClick={() => navigate('/growth-assessment-contact')}
                     className="text-white hover:bg-white/10 border border-white/20"
                   >
                     {step?.action}

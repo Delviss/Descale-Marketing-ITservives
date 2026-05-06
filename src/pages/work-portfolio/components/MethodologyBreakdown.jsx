@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
 const MethodologyBreakdown = () => {
+  const navigate = useNavigate();
   const [activePhase, setActivePhase] = useState(0);
 
   const methodology = [
@@ -357,7 +359,7 @@ const MethodologyBreakdown = () => {
             iconName="ArrowRight"
             iconPosition="right"
             className="bg-primary hover:bg-primary/90 text-white px-12 py-4 text-lg font-semibold"
-            onClick={() => window.location.href = '/growth-assessment-contact'}
+            onClick={() => navigate('/growth-assessment-contact')}
           >
             Apply Our Methodology to Your Brand
           </Button>
