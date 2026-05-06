@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
 const InteractiveTaxiAdsSection = () => {
+  const navigate = useNavigate();
   const [activeCity, setActiveCity] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -227,7 +229,7 @@ const InteractiveTaxiAdsSection = () => {
                 size="lg"
                 iconName="ArrowRight"
                 iconPosition="right"
-                onClick={() => window.location.href = '/get-started'}
+                onClick={() => navigate('/get-started')}
                 className="bg-accent hover:bg-accent/90 text-white px-8 py-4 text-lg font-semibold shadow-brand-lg"
               >
                 Explore Innovation Lab

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 
 const ValuePropositionSection = () => {
+  const navigate = useNavigate();
   const propositions = [
     {
       id: 1,
@@ -101,7 +103,7 @@ const ValuePropositionSection = () => {
               Join 50+ brands that chose exponential growth over incremental improvement
             </p>
             <button
-              onClick={() => window.location.href = '/get-started'}
+              onClick={() => navigate('/get-started')}
               className="bg-white text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors duration-300 inline-flex items-center space-x-2"
             >
               <span>Explore Our Services</span>

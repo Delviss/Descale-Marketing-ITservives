@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 
 const GrowthAssessmentSection = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     company: '',
@@ -66,7 +68,7 @@ const GrowthAssessmentSection = () => {
   const handleSubmit = () => {
     // Simulate form submission
     console.log('Growth Assessment Submitted:', formData);
-    window.location.href = '/get-started';
+    navigate('/get-started');
   };
 
   const getStepContent = () => {

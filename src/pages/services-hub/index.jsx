@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import ServiceCard from './components/ServiceCard';
@@ -10,6 +11,7 @@ import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
 
 const ServicesHub = () => {
+  const navigate = useNavigate();
   const [selectedService, setSelectedService] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
@@ -502,7 +504,7 @@ const ServicesHub = () => {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => window.location.href = '/growth-assessment-contact'}
+              onClick={() => navigate('/growth-assessment-contact')}
               className="border-white text-white hover:bg-white hover:text-primary"
               iconName="TrendingUp"
               iconPosition="right"

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
 
 const CaseStudyShowcase = ({ caseStudies }) => {
+  const navigate = useNavigate();
   const [selectedCase, setSelectedCase] = useState(null);
   const [activeTab, setActiveTab] = useState('challenge');
 
@@ -283,7 +285,7 @@ const CaseStudyShowcase = ({ caseStudies }) => {
                     iconName="ArrowRight"
                     iconPosition="right"
                     className="w-full bg-primary hover:bg-primary/90 text-white font-semibold"
-                    onClick={() => window.location.href = '/growth-assessment-contact'}
+                    onClick={() => navigate('/growth-assessment-contact')}
                   >
                     Start Your Transformation
                   </Button>

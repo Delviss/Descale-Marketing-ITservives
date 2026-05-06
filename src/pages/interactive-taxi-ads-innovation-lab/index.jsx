@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import Button from '../../components/ui/Button';
@@ -12,6 +13,7 @@ import ROICalculator from './components/ROICalculator';
 import TechnologyShowcase from './components/TechnologyShowcase';
 
 const InteractiveTaxiAdsInnovationLab = () => {
+  const navigate = useNavigate();
   const [selectedAudience, setSelectedAudience] = useState('');
   const [campaignParams, setCampaignParams] = useState({
     budget: 50000,
@@ -315,7 +317,7 @@ const InteractiveTaxiAdsInnovationLab = () => {
                   iconName="Calendar"
                   iconPosition="left"
                   className="bg-white text-primary hover:bg-gray-100"
-                  onClick={() => window.location.href = '/growth-assessment-contact'}
+                  onClick={() => navigate('/growth-assessment-contact')}
                 >
                   Book Strategy Session
                 </Button>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import GrowthAssessmentTool from './components/GrowthAssessmentTool';
@@ -10,6 +11,7 @@ import QualificationForm from './components/QualificationForm';
 import Button from '../../components/ui/Button';
 
 const GrowthAssessmentContact = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState('assessment');
   const [assessmentData, setAssessmentData] = useState(null);
   const [leadScore, setLeadScore] = useState(0);
@@ -141,7 +143,7 @@ const GrowthAssessmentContact = () => {
             <Button
               variant="outline"
               size="lg"
-              onClick={() => window.location.href = '/services-hub'}
+              onClick={() => navigate('/services-hub')}
               className="border-white text-white hover:bg-white hover:text-primary"
               iconName="ArrowRight"
               iconPosition="right"
