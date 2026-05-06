@@ -17,7 +17,7 @@ const Routes = () => {
       <ErrorBoundary>
         <ScrollToTop />
         <RouterRoutes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Navigate to="/marketing" replace />} />
           <Route path="/marketing" element={<Homepage />} />
           <Route path="/it" element={<ITHome />} />
           <Route path="/get-started" element={<GrowthAssessmentContact />} />

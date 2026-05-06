@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 
 const footerLinks = {
@@ -32,6 +33,12 @@ const socials = [
 ];
 
 const Footer = () => {
+  const location = useLocation();
+  const onIT = location?.pathname?.startsWith('/it');
+  const switchTarget = onIT
+    ? { href: '/marketing', label: 'Switch to Marketing Services' }
+    : { href: '/it', label: 'Switch to IT Services' };
+
   return (
     <footer className="relative overflow-hidden bg-[#0B0B0F] text-white">
       {/* Gradient mesh backdrop */}
@@ -145,6 +152,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-10 border-t border-white/10">
           <div className="flex flex-wrap items-center gap-6 text-xs text-white/50">
             <span>© {new Date().getFullYear()} DESCALE Agency. All rights reserved.</span>
+            <a
+              href={switchTarget.href}
+              className="inline-flex items-center gap-1.5 text-white/80 hover:text-accent transition-colors group"
+            >
+              {switchTarget.label}
+              <Icon name="ArrowUpRight" size={12} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+            </a>
             <a href="/get-started" className="hover:text-white transition-colors">Privacy</a>
             <a href="/get-started" className="hover:text-white transition-colors">Terms</a>
             <a href="/get-started" className="hover:text-white transition-colors">Cookies</a>
