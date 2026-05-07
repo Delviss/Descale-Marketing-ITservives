@@ -83,7 +83,7 @@ const GrowthAssessmentContact = () => {
       <TrustElements />
 
       {/* Growth Assessment Tool */}
-      <section id="assessment-tool" className="py-16 bg-white">
+      <section id="assessment-tool" className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GrowthAssessmentTool 
             onComplete={handleAssessmentComplete}
@@ -110,7 +110,7 @@ const GrowthAssessmentContact = () => {
       </section>
 
       {/* Contact Options */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ContactOptions 
             assessmentData={assessmentData}

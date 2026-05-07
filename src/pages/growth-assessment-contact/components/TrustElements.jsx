@@ -62,7 +62,7 @@ const TrustElements = () => {
         {/* Trust Signals */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {trustSignals?.map((signal, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg text-center hover-lift">
+            <div key={index} className="bg-card p-6 rounded-lg text-center hover-lift border border-border">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Icon name={signal?.icon} size={24} className="text-primary" />
               </div>
@@ -74,7 +74,7 @@ const TrustElements = () => {
         </div>
 
         {/* Consultation Process */}
-        <div className="bg-white p-8 rounded-xl shadow-brand">
+        <div className="bg-card p-8 rounded-xl shadow-brand border border-border">
           <h3 className="text-2xl font-bold text-center text-text-primary mb-8">
             What to Expect From Your Strategy Call
           </h3>
@@ -87,7 +87,7 @@ const TrustElements = () => {
                   <div className="hidden lg:block absolute top-6 left-full w-full h-0.5 bg-border z-0" />
                 )}
                 
-                <div className="relative z-10 bg-surface p-4 rounded-lg border border-border">
+                <div className="relative z-10 bg-muted p-4 rounded-lg border border-border">
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm mb-3">
                     {step?.step}
                   </div>
