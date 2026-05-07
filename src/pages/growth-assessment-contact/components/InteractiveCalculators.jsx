@@ -282,7 +282,7 @@ const InteractiveCalculators = () => {
             className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
               activeCalculator === calc?.id
                 ? 'bg-primary text-white shadow-brand'
-                : 'bg-white text-text-secondary hover:bg-primary/10 hover:text-primary border border-border'
+                : 'bg-card text-text-secondary hover:bg-primary/10 hover:text-primary border border-border'
             }`}
           >
             <Icon name={calc?.icon} size={20} />
@@ -293,7 +293,7 @@ const InteractiveCalculators = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Calculator Form */}
-        <div className="bg-white p-6 rounded-xl shadow-brand border border-border">
+        <div className="bg-card p-6 rounded-xl shadow-brand border border-border">
           <div className="mb-6">
             <h3 className="text-xl font-semibold mb-2">
               {calculators?.find(c => c?.id === activeCalculator)?.title}
@@ -319,7 +319,7 @@ const InteractiveCalculators = () => {
         </div>
 
         {/* Results */}
-        <div className="bg-white p-6 rounded-xl shadow-brand border border-border">
+        <div className="bg-card p-6 rounded-xl shadow-brand border border-border">
           <h3 className="text-xl font-semibold mb-6 flex items-center">
             <Icon name="BarChart3" size={20} className="mr-2 text-accent" />
             Results & Insights

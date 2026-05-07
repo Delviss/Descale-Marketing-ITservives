@@ -160,7 +160,7 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Key Insights */}
-          <div className="bg-white p-6 rounded-xl shadow-brand border border-border">
+          <div className="bg-card p-6 rounded-xl shadow-brand border border-border">
             <h3 className="text-xl font-semibold mb-4 flex items-center">
               <Icon name="Lightbulb" size={20} className="mr-2 text-accent" />
               Key Insights
@@ -176,7 +176,7 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
           </div>
 
           {/* Recommendations */}
-          <div className="bg-white p-6 rounded-xl shadow-brand border border-border">
+          <div className="bg-card p-6 rounded-xl shadow-brand border border-border">
             <h3 className="text-xl font-semibold mb-4 flex items-center">
               <Icon name="Target" size={20} className="mr-2 text-primary" />
               Strategic Recommendations
@@ -249,7 +249,7 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
         </div>
       </div>
       {/* Current Question */}
-      <div className="bg-white p-8 rounded-xl shadow-brand border border-border mb-6">
+      <div className="bg-card p-8 rounded-xl shadow-brand border border-border mb-6">
         <h3 className="text-xl font-semibold mb-6">
           {assessmentQuestions?.[step - 1]?.title}
         </h3>
