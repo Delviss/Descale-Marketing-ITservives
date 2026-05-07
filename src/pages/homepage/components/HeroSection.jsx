@@ -63,7 +63,7 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100dvh] overflow-hidden bg-[#0B0B0F] noise-overlay"
+      className="relative min-h-[100dvh] overflow-hidden bg-[#050505] noise-overlay"
     >
       {/* Animated gradient mesh — video-style ambient background */}
       <motion.div
@@ -106,9 +106,9 @@ const HeroSection = () => {
       >
         <defs>
           <linearGradient id="heroLine" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#A72906" stopOpacity="0" />
-            <stop offset="50%" stopColor="#FF6B35" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
+            <stop offset="0%" stopColor="#A8431C" stopOpacity="0" />
+            <stop offset="55%" stopColor="#C65A2E" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#2563EB" stopOpacity="0.9" />
           </linearGradient>
         </defs>
         <motion.path

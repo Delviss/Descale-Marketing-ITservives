@@ -3,10 +3,10 @@ import Icon from '../../../components/AppIcon';
 
 const TrustSignals = () => {
   const partnerships = [
-    { name: "Google Partner", icon: "Chrome", color: "text-blue-600" },
-    { name: "Meta Business", icon: "Facebook", color: "text-blue-500" },
-    { name: "LinkedIn Partner", icon: "Linkedin", color: "text-blue-700" },
-    { name: "HubSpot Certified", icon: "Settings", color: "text-orange-500" },
+    { name: "Google Partner", icon: "Chrome", color: "text-secondary" },
+    { name: "Meta Business", icon: "Facebook", color: "text-secondary" },
+    { name: "LinkedIn Partner", icon: "Linkedin", color: "text-secondary" },
+    { name: "HubSpot Certified", icon: "Settings", color: "text-primary" },
   ];
 
   const certifications = [

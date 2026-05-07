@@ -15,9 +15,9 @@ const MetricsDashboard = ({ metrics, isLive = false }) => {
   ];
 
   const audienceBreakdown = [
-    { name: 'Business Professionals', value: 35, color: '#A72906' },
-    { name: 'Retail Shoppers', value: 28, color: '#0649A7' },
-    { name: 'Students', value: 20, color: '#FF6B35' },
+    { name: 'Business Professionals', value: 35, color: '#A8431C' },
+    { name: 'Retail Shoppers', value: 28, color: '#2563EB' },
+    { name: 'Students', value: 20, color: '#C65A2E' },
     { name: 'Families', value: 17, color: '#10B981' }
   ];
 
@@ -148,7 +148,7 @@ const MetricsDashboard = ({ metrics, isLive = false }) => {
                     <XAxis dataKey="time" />
                     <YAxis />
                     <Tooltip />
-                    <Line type="monotone" dataKey="impressions" stroke="#A72906" strokeWidth={2} />
+                    <Line type="monotone" dataKey="impressions" stroke="#A8431C" strokeWidth={2} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -167,9 +167,9 @@ const MetricsDashboard = ({ metrics, isLive = false }) => {
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="impressions" fill="#A72906" />
-                <Bar dataKey="clicks" fill="#0649A7" />
-                <Bar dataKey="conversions" fill="#FF6B35" />
+                <Bar dataKey="impressions" fill="#A8431C" />
+                <Bar dataKey="clicks" fill="#2563EB" />
+                <Bar dataKey="conversions" fill="#C65A2E" />
               </BarChart>
             </ResponsiveContainer>
           </div>

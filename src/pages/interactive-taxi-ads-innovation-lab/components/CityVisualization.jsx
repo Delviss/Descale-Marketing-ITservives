@@ -92,8 +92,8 @@ const CityVisualization = ({ selectedAudience, campaignParams, onMetricsUpdate }
           style={{
             left: `${area?.x}%`,
             top: `${area?.y}%`,
-            backgroundColor: `rgba(167, 41, 6, ${area?.intensity / 100})`,
-            boxShadow: `0 0 ${area?.intensity / 5}px rgba(167, 41, 6, 0.6)`
+            backgroundColor: `rgba(168, 67, 28, ${area?.intensity / 100})`,
+            boxShadow: `0 0 ${area?.intensity / 5}px rgba(168, 67, 28, 0.6)`
           }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -114,7 +114,7 @@ const CityVisualization = ({ selectedAudience, campaignParams, onMetricsUpdate }
             <motion.path
               d={route?.path}
               fill="none"
-              stroke="rgba(255, 107, 53, 0.8)"
+              stroke="rgba(198, 90, 46, 0.85)"
               strokeWidth="0.5"
               strokeDasharray="2,2"
               initial={{ pathLength: 0 }}
@@ -124,7 +124,7 @@ const CityVisualization = ({ selectedAudience, campaignParams, onMetricsUpdate }
             {/* Moving taxi icon */}
             <motion.circle
               r="1"
-              fill="#FF6B35"
+              fill="#C65A2E"
               initial={{ offsetDistance: "0%" }}
               animate={{ offsetDistance: "100%" }}
               transition={{ duration: route?.frequency, repeat: Infinity, ease: "linear" }}

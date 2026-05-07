@@ -26,7 +26,7 @@ const MethodologyBreakdown = () => {
         'Customer Persona Framework',
         'Channel Optimization Plan'
       ],
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-[#C65A2E] to-[#2563EB]'
     },
     {
       phase: 'Strategy Development',
@@ -45,7 +45,7 @@ const MethodologyBreakdown = () => {
         'Marketing Channel Plan',
         'KPI Tracking Framework'
       ],
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-[#A8431C] to-[#C65A2E]'
     },
     {
       phase: 'Creative Execution',
@@ -64,7 +64,7 @@ const MethodologyBreakdown = () => {
         'Video Content Series',
         'Performance Creative Variants'
       ],
-      color: 'from-orange-500 to-red-500'
+      color: 'from-[#C65A2E] to-[#A8431C]'
     },
     {
       phase: 'Performance Optimization',
@@ -83,7 +83,7 @@ const MethodologyBreakdown = () => {
         'Scale Readiness Assessment',
         'ROI Improvement Roadmap'
       ],
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-[#C65A2E] to-[#A8431C]'
     },
     {
       phase: 'Scale & Expansion',
@@ -102,7 +102,7 @@ const MethodologyBreakdown = () => {
         'Retention Optimization',
         'Long-term Growth Forecast'
       ],
-      color: 'from-violet-500 to-purple-500'
+      color: 'from-[#A8431C] to-[#2563EB]'
     }
   ];
 

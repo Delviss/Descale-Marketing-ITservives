@@ -17,15 +17,15 @@
     --color-muted-foreground: #5C5A66;
     --color-border: #E7E3DB;
     --color-input: #FFFFFF;
-    --color-ring: #A72906;
+    --color-ring: #A8431C;
 
-    /* Brand */
-    --color-primary: #C0370A;
+    /* Brand — burnt orange identity, tech-blue as supporting accent */
+    --color-primary: #A8431C;
     --color-primary-foreground: #FFFFFF;
-    --color-secondary: #0649A7;
+    --color-secondary: #2563EB;
     --color-secondary-foreground: #FFFFFF;
-    --color-accent: #FF6B35;
-    --color-accent-foreground: #14131A;
+    --color-accent: #C65A2E;
+    --color-accent-foreground: #FFFFFF;
 
     /* Status */
     --color-success: #10B981;
@@ -63,8 +63,8 @@
     --shadow-md: 0 8px 20px -4px rgba(15, 14, 20, 0.08);
     --shadow-lg: 0 20px 40px -8px rgba(15, 14, 20, 0.12);
     --shadow-xl: 0 32px 64px -12px rgba(15, 14, 20, 0.18);
-    --shadow-brand: 0 12px 32px -8px rgba(167, 41, 6, 0.25);
-    --shadow-brand-lg: 0 24px 60px -12px rgba(167, 41, 6, 0.35);
+    --shadow-brand: 0 12px 32px -8px rgba(168, 67, 28, 0.28);
+    --shadow-brand-lg: 0 24px 60px -12px rgba(168, 67, 28, 0.38);
 
     /* Radii */
     --radius-sm: 4px;
@@ -74,65 +74,65 @@
     --radius-full: 9999px;
   }
 
-  /* IT Services domain — subtle accent shift to a tech-blue */
+  /* IT Services domain — supporting tech-blue accent */
   body[data-domain="it"] {
-    --color-primary: #0649A7;
-    --color-ring: #0649A7;
-    --shadow-brand: 0 12px 32px -8px rgba(6, 73, 167, 0.28);
-    --shadow-brand-lg: 0 24px 60px -12px rgba(6, 73, 167, 0.4);
+    --color-primary: #2563EB;
+    --color-ring: #2563EB;
+    --shadow-brand: 0 12px 32px -8px rgba(37, 99, 235, 0.28);
+    --shadow-brand-lg: 0 24px 60px -12px rgba(37, 99, 235, 0.4);
   }
 
-  /* Dark Mode / High Contrast — vibrant neon accents */
+  /* Dark Mode — cinematic burnt-orange identity with restrained tech-blue accent */
   .dark {
-    --color-background: #05060A;
-    --color-foreground: #F5F8FF;
-    --color-card: #0E1018;
-    --color-card-foreground: #F5F8FF;
-    --color-popover: #0E1018;
-    --color-popover-foreground: #F5F8FF;
-    --color-muted: #11141C;
-    --color-muted-foreground: #B8BCD0;
-    --color-border: #2A2F45;
-    --color-input: #0E1018;
-    --color-ring: #00E5FF;
+    --color-background: #050505;
+    --color-foreground: #F5F5F5;
+    --color-card: #111111;
+    --color-card-foreground: #F5F5F5;
+    --color-popover: #111111;
+    --color-popover-foreground: #F5F5F5;
+    --color-muted: #161616;
+    --color-muted-foreground: #A1A1AA;
+    --color-border: #262626;
+    --color-input: #111111;
+    --color-ring: #C65A2E;
 
-    /* Vibrant neon brand */
-    --color-primary: #00E5FF;
-    --color-primary-foreground: #05060A;
-    --color-secondary: #7C4DFF;
-    --color-secondary-foreground: #FFFFFF;
-    --color-accent: #FF2E9A;
-    --color-accent-foreground: #FFFFFF;
+    /* Burnt orange leads, tech-blue supports */
+    --color-primary: #C65A2E;
+    --color-primary-foreground: #050505;
+    --color-secondary: #2563EB;
+    --color-secondary-foreground: #F5F5F5;
+    --color-accent: #A8431C;
+    --color-accent-foreground: #F5F5F5;
 
-    --color-success: #00FFA3;
-    --color-success-foreground: #05060A;
-    --color-warning: #FFD60A;
-    --color-warning-foreground: #05060A;
-    --color-error: #FF3B6B;
-    --color-error-foreground: #FFFFFF;
-    --color-destructive: #FF3B6B;
-    --color-destructive-foreground: #FFFFFF;
+    --color-success: #10B981;
+    --color-success-foreground: #050505;
+    --color-warning: #F59E0B;
+    --color-warning-foreground: #050505;
+    --color-error: #EF4444;
+    --color-error-foreground: #F5F5F5;
+    --color-destructive: #EF4444;
+    --color-destructive-foreground: #F5F5F5;
 
-    --color-surface: #0E1018;
-    --color-text-primary: #F5F8FF;
-    --color-text-secondary: #B8BCD0;
+    --color-surface: #111111;
+    --color-text-primary: #F5F5F5;
+    --color-text-secondary: #A1A1AA;
 
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.6);
     --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.65);
     --shadow-md: 0 8px 20px -4px rgba(0, 0, 0, 0.7);
     --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.75);
     --shadow-xl: 0 32px 64px -12px rgba(0, 0, 0, 0.85);
-    --shadow-brand: 0 0 28px -2px rgba(0, 229, 255, 0.45), 0 12px 32px -8px rgba(124, 77, 255, 0.35);
-    --shadow-brand-lg: 0 0 60px -4px rgba(0, 229, 255, 0.55), 0 24px 60px -12px rgba(255, 46, 154, 0.45);
+    --shadow-brand: 0 0 28px -6px rgba(198, 90, 46, 0.32), 0 16px 36px -12px rgba(168, 67, 28, 0.4);
+    --shadow-brand-lg: 0 0 56px -8px rgba(198, 90, 46, 0.42), 0 28px 64px -16px rgba(168, 67, 28, 0.5);
   }
 
-  /* IT Services in dark mode — keep neon palette but anchor on electric blue */
+  /* IT Services in dark mode — anchor on electric blue, keep orange atmosphere */
   .dark body[data-domain="it"],
   body[data-domain="it"].dark {
-    --color-primary: #00E5FF;
-    --color-ring: #00E5FF;
-    --shadow-brand: 0 0 28px -2px rgba(0, 229, 255, 0.5), 0 12px 32px -8px rgba(124, 77, 255, 0.4);
-    --shadow-brand-lg: 0 0 60px -4px rgba(0, 229, 255, 0.6), 0 24px 60px -12px rgba(255, 46, 154, 0.5);
+    --color-primary: #2563EB;
+    --color-ring: #2563EB;
+    --shadow-brand: 0 0 28px -6px rgba(37, 99, 235, 0.38), 0 16px 36px -12px rgba(198, 90, 46, 0.28);
+    --shadow-brand-lg: 0 0 56px -8px rgba(37, 99, 235, 0.45), 0 28px 64px -16px rgba(168, 67, 28, 0.35);
   }
 
   * {
@@ -418,41 +418,41 @@
 }
 .animate-conic-spin { animation: conic-spin 8s linear infinite; }
 
-/* Modern gradient mesh backgrounds */
+/* Cinematic gradient mesh — burnt orange identity with restrained blue accent */
 .bg-mesh-dark {
-  background-color: #05060A;
+  background-color: #050505;
   background-image:
-    radial-gradient(at 18% 18%, rgba(0, 229, 255, 0.30) 0px, transparent 55%),
-    radial-gradient(at 82% 6%, rgba(124, 77, 255, 0.28) 0px, transparent 55%),
-    radial-gradient(at 4% 52%, rgba(255, 46, 154, 0.22) 0px, transparent 55%),
-    radial-gradient(at 84% 78%, rgba(0, 255, 163, 0.18) 0px, transparent 55%),
-    radial-gradient(at 0% 100%, rgba(124, 77, 255, 0.30) 0px, transparent 55%);
+    radial-gradient(at 18% 22%, rgba(198, 90, 46, 0.22) 0px, transparent 55%),
+    radial-gradient(at 82% 12%, rgba(168, 67, 28, 0.20) 0px, transparent 55%),
+    radial-gradient(at 8% 78%, rgba(168, 67, 28, 0.18) 0px, transparent 55%),
+    radial-gradient(at 88% 82%, rgba(37, 99, 235, 0.10) 0px, transparent 55%),
+    radial-gradient(at 50% 100%, rgba(198, 90, 46, 0.16) 0px, transparent 55%);
 }
 .bg-mesh-light {
   background-color: #FBFAF7;
   background-image:
-    radial-gradient(at 10% 10%, rgba(255, 107, 53, 0.15) 0px, transparent 55%),
-    radial-gradient(at 90% 20%, rgba(6, 73, 167, 0.10) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(167, 41, 6, 0.10) 0px, transparent 50%);
+    radial-gradient(at 10% 10%, rgba(198, 90, 46, 0.14) 0px, transparent 55%),
+    radial-gradient(at 90% 20%, rgba(37, 99, 235, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(168, 67, 28, 0.10) 0px, transparent 50%);
 }
 
-/* In dark mode, swap any light mesh usage to the neon dark mesh automatically */
+/* In dark mode, swap any light mesh usage to the cinematic dark mesh automatically */
 .dark .bg-mesh-light {
-  background-color: #05060A;
+  background-color: #050505;
   background-image:
-    radial-gradient(at 18% 18%, rgba(0, 229, 255, 0.30) 0px, transparent 55%),
-    radial-gradient(at 82% 6%, rgba(124, 77, 255, 0.28) 0px, transparent 55%),
-    radial-gradient(at 4% 52%, rgba(255, 46, 154, 0.22) 0px, transparent 55%),
-    radial-gradient(at 84% 78%, rgba(0, 255, 163, 0.18) 0px, transparent 55%),
-    radial-gradient(at 0% 100%, rgba(124, 77, 255, 0.30) 0px, transparent 55%);
+    radial-gradient(at 18% 22%, rgba(198, 90, 46, 0.22) 0px, transparent 55%),
+    radial-gradient(at 82% 12%, rgba(168, 67, 28, 0.20) 0px, transparent 55%),
+    radial-gradient(at 8% 78%, rgba(168, 67, 28, 0.18) 0px, transparent 55%),
+    radial-gradient(at 88% 82%, rgba(37, 99, 235, 0.10) 0px, transparent 55%),
+    radial-gradient(at 50% 100%, rgba(198, 90, 46, 0.16) 0px, transparent 55%);
 }
 
-/* Neon glow utilities for dark mode emphasis */
+/* Soft glow utilities — restrained, atmospheric */
 .dark .neon-text {
-  text-shadow: 0 0 12px rgba(0, 229, 255, 0.55), 0 0 28px rgba(124, 77, 255, 0.35);
+  text-shadow: 0 0 14px rgba(198, 90, 46, 0.45), 0 0 32px rgba(168, 67, 28, 0.30);
 }
 .dark .neon-ring {
-  box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.5), 0 0 24px -4px rgba(0, 229, 255, 0.45);
+  box-shadow: 0 0 0 1px rgba(198, 90, 46, 0.45), 0 0 24px -4px rgba(168, 67, 28, 0.4);
 }
 
 /* Noise overlay for cinematic texture */

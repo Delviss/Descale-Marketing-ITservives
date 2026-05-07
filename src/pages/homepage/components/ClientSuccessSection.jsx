@@ -21,7 +21,7 @@ const ClientSuccessSection = () => {
       timeframe: "Munich",
       website: "https://blitzon.de/",
       description: "Munich's leading door-to-door sales consultancy, driving field-sales performance for ambitious brands.",
-      accent: "from-amber-400 to-orange-500"
+      accent: "from-[#C65A2E] to-[#A8431C]"
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const ClientSuccessSection = () => {
       timeframe: "Munich",
       website: "https://www.klaxo.eu/",
       description: "Munich's #1 car rental and day-trip experience, delivering premium mobility for locals and tourists alike.",
-      accent: "from-sky-400 to-blue-600"
+      accent: "from-[#C65A2E] to-[#2563EB]"
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const ClientSuccessSection = () => {
       timeframe: "Europe",
       website: "https://www.wood-fellas.com/en/",
       description: "Design-led wood & lifestyle accessories, scaled across European DTC channels with bold brand storytelling.",
-      accent: "from-amber-700 to-stone-800"
+      accent: "from-[#A8431C] to-[#1f1f1f]"
     }
   ];
 
@@ -71,7 +71,7 @@ const ClientSuccessSection = () => {
         <svg className="w-full h-full" viewBox="0 0 100 100">
           <defs>
             <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#A72906" strokeWidth="0.5"/>
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#A8431C" strokeWidth="0.5"/>
             </pattern>
           </defs>
           <rect width="100" height="100" fill="url(#grid)" />

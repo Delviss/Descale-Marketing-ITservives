@@ -48,7 +48,7 @@ const ITProcess = () => {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[#0B0B0F] text-white py-32 noise-overlay"
+      className="relative overflow-hidden bg-[#050505] text-white py-32 noise-overlay"
     >
       <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-60" />
       <div aria-hidden className="absolute top-0 right-0 w-[420px] h-[420px] rounded-full bg-primary/30 blur-[140px]" />

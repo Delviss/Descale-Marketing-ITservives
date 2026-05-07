@@ -40,7 +40,7 @@ const Footer = () => {
     : { href: '/it', label: 'Switch to IT Services' };
 
   return (
-    <footer className="relative overflow-hidden bg-[#0B0B0F] text-white">
+    <footer className="relative overflow-hidden bg-[#050505] text-white">
       {/* Gradient mesh backdrop */}
       <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-90" />
       <div aria-hidden className="absolute -top-48 left-1/2 -translate-x-1/2 w-[120%] h-[420px] bg-gradient-to-b from-primary/30 via-accent/10 to-transparent blur-3xl rounded-full" />
@@ -93,7 +93,7 @@ const Footer = () => {
                 src={`${import.meta.env.BASE_URL}assets/images/logo-mark.svg`}
                 alt=""
                 aria-hidden="true"
-                className="h-11 w-auto drop-shadow-[0_4px_20px_rgba(255,107,53,0.45)]"
+                className="h-11 w-auto drop-shadow-[0_4px_20px_rgba(198,90,46,0.45)]"
               />
               <div className="flex flex-col">
                 <span className="font-display font-black text-lg tracking-tight text-white">DESCALE</span>

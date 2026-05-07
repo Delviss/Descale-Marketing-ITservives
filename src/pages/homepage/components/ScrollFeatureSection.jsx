@@ -54,7 +54,7 @@ const ScrollFeatureSection = () => {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-[#0B0B0F] text-white py-32 noise-overlay"
+      className="relative overflow-hidden bg-[#050505] text-white py-32 noise-overlay"
     >
       {/* Ambient glow */}
       <div aria-hidden className="absolute inset-0 bg-mesh-dark opacity-60" />
