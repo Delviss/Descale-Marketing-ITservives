@@ -11,21 +11,24 @@ const ValuePropositionSection = () => {
       title: "Exponential, Not Incremental",
       description: "We don't chase 10% improvements. Our strategies are designed for 10x growth that transforms market position and business trajectory.",
       icon: "TrendingUp",
-      color: "from-primary to-accent"
+      color: "from-primary to-accent",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
     },
     {
       id: 2,
       title: "Growth, Not Just Campaigns",
       description: "Beyond marketing tactics, we architect comprehensive growth ecosystems that scale every aspect of your brand's market presence.",
       icon: "Zap",
-      color: "from-secondary to-primary"
+      color: "from-secondary to-primary",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
     },
     {
       id: 3,
       title: "Proven, Not Experimental",
       description: "Every strategy is backed by data from 50+ successful scaling journeys. We minimize risk while maximizing exponential outcomes.",
       icon: "Shield",
-      color: "from-accent to-secondary"
+      color: "from-accent to-secondary",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80"
     }
   ];
 
@@ -66,22 +69,43 @@ const ValuePropositionSection = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-brand-lg transition-all duration-500 hover:-translate-y-2 h-full">
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${prop?.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon name={prop?.icon} size={32} className="text-white" />
+              <div className="relative bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-brand-lg transition-all duration-500 hover:-translate-y-2 h-full overflow-hidden">
+                {/* Visual header */}
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={prop?.image}
+                    alt={prop?.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div
+                    aria-hidden
+                    className={`absolute inset-0 bg-gradient-to-br ${prop?.color} opacity-70 mix-blend-multiply group-hover:opacity-55 transition-opacity duration-500`}
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-white via-white/0 to-transparent"
+                  />
+                  {/* Floating icon badge */}
+                  <div
+                    className={`absolute -bottom-7 left-8 w-16 h-16 rounded-xl bg-gradient-to-br ${prop?.color} flex items-center justify-center shadow-xl ring-4 ring-white group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <Icon name={prop?.icon} size={28} className="text-white" />
+                  </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
-                  {prop?.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {prop?.description}
-                </p>
+                <div className="p-8 pt-12">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
+                    {prop?.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    {prop?.description}
+                  </p>
 
-                {/* Hover Effect Line */}
-                <div className={`h-1 bg-gradient-to-r ${prop?.color} rounded-full mt-6 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+                  {/* Hover Effect Line */}
+                  <div className={`h-1 bg-gradient-to-r ${prop?.color} rounded-full mt-6 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+                </div>
               </div>
             </motion.div>
           ))}
