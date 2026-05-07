@@ -90,10 +90,10 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3 mb-5" aria-label="Descale Agency home">
               <img
-                src={`${import.meta.env.BASE_URL}assets/images/logo-mark.svg`}
+                src={`${import.meta.env.BASE_URL}assets/images/descale-logo.png`}
                 alt=""
                 aria-hidden="true"
-                className="h-11 w-auto drop-shadow-[0_4px_20px_rgba(198,90,46,0.45)]"
+                className="h-12 w-auto object-contain drop-shadow-[0_4px_20px_rgba(198,90,46,0.45)]"
               />
               <div className="flex flex-col">
                 <span className="font-display font-black text-lg tracking-tight text-white">DESCALE</span>

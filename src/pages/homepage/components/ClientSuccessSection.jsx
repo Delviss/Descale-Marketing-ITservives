@@ -14,7 +14,7 @@ const ClientSuccessSection = () => {
     {
       id: 1,
       name: "Blitzon Consulting",
-      logo: `${base}assets/images/partners/blitzon.svg`,
+      logo: `${base}assets/images/partners/blitzon.png`,
       industry: "D2D Sales — Munich",
       growth: "#1",
       metric: "D2D Sales Company",
@@ -26,7 +26,7 @@ const ClientSuccessSection = () => {
     {
       id: 2,
       name: "Klaxo GmbH",
-      logo: `${base}assets/images/partners/klaxo.svg`,
+      logo: `${base}assets/images/partners/klaxo.jpg`,
       industry: "Car Rental & Daytrips",
       growth: "#1",
       metric: "Car Rental & Daytrips",
@@ -38,7 +38,7 @@ const ClientSuccessSection = () => {
     {
       id: 3,
       name: "Woodfellas",
-      logo: `${base}assets/images/partners/woodfellas.svg`,
+      logo: `${base}assets/images/partners/woodfellas.png`,
       industry: "Accessories",
       growth: "DTC",
       metric: "Lifestyle Accessories",
@@ -54,13 +54,13 @@ const ClientSuccessSection = () => {
       quote: "DESCALE didn\'t just scale our campaigns—they transformed our entire approach to growth. The results speak for themselves.",
       author: "Blitzon Consulting",
       position: "#1 D2D Sales Company, Munich",
-      avatar: `${base}assets/images/partners/blitzon.svg`
+      avatar: `${base}assets/images/partners/blitzon.png`
     },
     {
       quote: "The strategic depth and execution excellence is unmatched. They understand scaling at a level most agencies never reach.",
       author: "Klaxo GmbH",
       position: "#1 Car Rental & Daytrips, Munich",
-      avatar: `${base}assets/images/partners/klaxo.svg`
+      avatar: `${base}assets/images/partners/klaxo.jpg`
     }
   ];
 

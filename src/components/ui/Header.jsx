@@ -37,9 +37,9 @@ const Header = ({ className = '' }) => {
 
   const Logo = () => (
     <img
-      src={`${import.meta.env.BASE_URL}assets/images/logo-full.svg`}
+      src={`${import.meta.env.BASE_URL}assets/images/descale-logo.png`}
       alt="Descale Agency"
-      className="h-10 sm:h-11 md:h-12 w-auto select-none"
+      className="h-12 sm:h-14 md:h-16 w-auto select-none object-contain"
       draggable={false}
     />
   );
