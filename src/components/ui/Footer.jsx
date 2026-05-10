@@ -12,15 +12,16 @@ const footerLinks = {
   ],
   it: [
     { name: 'IT Home', href: '/it' },
-    { name: 'Platforms', href: '/it' },
-    { name: 'Applications', href: '/it' },
-    { name: 'Websites', href: '/it' },
+    { name: 'Platforms', href: '/it/platforms' },
+    { name: 'Applications', href: '/it/applications' },
+    { name: 'Design', href: '/it/design' },
+    { name: 'Websites', href: '/it/websites' },
   ],
   resources: [
     { name: 'About', href: '/about' },
     { name: 'Get Started', href: '/get-started' },
     { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/get-started' },
+    { name: 'Contact', href: '/contact' },
   ],
 };
 
@@ -159,9 +160,9 @@ const Footer = () => {
               {switchTarget.label}
               <Icon name="ArrowUpRight" size={12} className="opacity-70 group-hover:opacity-100 transition-opacity" />
             </Link>
-            <Link to="/get-started" className="hover:text-white transition-colors">Privacy</Link>
-            <Link to="/get-started" className="hover:text-white transition-colors">Terms</Link>
-            <Link to="/get-started" className="hover:text-white transition-colors">Cookies</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link to="/cookies" className="hover:text-white transition-colors">Cookies</Link>
           </div>
           <div className="flex items-center gap-2">
             {socials.map((s) => (
