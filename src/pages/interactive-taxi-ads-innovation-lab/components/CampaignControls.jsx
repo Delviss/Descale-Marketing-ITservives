@@ -122,22 +122,24 @@ const CampaignControls = ({ onAudienceChange, onParamsChange, onSimulate }) => {
       {/* Estimated Metrics */}
       <div className="bg-gray-50 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-3">Estimated Campaign Metrics</h4>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-primary">{calculateEstimatedReach()?.toLocaleString()}</div>
-            <div className="text-sm text-gray-600">Est. Reach</div>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="text-center min-w-0 px-1">
+            <div className="text-xl sm:text-2xl font-bold text-primary truncate">{calculateEstimatedReach()?.toLocaleString()}</div>
+            <div className="text-xs sm:text-sm text-gray-600">Est. Reach</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-secondary">{Math.floor(budget / 1000)}K</div>
-            <div className="text-sm text-gray-600">Impressions</div>
+          <div className="text-center min-w-0 px-1">
+            <div className="text-xl sm:text-2xl font-bold text-secondary truncate">{Math.floor(budget / 1000)}K</div>
+            <div className="text-xs sm:text-sm text-gray-600">Impressions</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent">{Math.floor(calculateEstimatedReach() * 0.15)?.toLocaleString()}</div>
-            <div className="text-sm text-gray-600">Engagements</div>
+          <div className="text-center min-w-0 px-1">
+            <div className="text-xl sm:text-2xl font-bold text-accent truncate">{Math.floor(calculateEstimatedReach() * 0.15)?.toLocaleString()}</div>
+            <div className="text-xs sm:text-sm text-gray-600">Engagements</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-success">${(budget / calculateEstimatedReach() * 1000)?.toFixed(2)}</div>
-            <div className="text-sm text-gray-600">CPM</div>
+          <div className="text-center min-w-0 px-1">
+            <div className="text-xl sm:text-2xl font-bold text-success truncate">
+              ${calculateEstimatedReach() > 0 ? ((budget / calculateEstimatedReach()) * 1000).toFixed(2) : '0.00'}
+            </div>
+            <div className="text-xs sm:text-sm text-gray-600">CPM</div>
           </div>
         </div>
       </div>

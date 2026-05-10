@@ -76,10 +76,10 @@ const ServiceCard = ({ service, onLearnMore, onGetStarted }) => {
             size="sm"
             onClick={() => onGetStarted(service)}
             className="flex-1 hover-brand"
-            iconName="Rocket"
+            iconName="Eye"
             iconPosition="left"
           >
-            Get Started
+            View Details
           </Button>
         </div>
       </div>

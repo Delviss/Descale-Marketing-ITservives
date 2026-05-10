@@ -19,8 +19,8 @@ const footerLinks = {
   ],
   resources: [
     { name: 'About', href: '/about' },
+    { name: 'Help Center', href: '/help' },
     { name: 'Get Started', href: '/get-started' },
-    { name: 'Services', href: '/services' },
     { name: 'Contact', href: '/contact' },
   ],
 };

@@ -357,9 +357,12 @@ const ServicesHub = () => {
     setShowModal(true);
   };
 
+  // The "Get Started" inside a service card opens the detailed service modal
+  // (NOT the generic contact form). The modal then offers a "Book Strategy Call"
+  // CTA for users who want to engage further.
   const handleGetStarted = (service) => {
     setSelectedService(service);
-    setShowContactForm(true);
+    setShowModal(true);
   };
 
   const handleBookCall = (service) => {
@@ -523,6 +526,7 @@ const ServicesHub = () => {
       />
       <ContactForm
         selectedService={selectedService}
+        isOpen={showContactForm}
         onClose={() => setShowContactForm(false)}
       />
       <Footer />

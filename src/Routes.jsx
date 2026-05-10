@@ -18,6 +18,7 @@ import Contact from './pages/contact';
 import Privacy from './pages/legal/Privacy';
 import Terms from './pages/legal/Terms';
 import Cookies from './pages/legal/Cookies';
+import Help from './pages/help';
 
 const Routes = () => {
   return (
@@ -48,6 +49,8 @@ const Routes = () => {
           <Route path="/about-experience" element={<AboutExperience />} />
           <Route path="/get-started" element={<GrowthAssessmentContact />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/faq" element={<Navigate to="/help" replace />} />
 
           {/* Legal */}
           <Route path="/privacy" element={<Privacy />} />

@@ -120,38 +120,47 @@ const OriginStory = () => {
 
         {/* Timeline */}
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-secondary rounded-full"></div>
-          
-          <div className="space-y-16">
+          {/* Center line on md+, left line on mobile */}
+          <div className="absolute md:left-1/2 left-4 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-secondary rounded-full"></div>
+
+          <div className="space-y-10 md:space-y-16">
             {storyMilestones?.map((milestone, index) => (
               <motion.div
                 key={milestone?.year}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.7, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                  <div className="bg-white rounded-xl p-6 shadow-lg border border-border hover:shadow-brand transition-all duration-300">
-                    <div className="flex items-center space-x-3 mb-4">
-                      <div className={`w-12 h-12 bg-gradient-brand rounded-lg flex items-center justify-center ${index % 2 === 0 ? 'order-2' : 'order-1'}`}>
-                        <Icon name={milestone?.icon} size={24} className="text-white" />
+                {/* Card — full width on mobile (with pl-12 to clear left line), half on md+ */}
+                <div
+                  className={`w-full md:w-1/2 pl-12 md:pl-0 ${
+                    index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
+                  }`}
+                >
+                  <div className="bg-white rounded-xl p-5 sm:p-6 shadow-lg border border-border hover:shadow-brand transition-all duration-300">
+                    <div className={`flex items-center gap-3 mb-3 sm:mb-4 ${
+                      index % 2 === 0 ? 'md:flex-row-reverse md:justify-start' : ''
+                    }`}>
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-brand rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon name={milestone?.icon} size={22} className="text-white" />
                       </div>
-                      <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
-                        <span className="text-2xl font-bold text-primary">{milestone?.year}</span>
-                        <h3 className="text-xl font-semibold text-text-primary">{milestone?.title}</h3>
+                      <div>
+                        <span className="text-xl sm:text-2xl font-bold text-primary">{milestone?.year}</span>
+                        <h3 className="text-base sm:text-xl font-semibold text-text-primary">{milestone?.title}</h3>
                       </div>
                     </div>
-                    <p className="text-text-secondary leading-relaxed">
+                    <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                       {milestone?.description}
                     </p>
                   </div>
                 </div>
-                
-                <div className="relative z-10 w-6 h-6 bg-white border-4 border-primary rounded-full shadow-lg"></div>
-                
-                <div className="w-1/2"></div>
+
+                {/* Dot — positioned absolutely on mobile (over left line), centered between halves on md+ */}
+                <div className="absolute md:relative md:z-10 left-4 md:left-auto -translate-x-1/2 md:translate-x-0 w-6 h-6 bg-white border-4 border-primary rounded-full shadow-lg"></div>
+
+                <div className="hidden md:block md:w-1/2"></div>
               </motion.div>
             ))}
           </div>

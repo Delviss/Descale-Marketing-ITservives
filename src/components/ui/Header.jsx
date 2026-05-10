@@ -10,8 +10,10 @@ const Header = ({ className = '' }) => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { name: 'Marketing Services', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
+    { name: 'Marketing', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
     { name: 'IT Services', path: '/it', icon: 'Cpu', matches: ['/it'] },
+    { name: 'About', path: '/about', icon: 'Users', matches: ['/about', '/about-experience'] },
+    { name: 'Help', path: '/help', icon: 'LifeBuoy', matches: ['/help', '/faq'] },
   ];
 
   useEffect(() => {
@@ -114,7 +116,7 @@ const Header = ({ className = '' }) => {
         <div
           className={`lg:hidden transition-all duration-brand-normal overflow-hidden ${
             isMenuOpen
-              ? 'max-h-screen opacity-100 border-t border-border' :'max-h-0 opacity-0'
+              ? 'max-h-[80vh] opacity-100 border-t border-border overflow-y-auto' :'max-h-0 opacity-0'
           }`}
         >
           <div className="bg-background/98 backdrop-blur-brand px-4 py-6 space-y-2">

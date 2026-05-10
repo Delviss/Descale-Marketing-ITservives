@@ -6,17 +6,23 @@ const ServiceModal = ({ service, isOpen, onClose, onBookCall }) => {
   if (!isOpen || !service) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div
+      className="fixed inset-0 z-modal flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-xl shadow-xl max-w-4xl w-full max-h-[92vh] overflow-y-auto my-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-border">
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <Icon name={service?.icon} size={24} className="text-white" />
+        <div className="flex items-center justify-between gap-4 p-4 sm:p-6 border-b border-border sticky top-0 bg-white z-10">
+          <div className="flex items-center space-x-3 sm:space-x-4 min-w-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+              <Icon name={service?.icon} size={20} className="text-white" />
             </div>
-            <div>
-              <h2 className="text-2xl font-bold text-text-primary">{service?.title}</h2>
-              <p className="text-text-secondary">Complete Service Overview</p>
+            <div className="min-w-0">
+              <h2 className="text-lg sm:text-2xl font-bold text-text-primary truncate">{service?.title}</h2>
+              <p className="text-xs sm:text-sm text-text-secondary">Complete Service Overview</p>
             </div>
           </div>
           <Button
@@ -30,7 +36,7 @@ const ServiceModal = ({ service, isOpen, onClose, onBookCall }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-8">
+        <div className="p-4 sm:p-6 space-y-6 sm:space-y-8">
           {/* Methodology */}
           <div>
             <h3 className="text-xl font-semibold text-text-primary mb-4 flex items-center">
