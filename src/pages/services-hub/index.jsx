@@ -381,56 +381,81 @@ const ServicesHub = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#050505] text-white noise-overlay relative">
       <Header />
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-brand text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section — cinematic dark */}
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div aria-hidden className="absolute inset-0 bg-mesh-dark" />
+        <div aria-hidden className="absolute top-24 right-[-10%] w-[520px] h-[520px] bg-primary/30 blur-[140px] rounded-full animate-aurora" />
+        <div aria-hidden className="absolute bottom-0 left-[-10%] w-[460px] h-[460px] bg-accent/30 blur-[140px] rounded-full animate-aurora" />
+        <div aria-hidden className="absolute top-40 right-1/3 w-[280px] h-[280px] bg-secondary/25 blur-[120px] rounded-full animate-float-orb" />
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent animate-ping opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+              </span>
+              <span className="text-xs font-medium tracking-[0.25em] text-white/80 uppercase">
+                Services
+              </span>
+            </div>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.02] tracking-[-0.03em] animate-fade-in">
               Services That Scale
-              <span className="block text-accent">What Matters</span>
+              <span className="block font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
+                What Matters
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed animate-slide-up">
+            <p className="text-lg md:text-xl text-white/70 mb-10 leading-relaxed animate-slide-up max-w-3xl mx-auto">
               Five core offerings designed to transform your growth trajectory through strategic precision and creative boldness. Each service delivers measurable results that compound over time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-              <Button
-                variant="secondary"
-                size="lg"
+              <button
+                type="button"
                 onClick={() => document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' })}
-                className="hover-brand"
-                iconName="ArrowDown"
-                iconPosition="right"
+                className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-white text-black font-medium hover:bg-accent hover:text-white transition-all duration-300 shadow-2xl"
               >
                 Explore Services
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
+                <span className="w-7 h-7 rounded-full bg-black/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                  <Icon name="ArrowDown" size={14} />
+                </span>
+              </button>
+              <button
+                type="button"
                 onClick={() => setShowContactForm(true)}
-                className="border-white text-white hover:bg-white hover:text-primary"
-                iconName="Calendar"
-                iconPosition="left"
+                className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full border border-white/20 text-white hover:border-white hover:bg-white/[0.05] transition-all duration-300"
               >
+                <Icon name="Calendar" size={16} />
                 Book Strategy Call
-              </Button>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
       {/* Service Filter */}
-      <section className="py-8 bg-surface border-b border-border">
+      <section className="relative py-8 border-y border-white/10 bg-white/[0.02] backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2">
             {filterOptions?.map((option) => (
               <button
                 key={option?.value}
                 onClick={() => setActiveFilter(option?.value)}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeFilter === option?.value
-                    ? 'bg-primary text-white shadow-brand'
-                    : 'bg-white text-text-secondary hover:bg-primary/10 hover:text-primary'
+                    ? 'bg-accent text-white border border-accent shadow-brand'
+                    : 'bg-white/[0.04] border border-white/10 text-white/70 hover:bg-white/[0.08] hover:text-white hover:border-white/20'
                 }`}
               >
                 <Icon name={option?.icon} size={16} />
@@ -440,15 +465,23 @@ const ServicesHub = () => {
           </div>
         </div>
       </section>
+
       {/* Services Grid */}
-      <section id="services-grid" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="services-grid" className="relative py-20 overflow-hidden">
+        <div aria-hidden className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/15 blur-[160px]" />
+        <div aria-hidden className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[140px]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Choose Your Growth Path
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm mb-6">
+              <Icon name="Layers" size={14} className="text-accent" />
+              <span className="text-xs font-medium tracking-[0.2em] text-white/80 uppercase">Our Offerings</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4 tracking-[-0.02em]">
+              Choose Your <span className="font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">Growth Path</span>
             </h2>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-              Each service is designed to work independently or as part of an integrated growth system. 
+            <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+              Each service is designed to work independently or as part of an integrated growth system.
               Select the services that align with your current priorities and scaling objectives.
             </p>
           </div>
@@ -466,11 +499,11 @@ const ServicesHub = () => {
 
           {filteredServices?.length === 0 && (
             <div className="text-center py-12">
-              <Icon name="Search" size={48} className="text-text-secondary mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-text-primary mb-2">
+              <Icon name="Search" size={48} className="text-white/40 mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-white mb-2">
                 No services found
               </h3>
-              <p className="text-text-secondary">
+              <p className="text-white/60">
                 Try adjusting your filter selection
               </p>
             </div>
@@ -478,19 +511,23 @@ const ServicesHub = () => {
         </div>
       </section>
       {/* Service Comparison */}
-      <ServiceComparison 
-        services={services} 
+      <ServiceComparison
+        services={services}
         onSelectService={handleSelectService}
       />
       {/* Trust Signals */}
       <TrustSignals />
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-brand text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Scale What Matters?
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-white">
+        <div aria-hidden className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 bg-accent rounded-full blur-3xl"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4 tracking-[-0.02em]">
+            Ready to Scale <span className="font-serif-accent italic font-normal">What Matters?</span>
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-white/90 mb-8 leading-relaxed">
             Book a strategy call to discuss your specific growth challenges and discover how our services can accelerate your trajectory.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -498,7 +535,7 @@ const ServicesHub = () => {
               variant="secondary"
               size="lg"
               onClick={() => setShowContactForm(true)}
-              className="hover-brand"
+              className="hover-brand bg-white text-primary hover:bg-white/90"
               iconName="Calendar"
               iconPosition="left"
             >

@@ -42,72 +42,84 @@ const ServiceComparison = ({ services, onSelectService }) => {
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 overflow-hidden border-y border-white/10">
+      <div aria-hidden className="absolute top-1/3 left-0 w-[400px] h-[400px] rounded-full bg-secondary/10 blur-[160px]" />
+      <div aria-hidden className="absolute bottom-1/3 right-0 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[160px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-text-primary mb-4">
-            Compare Our Services
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm mb-6">
+            <Icon name="GitCompare" size={14} className="text-accent" />
+            <span className="text-xs font-medium tracking-[0.2em] text-white/80 uppercase">Compare</span>
+          </div>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4 tracking-[-0.02em]">
+            Compare Our <span className="font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">Services</span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-6 leading-relaxed">
             Select up to 3 services to compare features, timelines, and deliverables
           </p>
-          <div className="text-sm text-text-secondary">
-            Selected: {selectedServices?.length}/3 services
+          <div className="text-sm text-white/60">
+            Selected: <span className="text-accent font-semibold">{selectedServices?.length}</span>/3 services
           </div>
         </div>
 
         {/* Service Selection */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
-          {services?.map((service) => (
-            <div
-              key={service?.id}
-              className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
-                selectedServices?.includes(service?.id)
-                  ? 'border-primary bg-primary/5' :'border-border hover:border-primary/50'
-              }`}
-              onClick={() => toggleServiceSelection(service?.id)}
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 ${
-                  selectedServices?.includes(service?.id) ? 'bg-primary' : 'bg-surface'
-                }`}>
-                  <Icon 
-                    name={service?.icon} 
-                    size={24} 
-                    className={selectedServices?.includes(service?.id) ? 'text-white' : 'text-primary'}
-                  />
-                </div>
-                <h3 className="font-semibold text-sm text-text-primary mb-2">{service?.title}</h3>
-                <div className={`w-4 h-4 rounded-full border-2 ${
-                  selectedServices?.includes(service?.id)
-                    ? 'bg-primary border-primary' :'border-border'
-                }`}>
-                  {selectedServices?.includes(service?.id) && (
-                    <Icon name="Check" size={12} className="text-white" />
-                  )}
+          {services?.map((service) => {
+            const isSelected = selectedServices?.includes(service?.id);
+            return (
+              <div
+                key={service?.id}
+                className={`p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 backdrop-blur-md ${
+                  isSelected
+                    ? 'border-accent/50 bg-accent/10 shadow-brand'
+                    : 'border-white/10 bg-white/[0.04] hover:border-white/25 hover:bg-white/[0.07]'
+                }`}
+                onClick={() => toggleServiceSelection(service?.id)}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 ${
+                    isSelected
+                      ? 'bg-gradient-to-br from-accent to-primary shadow-brand'
+                      : 'bg-white/[0.07] border border-white/10'
+                  }`}>
+                    <Icon
+                      name={service?.icon}
+                      size={22}
+                      className={isSelected ? 'text-white' : 'text-accent'}
+                    />
+                  </div>
+                  <h3 className="font-semibold text-sm text-white mb-3 leading-tight">{service?.title}</h3>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                    isSelected
+                      ? 'bg-accent border-accent'
+                      : 'border-white/30 bg-transparent'
+                  }`}>
+                    {isSelected && <Icon name="Check" size={12} className="text-white" />}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Comparison Table */}
         {selectedServices?.length > 0 && (
-          <div className="bg-surface rounded-xl p-6 overflow-x-auto">
+          <div className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl p-6 overflow-x-auto shadow-brand">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-4 px-4 font-semibold text-text-primary">Features</th>
+                <tr className="border-b border-white/10">
+                  <th className="text-left py-4 px-4 font-semibold text-white">Features</th>
                   {selectedServices?.map(serviceId => {
                     const service = services?.find(s => s?.id === serviceId);
                     return (
-                      <th key={serviceId} className="text-center py-4 px-4 font-semibold text-text-primary min-w-[200px]">
+                      <th key={serviceId} className="text-center py-4 px-4 font-semibold text-white min-w-[200px]">
                         <div className="flex flex-col items-center">
-                          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mb-2">
+                          <div className="w-9 h-9 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-2 shadow-brand">
                             <Icon name={service?.icon} size={16} className="text-white" />
                           </div>
-                          <span className="text-sm">{service?.title}</span>
+                          <span className="text-sm leading-tight">{service?.title}</span>
                         </div>
                       </th>
                     );
@@ -116,26 +128,26 @@ const ServiceComparison = ({ services, onSelectService }) => {
               </thead>
               <tbody>
                 {comparisonFeatures?.map((feature, index) => (
-                  <tr key={feature} className={index % 2 === 0 ? 'bg-white' : 'bg-surface/50'}>
-                    <td className="py-4 px-4 font-medium text-text-primary">{feature}</td>
+                  <tr key={feature} className={`${index % 2 === 0 ? 'bg-white/[0.02]' : 'bg-transparent'} border-b border-white/5`}>
+                    <td className="py-4 px-4 font-medium text-white/90">{feature}</td>
                     {selectedServices?.map(serviceId => {
                       const service = services?.find(s => s?.id === serviceId);
                       return (
-                        <td key={serviceId} className="py-4 px-4 text-center text-text-secondary">
+                        <td key={serviceId} className="py-4 px-4 text-center text-white/70">
                           {getFeatureValue(service, feature)}
                         </td>
                       );
                     })}
                   </tr>
                 ))}
-                <tr className="border-t border-border">
-                  <td className="py-4 px-4 font-medium text-text-primary">Starting Investment</td>
+                <tr className="border-t border-white/10">
+                  <td className="py-5 px-4 font-medium text-white/90">Starting Investment</td>
                   {selectedServices?.map(serviceId => {
                     const service = services?.find(s => s?.id === serviceId);
                     return (
-                      <td key={serviceId} className="py-4 px-4 text-center">
-                        <div className="text-lg font-bold text-primary">{service?.startingPrice}</div>
-                        <div className="text-xs text-text-secondary">per month</div>
+                      <td key={serviceId} className="py-5 px-4 text-center">
+                        <div className="font-display text-xl font-bold text-accent">{service?.startingPrice}</div>
+                        <div className="text-xs text-white/60">per month</div>
                       </td>
                     );
                   })}
@@ -150,7 +162,7 @@ const ServiceComparison = ({ services, onSelectService }) => {
                           variant="default"
                           size="sm"
                           onClick={() => onSelectService(service)}
-                          className="hover-brand"
+                          className="bg-accent text-white hover:bg-accent/90 hover-brand"
                           iconName="ArrowRight"
                           iconPosition="right"
                         >
@@ -167,12 +179,12 @@ const ServiceComparison = ({ services, onSelectService }) => {
 
         {/* Empty State */}
         {selectedServices?.length === 0 && (
-          <div className="text-center py-12 bg-surface rounded-xl">
-            <Icon name="MousePointer" size={48} className="text-text-secondary mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-text-primary mb-2">
+          <div className="text-center py-12 bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl">
+            <Icon name="MousePointer" size={48} className="text-white/40 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-white mb-2">
               Select Services to Compare
             </h3>
-            <p className="text-text-secondary">
+            <p className="text-white/60">
               Click on the service cards above to start comparing features and pricing
             </p>
           </div>

@@ -106,8 +106,12 @@ const CultureShowcase = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 overflow-hidden">
+      {/* Subtle accent glow */}
+      <div aria-hidden className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-primary/15 blur-[160px]" />
+      <div aria-hidden className="absolute bottom-1/3 right-0 w-[400px] h-[400px] rounded-full bg-secondary/10 blur-[140px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -116,15 +120,17 @@ const CultureShowcase = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Icon name="Heart" size={16} />
-            <span>Our Culture</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm mb-6">
+            <Icon name="Heart" size={14} className="text-accent" />
+            <span className="text-xs font-medium tracking-[0.2em] text-white/80 uppercase">Our Culture</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 tracking-[-0.02em]">
             Values That Drive
-            <span className="block text-secondary">Exponential Results</span>
+            <span className="block font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
+              Exponential Results
+            </span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             Our culture isn't just about how we work—it's about how we think, innovate,
             and deliver transformational growth for our clients.
           </p>
@@ -141,17 +147,17 @@ const CultureShowcase = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-white to-muted/30 rounded-2xl p-6 shadow-lg hover:shadow-brand transition-all duration-300 hover:-translate-y-1 h-full">
-                <div className="w-12 h-12 bg-gradient-brand rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="relative h-full bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl p-6 shadow-brand hover:bg-white/[0.07] hover:border-white/20 hover:shadow-brand-strong transition-all duration-300 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-brand">
                   <Icon name={value?.icon} size={24} className="text-white" />
                 </div>
-                
-                <h3 className="text-xl font-bold text-primary mb-3">{value?.title}</h3>
-                <p className="text-text-secondary mb-4 leading-relaxed">{value?.description}</p>
-                
-                <div className="bg-accent/10 rounded-lg p-3 border-l-4 border-accent">
-                  <p className="text-sm text-text-secondary italic">
-                    <strong>Real Example:</strong> {value?.example}
+
+                <h3 className="text-xl font-bold text-white mb-3">{value?.title}</h3>
+                <p className="text-white/70 mb-4 leading-relaxed">{value?.description}</p>
+
+                <div className="bg-accent/10 border border-accent/25 rounded-lg p-3 border-l-4 border-l-accent">
+                  <p className="text-sm text-white/80 italic">
+                    <strong className="text-accent not-italic">Real Example:</strong> {value?.example}
                   </p>
                 </div>
               </div>
@@ -168,8 +174,8 @@ const CultureShowcase = () => {
           className="mb-20"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-primary mb-4">Behind the Scenes</h3>
-            <p className="text-xl text-text-secondary">
+            <h3 className="font-display text-3xl font-bold text-white mb-4">Behind the Scenes</h3>
+            <p className="text-xl text-white/70">
               Authentic moments that showcase our collaborative spirit and passion for growth.
             </p>
           </div>
@@ -184,17 +190,17 @@ const CultureShowcase = () => {
                 viewport={{ once: true }}
                 className="group cursor-pointer"
               >
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-brand transition-all duration-300 hover:-translate-y-2">
+                <div className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-brand hover:bg-white/[0.07] hover:border-white/20 hover:shadow-brand-strong transition-all duration-300 hover:-translate-y-2">
                   <div className="aspect-video overflow-hidden">
                     <Image
                       src={moment?.image}
                       alt={moment?.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-4">
-                    <h4 className="font-bold text-primary mb-2">{moment?.title}</h4>
-                    <p className="text-sm text-text-secondary">{moment?.description}</p>
+                    <h4 className="font-bold text-white mb-2">{moment?.title}</h4>
+                    <p className="text-sm text-white/70 leading-relaxed">{moment?.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -208,11 +214,11 @@ const CultureShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12"
+          className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-primary mb-4">Industry Recognition</h3>
-            <p className="text-xl text-text-secondary">
+            <h3 className="font-display text-3xl font-bold text-white mb-4">Industry Recognition</h3>
+            <p className="text-xl text-white/70">
               Our expertise and results have earned recognition from industry leaders and media.
             </p>
           </div>
@@ -227,13 +233,13 @@ const CultureShowcase = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <Icon name={signal?.icon} size={24} className="text-primary" />
+                <div className="w-16 h-16 bg-accent/15 border border-accent/30 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                  <Icon name={signal?.icon} size={24} className="text-accent" />
                 </div>
-                <h4 className="font-bold text-primary mb-4">{signal?.title}</h4>
+                <h4 className="font-bold text-white mb-4">{signal?.title}</h4>
                 <ul className="space-y-2">
                   {signal?.items?.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-sm text-text-secondary">
+                    <li key={itemIndex} className="text-sm text-white/70 leading-relaxed">
                       {item}
                     </li>
                   ))}

@@ -51,8 +51,12 @@ const OriginStory = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 overflow-hidden">
+      {/* Subtle accent glow */}
+      <div aria-hidden className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[140px]" />
+      <div aria-hidden className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-accent/10 blur-[140px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -61,14 +65,14 @@ const OriginStory = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Icon name="BookOpen" size={16} />
-            <span>Our Origin Story</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-sm mb-6">
+            <Icon name="BookOpen" size={14} className="text-accent" />
+            <span className="text-xs font-medium tracking-[0.2em] text-white/80 uppercase">Our Origin Story</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            Why DESCALE Exists
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 tracking-[-0.02em]">
+            Why <span className="font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">DESCALE</span> Exists
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             Born from the frustration of watching brilliant brands settle for incremental growth
             when they deserved exponential transformation.
           </p>
@@ -80,38 +84,42 @@ const OriginStory = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12 mb-20"
+          className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-20 shadow-brand-lg"
         >
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-primary mb-4 flex items-center">
-                  <Icon name="AlertTriangle" size={24} className="mr-3 text-accent" />
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                  <span className="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center mr-3">
+                    <Icon name="AlertTriangle" size={20} className="text-accent" />
+                  </span>
                   {founderStory?.challenge}
                 </h3>
-                <p className="text-text-secondary leading-relaxed">
+                <p className="text-white/75 leading-relaxed">
                   {founderStory?.insight}
                 </p>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-secondary mb-4 flex items-center">
-                  <Icon name="Zap" size={24} className="mr-3 text-accent" />
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                  <span className="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center mr-3">
+                    <Icon name="Zap" size={20} className="text-accent" />
+                  </span>
                   {founderStory?.solution}
                 </h3>
-                <p className="text-text-secondary leading-relaxed">
+                <p className="text-white/75 leading-relaxed">
                   {founderStory?.approach}
                 </p>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-brand-lg">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-brand-lg border border-white/10">
                 <Image
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop"
                   alt="Team collaboration and strategic planning session"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-accent text-white p-4 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-accent to-primary text-white p-4 rounded-xl shadow-brand-lg">
                 <Icon name="Target" size={32} />
               </div>
             </div>
@@ -121,7 +129,7 @@ const OriginStory = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Center line on md+, left line on mobile */}
-          <div className="absolute md:left-1/2 left-4 transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-secondary rounded-full"></div>
+          <div className="absolute md:left-1/2 left-4 transform md:-translate-x-1/2 w-px h-full bg-gradient-to-b from-accent via-primary to-secondary opacity-60"></div>
 
           <div className="space-y-10 md:space-y-16">
             {storyMilestones?.map((milestone, index) => (
@@ -133,32 +141,32 @@ const OriginStory = () => {
                 viewport={{ once: true }}
                 className={`flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
-                {/* Card — full width on mobile (with pl-12 to clear left line), half on md+ */}
+                {/* Card */}
                 <div
                   className={`w-full md:w-1/2 pl-12 md:pl-0 ${
                     index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
                   }`}
                 >
-                  <div className="bg-white rounded-xl p-5 sm:p-6 shadow-lg border border-border hover:shadow-brand transition-all duration-300">
+                  <div className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-xl p-5 sm:p-6 shadow-brand hover:bg-white/[0.07] hover:border-white/20 transition-all duration-300">
                     <div className={`flex items-center gap-3 mb-3 sm:mb-4 ${
                       index % 2 === 0 ? 'md:flex-row-reverse md:justify-start' : ''
                     }`}>
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-brand rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center flex-shrink-0 shadow-brand">
                         <Icon name={milestone?.icon} size={22} className="text-white" />
                       </div>
                       <div>
-                        <span className="text-xl sm:text-2xl font-bold text-primary">{milestone?.year}</span>
-                        <h3 className="text-base sm:text-xl font-semibold text-text-primary">{milestone?.title}</h3>
+                        <span className="text-xl sm:text-2xl font-bold text-accent font-display">{milestone?.year}</span>
+                        <h3 className="text-base sm:text-xl font-semibold text-white">{milestone?.title}</h3>
                       </div>
                     </div>
-                    <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
+                    <p className="text-sm sm:text-base text-white/70 leading-relaxed">
                       {milestone?.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Dot — positioned absolutely on mobile (over left line), centered between halves on md+ */}
-                <div className="absolute md:relative md:z-10 left-4 md:left-auto -translate-x-1/2 md:translate-x-0 w-6 h-6 bg-white border-4 border-primary rounded-full shadow-lg"></div>
+                {/* Dot */}
+                <div className="absolute md:relative md:z-10 left-4 md:left-auto -translate-x-1/2 md:translate-x-0 w-5 h-5 bg-[#050505] border-2 border-accent rounded-full shadow-[0_0_20px_rgba(198,90,46,0.6)]"></div>
 
                 <div className="hidden md:block md:w-1/2"></div>
               </motion.div>

@@ -30,10 +30,10 @@ const AboutExperience = () => {
         <meta name="twitter:description" content="Meet the team behind exponential growth results. Strategic precision meets creative boldness." />
       </Helmet>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-[#050505] text-white noise-overlay relative">
         <Header />
-        
-        <main className="pt-16">
+
+        <main className="pt-16 relative">
           <HeroSection />
           <OriginStory />
           <TeamShowcase />
