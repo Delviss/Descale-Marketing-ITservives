@@ -4,6 +4,8 @@ function Image({
   src,
   alt = "Image Name",
   className = "",
+  loading = "lazy",
+  decoding = "async",
   ...props
 }) {
 
@@ -12,8 +14,12 @@ function Image({
       src={src}
       alt={alt}
       className={className}
+      loading={loading}
+      decoding={decoding}
       onError={(e) => {
-        e.target.src = "/assets/images/no_image.png"
+        if (e.target.src.indexOf('no_image.png') === -1) {
+          e.target.src = "/assets/images/no_image.png";
+        }
       }}
       {...props}
     />
