@@ -1,7 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
+import { routePrefetch } from '../../Routes';
+
+const prefetched = new Set();
+const warm = (path) => {
+  const fn = routePrefetch?.[path];
+  if (!fn || prefetched.has(path)) return;
+  prefetched.add(path);
+  try {
+    const p = fn();
+    if (p && typeof p.then === 'function') p.catch(() => prefetched.delete(path));
+  } catch (_) {
+    prefetched.delete(path);
+  }
+};
 
 const Header = ({ className = '' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,6 +93,9 @@ const Header = ({ className = '' }) => {
               <Link
                 key={item?.path}
                 to={item?.path}
+                onMouseEnter={() => warm(item?.path)}
+                onFocus={() => warm(item?.path)}
+                onTouchStart={() => warm(item?.path)}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-brand-fast hover-lift ${
                   isActivePath(item)
                     ? 'bg-primary text-primary-foreground shadow-brand'
@@ -97,6 +114,8 @@ const Header = ({ className = '' }) => {
               size="sm"
               iconName="ArrowUpRight"
               iconPosition="right"
+              onMouseEnter={() => warm('/get-started')}
+              onFocus={() => warm('/get-started')}
               onClick={() => navigate('/get-started')}
               className="hover-brand"
             >
@@ -134,6 +153,7 @@ const Header = ({ className = '' }) => {
               <Link
                 key={item?.path}
                 to={item?.path}
+                onTouchStart={() => warm(item?.path)}
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-brand-fast ${
                   isActivePath(item)
                     ? 'bg-primary text-primary-foreground shadow-brand'
@@ -148,6 +168,7 @@ const Header = ({ className = '' }) => {
             <div className="pt-4 border-t border-border">
               <Link
                 to="/get-started"
+                onTouchStart={() => warm('/get-started')}
                 className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg text-base font-semibold bg-primary text-primary-foreground shadow-brand hover:opacity-95 transition-all duration-brand-fast"
               >
                 <span>Get Started</span>

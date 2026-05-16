@@ -2,6 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
+import { routePrefetch } from '../../Routes';
+
+const prefetched = new Set();
+const warm = (path) => {
+  const fn = routePrefetch?.[path];
+  if (!fn || prefetched.has(path)) return;
+  prefetched.add(path);
+  try {
+    const p = fn();
+    if (p && typeof p.then === 'function') p.catch(() => prefetched.delete(path));
+  } catch (_) {
+    prefetched.delete(path);
+  }
+};
 
 const footerLinks = {
   marketing: [
@@ -107,7 +121,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
-              Growth systems, cinematic creative, and analytics infrastructure that compound revenue — not ad spend.
+              Growth systems, cinematic creative, and analytics infrastructure that compound revenue, not ad spend.
             </p>
           </div>
 
@@ -116,7 +130,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.marketing.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>
@@ -130,7 +144,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.it.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>
@@ -144,7 +158,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.resources.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>

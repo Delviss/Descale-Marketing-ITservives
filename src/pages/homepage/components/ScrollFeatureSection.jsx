@@ -8,7 +8,7 @@ const features = [
     index: '01',
     title: 'Growth Systems',
     description:
-      'We architect revenue engines — not just campaigns. Positioning, activation, and retention loops wired into a single compounding system.',
+      'We architect revenue engines, not just campaigns. Positioning, activation, and retention loops wired into a single compounding system.',
     icon: 'LineChart',
     stat: '12x',
     statLabel: 'Median ARR growth',

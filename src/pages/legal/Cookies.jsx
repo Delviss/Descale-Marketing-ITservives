@@ -4,9 +4,9 @@ import LegalLayout from './_LegalLayout';
 const cookieTable = [
   { name: 'session_id', type: 'Strictly necessary', purpose: 'Maintains your session across pages.', duration: 'Session', provider: 'Travomate Sp. z o.o.' },
   { name: 'cookie_consent', type: 'Strictly necessary', purpose: 'Stores your cookie preferences.', duration: '12 months', provider: 'Travomate Sp. z o.o.' },
-  { name: '_ga, _ga_*', type: 'Analytics', purpose: 'Google Analytics 4 — anonymised usage statistics.', duration: '14 months', provider: 'Google LLC' },
+  { name: '_ga, _ga_*', type: 'Analytics', purpose: 'Google Analytics 4, anonymised usage statistics.', duration: '14 months', provider: 'Google LLC' },
   { name: 'plausible_*', type: 'Analytics', purpose: 'Privacy-friendly aggregated analytics.', duration: '24 hours', provider: 'Plausible Insights' },
-  { name: 'ph_*', type: 'Product analytics', purpose: 'PostHog — product usage and funnel measurement.', duration: '12 months', provider: 'PostHog Inc.' },
+  { name: 'ph_*', type: 'Product analytics', purpose: 'PostHog, product usage and funnel measurement.', duration: '12 months', provider: 'PostHog Inc.' },
   { name: '_fbp, _fbc', type: 'Marketing', purpose: 'Meta (Facebook) ad attribution.', duration: '90 days', provider: 'Meta Platforms Ireland Ltd' },
   { name: '_gcl_au', type: 'Marketing', purpose: 'Google Ads conversion linker.', duration: '90 days', provider: 'Google LLC' },
   { name: 'li_at, lidc, bcookie', type: 'Marketing', purpose: 'LinkedIn Insight Tag for B2B campaign measurement.', duration: 'Up to 12 months', provider: 'LinkedIn Ireland' },
@@ -19,7 +19,7 @@ const sections = [
       <p>
         Cookies are small text files placed on your device when you visit a website. They allow a site to
         recognise your device, store preferences, and measure usage. We also use similar technologies such
-        as local storage, pixels, and SDKs — referred to collectively as &ldquo;cookies&rdquo; in this Policy.
+        as local storage, pixels, and SDKs, referred to collectively as &ldquo;cookies&rdquo; in this Policy.
       </p>
     ),
   },
@@ -28,7 +28,7 @@ const sections = [
     body: (
       <p>
         Strictly necessary cookies are loaded under our legitimate interest (Art. 6(1)(f) GDPR) and Article
-        173(3) of the Polish Telecommunications Act. All other cookies — analytics, product, marketing —
+        173(3) of the Polish Telecommunications Act. All other cookies, analytics, product, marketing -
         are loaded only after you give explicit, informed consent through our cookie banner, in line with
         the EU ePrivacy Directive 2002/58/EC and the IAB Europe TCF v2.2 standard. You can withdraw consent
         at any time by clicking &ldquo;Cookie Preferences&rdquo; in the footer.
@@ -44,10 +44,10 @@ const sections = [
           require your consent.
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Strictly necessary</strong> — required to operate the website (session, security, consent storage).</li>
-          <li><strong>Analytics</strong> — anonymous, aggregated usage statistics (Google Analytics 4 with IP anonymisation, Plausible).</li>
-          <li><strong>Product</strong> — funnel and feature usage (PostHog) used to improve the product.</li>
-          <li><strong>Marketing</strong> — attribution and remarketing (Meta, Google Ads, LinkedIn).</li>
+          <li><strong>Strictly necessary</strong>: required to operate the website (session, security, consent storage).</li>
+          <li><strong>Analytics</strong>: anonymous, aggregated usage statistics (Google Analytics 4 with IP anonymisation, Plausible).</li>
+          <li><strong>Product</strong>: funnel and feature usage (PostHog) used to improve the product.</li>
+          <li><strong>Marketing</strong>: attribution and remarketing (Meta, Google Ads, LinkedIn).</li>
         </ul>
       </>
     ),

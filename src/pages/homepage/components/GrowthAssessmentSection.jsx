@@ -73,7 +73,7 @@ const GrowthAssessmentSection = () => {
     try {
       await sendInquiryEmail({
         formType: 'homepage-growth-assessment',
-        subject: `Growth Assessment — ${formData?.company || 'New inquiry'}`,
+        subject: `Growth Assessment: ${formData?.company || 'New inquiry'}`,
         data: {
           company: formData?.company,
           industry:

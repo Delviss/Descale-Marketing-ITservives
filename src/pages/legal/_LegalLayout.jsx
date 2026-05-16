@@ -17,7 +17,7 @@ const LegalLayout = ({ title, description, lastUpdated, children, jsonLd }) => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>
-        <title>{`${title} — Descale Agency`}</title>
+        <title>{`${title} | Descale Agency`}</title>
         <meta name="description" content={description} />
         <meta name="robots" content="index, follow" />
         {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}

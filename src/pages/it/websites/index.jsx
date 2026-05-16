@@ -11,7 +11,7 @@ const features = [
   {
     icon: 'Sparkles',
     title: 'Marketing sites',
-    description: 'Cinematic motion, sub-2s LCP, perfect Core Web Vitals — and copy that converts. Built to rank in Google and to be quoted by ChatGPT.',
+    description: 'Cinematic motion, sub-2s LCP, perfect Core Web Vitals, and copy that converts. Built to rank in Google and to be quoted by ChatGPT.',
   },
   {
     icon: 'ShoppingBag',
@@ -21,7 +21,7 @@ const features = [
   {
     icon: 'PenSquare',
     title: 'Content & CMS',
-    description: 'Sanity, Contentful, or self-hosted Payload — wired into a workflow your marketing team actually uses. No tickets to publish a blog post.',
+    description: 'Sanity, Contentful, or self-hosted Payload, wired into a workflow your marketing team actually uses. No tickets to publish a blog post.',
   },
   {
     icon: 'Search',
@@ -31,7 +31,7 @@ const features = [
   {
     icon: 'Globe2',
     title: 'i18n & multi-region',
-    description: 'Locale routing, translated content workflows, and edge delivery — so a site in Warsaw loads as fast in São Paulo and Singapore.',
+    description: 'Locale routing, translated content workflows, and edge delivery, so a site in Warsaw loads as fast in São Paulo and Singapore.',
   },
   {
     icon: 'Gauge',
@@ -65,19 +65,19 @@ const stack = [
 
 const steps = [
   { title: 'Strategy & narrative', description: 'Positioning, message hierarchy, and the three soundbites your audience will repeat. Story before pixels.', duration: 'Week 1' },
-  { title: 'Design & motion', description: 'Art direction, component library, and motion language. We ship a Figma file and a living Storybook in parallel.', duration: 'Week 2–3' },
-  { title: 'Build & integrate', description: 'Engineering against a real CMS with real content. SEO, structured data, and analytics are not a phase-two concern.', duration: 'Week 4–6' },
-  { title: 'Launch & optimise', description: 'A/B tests, heatmaps, and a 30-day optimisation sprint after go-live. Sites compound when you treat them like products.', duration: 'Week 7–8' },
+  { title: 'Design & motion', description: 'Art direction, component library, and motion language. We ship a Figma file and a living Storybook in parallel.', duration: 'Week 2-3' },
+  { title: 'Build & integrate', description: 'Engineering against a real CMS with real content. SEO, structured data, and analytics are not a phase-two concern.', duration: 'Week 4-6' },
+  { title: 'Launch & optimise', description: 'A/B tests, heatmaps, and a 30-day optimisation sprint after go-live. Sites compound when you treat them like products.', duration: 'Week 7-8' },
 ];
 
 const faq = [
   {
     q: 'How long does a marketing site take?',
-    a: 'A high-end marketing site or product page lands in 6–8 weeks. A larger marketing platform with multi-locale, blog, customer stories, and product pages typically takes 10–12 weeks.',
+    a: 'A high-end marketing site or product page lands in 6-8 weeks. A larger marketing platform with multi-locale, blog, customer stories, and product pages typically takes 10-12 weeks.',
   },
   {
     q: 'Will my site rank in ChatGPT, Perplexity, and Google?',
-    a: 'Yes — we engineer for both. Classic SEO (technical hygiene, schema.org, content depth) plus GEO (Generative Engine Optimization): clean semantic HTML, factual answer blocks, JSON-LD, and content structured for LLM citation. Most clients see AI-search traffic within 60 days.',
+    a: 'Yes, we engineer for both. Classic SEO (technical hygiene, schema.org, content depth) plus GEO (Generative Engine Optimization): clean semantic HTML, factual answer blocks, JSON-LD, and content structured for LLM citation. Most clients see AI-search traffic within 60 days.',
   },
   {
     q: 'Can I edit content myself?',
@@ -85,11 +85,11 @@ const faq = [
   },
   {
     q: 'What about Webflow or Framer?',
-    a: 'Great for speed and simple sites. We build Webflow and Framer too — but if you need custom motion, deep integrations, multi-locale, or commerce, Next.js + Sanity is faster long-term and cheaper to maintain.',
+    a: 'Great for speed and simple sites. We build Webflow and Framer too, but if you need custom motion, deep integrations, multi-locale, or commerce, Next.js + Sanity is faster long-term and cheaper to maintain.',
   },
   {
     q: 'Do you do redesigns of existing sites?',
-    a: 'Yes — we audit your current site, preserve the URLs and SEO equity, and ship a redesign in phases so you do not nuke organic traffic on launch day.',
+    a: 'Yes, we audit your current site, preserve the URLs and SEO equity, and ship a redesign in phases so you do not nuke organic traffic on launch day.',
   },
 ];
 
@@ -116,23 +116,23 @@ const ITWebsites = () => {
     },
     areaServed: ['EU', 'US', 'UK', 'Poland'],
     description:
-      'Marketing sites, e-commerce, and CMS builds engineered for performance and AI search. Next.js, Sanity, Shopify. 6–8 week launch.',
+      'Marketing sites, e-commerce, and CMS builds engineered for performance and AI search. Next.js, Sanity, Shopify. 6-8 week launch.',
   };
 
   return (
     <ITPageLayout
-      title="Websites — High-conversion Marketing Sites & Headless E-commerce | Descale Agency"
-      description="Marketing sites, e-commerce, and CMS builds engineered for performance, SEO, and GEO. Next.js, Sanity, Shopify. 6–8 week launch."
-      ogTitle="Website Engineering — Descale Agency"
+      title="Websites | High-conversion Marketing Sites & Headless E-commerce | Descale Agency"
+      description="Marketing sites, e-commerce, and CMS builds engineered for performance, SEO, and GEO. Next.js, Sanity, Shopify. 6-8 week launch."
+      ogTitle="Website Engineering | Descale Agency"
       jsonLd={jsonLd}
     >
       <SubHero
         eyebrow="Websites"
         title="Sites that rank,"
         italicWord="convert and compound."
-        description="Marketing sites, e-commerce, and CMS builds with cinematic motion and sub-2-second LCP. Engineered to rank in Google — and to be quoted by ChatGPT and Perplexity."
+        description="Marketing sites, e-commerce, and CMS builds with cinematic motion and sub-2-second LCP. Engineered to rank in Google, and to be quoted by ChatGPT and Perplexity."
         stats={[
-          { stat: '6–8wk', label: 'Marketing site launch' },
+          { stat: '6-8wk', label: 'Marketing site launch' },
           { stat: '95+', label: 'Lighthouse score' },
           { stat: '<2s', label: 'Largest contentful paint' },
           { stat: 'GEO', label: 'AI-search ready' },
@@ -150,14 +150,14 @@ const ITWebsites = () => {
       <StackSection
         title="Tooling that"
         italicWord="ages well."
-        intro="We pick stacks your team can actually maintain in three years — not the framework that won Twitter this month."
+        intro="We pick stacks your team can actually maintain in three years, not the framework that won Twitter this month."
         groups={stack}
       />
 
       <ProcessTimeline
         title="From brief"
         italicWord="to launch in 8 weeks."
-        intro="A focused, low-overhead engagement model: strategy, design, build, ship — with content and SEO baked in from week one, not bolted on at the end."
+        intro="A focused, low-overhead engagement model: strategy, design, build, ship, with content and SEO baked in from week one, not bolted on at the end."
         steps={steps}
       />
 

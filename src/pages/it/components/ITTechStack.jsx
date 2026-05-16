@@ -11,7 +11,7 @@ const ITTechStack = () => {
     <section className="relative bg-muted border-y border-black/5 py-14 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <p className="text-center text-xs font-medium tracking-[0.3em] text-foreground/50 uppercase mb-8">
-          A modern stack — opinionated, but never dogmatic
+          A modern stack, opinionated, but never dogmatic
         </p>
       </div>
       <div className="relative">

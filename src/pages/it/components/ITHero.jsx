@@ -48,7 +48,7 @@ const ITHero = () => {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="mt-8 max-w-2xl text-lg md:text-xl text-foreground/70 leading-relaxed"
         >
-          Platforms, applications, design systems, and websites — built by a team that ships
+          Platforms, applications, design systems, and websites, built by a team that ships
           cinematic experiences and revenue-grade engineering in the same sprint.
         </motion.p>
         <motion.div

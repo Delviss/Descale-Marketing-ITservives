@@ -77,7 +77,7 @@ const ReelCard = ({ reel, index, onOpen }) => {
       onClick={() => onOpen(reel)}
       className="group relative aspect-[3/4] rounded-3xl overflow-hidden border border-black/5 shadow-xl cursor-pointer"
     >
-      {/* Poster image — Ken Burns zoom on hover */}
+      {/* Poster image, Ken Burns zoom on hover */}
       <motion.img
         src={reel.image}
         alt={reel.title}
@@ -87,7 +87,7 @@ const ReelCard = ({ reel, index, onOpen }) => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Looping video — fades in on hover */}
+      {/* Looping video, fades in on hover */}
       <video
         ref={videoRef}
         src={reel.video}
@@ -152,7 +152,7 @@ const ReelCard = ({ reel, index, onOpen }) => {
         </span>
       </div>
 
-      {/* Play icon — grows on hover */}
+      {/* Play icon, grows on hover */}
       <motion.div
         animate={hovered ? { scale: 1.18 } : { scale: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
@@ -307,7 +307,7 @@ const ScrollVideoShowcase = () => {
               </span>
             </h2>
             <p className="mt-5 text-base md:text-lg text-black/60 max-w-xl leading-relaxed">
-              Three short reels — three different industries — one shared playbook.
+              Three short reels, three different industries, one shared playbook.
               Hover to preview, click to watch the full story.
             </p>
           </div>

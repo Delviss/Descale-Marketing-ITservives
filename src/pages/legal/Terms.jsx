@@ -66,8 +66,8 @@ const sections = [
     title: '5. Intellectual property',
     body: (
       <p>
-        All content on the website — including text, graphics, logos, the &ldquo;Descale&rdquo; mark, source
-        code, layouts and motion design — is owned by or licensed to Travomate Sp. z o.o. and is protected
+        All content on the website, including text, graphics, logos, the &ldquo;Descale&rdquo; mark, source
+        code, layouts and motion design, is owned by or licensed to Travomate Sp. z o.o. and is protected
         by Polish and international copyright law (Ustawa o prawie autorskim i prawach pokrewnych of 4
         February 1994), trademark law, and the EU Copyright Directive (EU) 2019/790. You may view and share
         content for personal, non-commercial purposes with attribution. Any other use requires our prior
@@ -96,7 +96,7 @@ const sections = [
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>The right to withdraw from a distance contract within 14 days without giving any reason, under the Polish Consumer Rights Act of 30 May 2014 (Ustawa o prawach konsumenta) and EU Directive 2011/83/EU.</li>
-          <li>Statutory warranty (rękojmia) for non-conformity of services with the contract under Articles 556–576 of the Polish Civil Code.</li>
+          <li>Statutory warranty (rękojmia) for non-conformity of services with the contract under Articles 556-576 of the Polish Civil Code.</li>
           <li>The right to use out-of-court dispute resolution via the EU Online Dispute Resolution platform at <a className="text-primary hover:underline" href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.</li>
         </ul>
         <p>
@@ -124,7 +124,7 @@ const sections = [
       <p>
         Disputes will be resolved primarily through good-faith negotiation. Consumers may use the European
         Commission's Online Dispute Resolution platform. Any dispute not resolved through negotiation will
-        be subject to the exclusive jurisdiction of the competent court in Warsaw, Poland — except for
+        be subject to the exclusive jurisdiction of the competent court in Warsaw, Poland, except for
         consumer disputes, which follow Polish jurisdictional rules in favour of the consumer.
       </p>
     ),

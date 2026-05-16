@@ -107,7 +107,7 @@ const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
 
     const result = await sendInquiryEmail({
       formType: `contact-${formType}`,
-      subject: `${formTypeLabels[formType] || 'Contact'} — ${formData?.company || formData?.name}`,
+      subject: `${formTypeLabels[formType] || 'Contact'}: ${formData?.company || formData?.name}`,
       data: {
         requestType: formTypeLabels[formType] || formType,
         name: formData?.name,
@@ -130,7 +130,7 @@ const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
     if (result?.delivered) {
       alert("Thank you! We'll be in touch soon.");
     } else {
-      alert("Your email client has opened with the request — hit send and we'll be in touch soon.");
+      alert("Your email client has opened with the request, hit send and we'll be in touch soon.");
     }
     setShowForm(false);
   };

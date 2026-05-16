@@ -13,7 +13,7 @@ const teamMembers = [
     expertise: 'Growth Strategy & Venture Building',
     tags: ['Growth Strategy', 'Venture Building', 'Brand'],
     philosophy:
-      'Scaling what truly matters means saying no to noise. Every decision must compound — in revenue, in trust, in clarity.',
+      'Scaling what truly matters means saying no to noise. Every decision must compound, in revenue, in trust, in clarity.',
     bio:
       "Elvis is the visionary leader behind DESCALE, driving the company's mission to scale what matters through innovative marketing and strategic partnerships worldwide.",
     favoriteTactic: 'Compound Growth Loops',
@@ -35,7 +35,7 @@ const teamMembers = [
     philosophy:
       'Operations is where strategy meets reality. We turn ambition into repeatable systems that ship and scale.',
     bio:
-      'Divin leads operations across DESCALE — orchestrating marketing, engineering, and delivery into one disciplined growth engine for every client we serve.',
+      'Divin leads operations across DESCALE, orchestrating marketing, engineering, and delivery into one disciplined growth engine for every client we serve.',
     favoriteTactic: 'Systemized Execution Playbooks',
     achievements: [
       'Leads cross-functional operations across marketing and engineering',
@@ -75,7 +75,7 @@ const TeamShowcase = () => {
             </span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            A focused leadership team — strategic precision meets operational discipline — united by one mission:
+            A focused leadership team, strategic precision meets operational discipline, united by one mission:
             scaling what truly matters for ambitious brands.
           </p>
         </motion.div>

@@ -15,7 +15,7 @@ const steps = [
     index: '02',
     title: 'Design',
     description:
-      'High-fidelity prototypes wired to a design system. Motion, states, edge cases — designed before a line of code is written.',
+      'High-fidelity prototypes wired to a design system. Motion, states, edge cases, designed before a line of code is written.',
     icon: 'PenTool',
     deliverables: ['UX flows', 'Design system', 'Interactive prototype'],
   },

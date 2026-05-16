@@ -31,15 +31,15 @@ const ITHome = () => {
   return (
     <div className="dark min-h-screen bg-background text-foreground">
       <Helmet>
-        <title>IT Services — Descale Agency · Platforms, apps, design, websites.</title>
+        <title>IT Services | Descale Agency · Platforms, apps, design, websites.</title>
         <meta
           name="description"
           content="End-to-end IT solutions: platforms, applications, design systems, and websites engineered to scale. Built by a senior team, shipped in 14 weeks."
         />
-        <meta property="og:title" content="IT Services — Descale Agency" />
+        <meta property="og:title" content="IT Services | Descale Agency" />
         <meta
           property="og:description"
-          content="Platforms, applications, design, and websites — engineered to scale."
+          content="Platforms, applications, design, and websites, engineered to scale."
         />
       </Helmet>
       <Header />

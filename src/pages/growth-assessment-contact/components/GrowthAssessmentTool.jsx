@@ -147,7 +147,7 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
 
     sendInquiryEmail({
       formType: 'growth-assessment',
-      subject: `Growth Assessment — score ${score}/100`,
+      subject: `Growth Assessment: score ${score}/100`,
       data: {
         currentRevenue: labelFor('currentRevenue', formData?.currentRevenue),
         growthTarget: labelFor('growthTarget', formData?.growthTarget),

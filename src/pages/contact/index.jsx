@@ -43,12 +43,12 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>
-        <title>Contact — Descale Agency · Warsaw, Poland</title>
+        <title>Contact | Descale Agency · Warsaw, Poland</title>
         <meta
           name="description"
-          content="Talk to Descale Agency. Marketing systems and IT engineering, headquartered in Warsaw, Poland — delivering across the EU, UK, and US."
+          content="Talk to Descale Agency. Marketing systems and IT engineering, headquartered in Warsaw, Poland, delivering across the EU, UK, and US."
         />
-        <meta property="og:title" content="Contact — Descale Agency" />
+        <meta property="og:title" content="Contact | Descale Agency" />
         <meta
           property="og:description"
           content="Talk to a senior team in Warsaw. Marketing + IT delivery across EU, UK, and US."
@@ -92,7 +92,7 @@ const Contact = () => {
               className="mt-8 max-w-2xl text-lg md:text-xl text-foreground/70 leading-relaxed"
             >
               Headquartered in Warsaw, Poland. Delivering across the EU, UK, and US. Send us a brief, book a
-              call, or stop by the office — whichever moves the project forward fastest.
+              call, or stop by the office, whichever moves the project forward fastest.
             </motion.p>
 
             <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -131,7 +131,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-display text-xl font-bold mb-2">Phone</h3>
                 <p className="text-foreground/70 text-sm mb-4">
-                  Mon–Fri, 09:00–18:00 CET. Calls in English, Polish, French and Spanish.
+                  Mon-Fri, 09:00-18:00 CET. Calls in English, Polish, French and Spanish.
                 </p>
                 <a
                   href="tel:+48506762423"

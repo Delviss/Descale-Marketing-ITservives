@@ -31,17 +31,17 @@ const FAQS = [
   {
     category: 'services',
     q: 'What services does DESCALE offer?',
-    a: 'Marketing: brand strategy, performance marketing, creative & content, social media, analytics & growth engineering. IT: platforms, applications, websites, and product design — fully integrated.',
+    a: 'Marketing: brand strategy, performance marketing, creative & content, social media, analytics & growth engineering. IT: platforms, applications, websites, and product design, fully integrated.',
   },
   {
     category: 'services',
     q: 'How is pricing structured?',
-    a: 'Marketing engagements typically start at $6k–$15k per month depending on scope. IT projects are scoped per deliverable. Each proposal includes a fixed scope, milestones, and success metrics.',
+    a: 'Marketing engagements typically start at $6k-$15k per month depending on scope. IT projects are scoped per deliverable. Each proposal includes a fixed scope, milestones, and success metrics.',
   },
   {
     category: 'process',
     q: 'How long does a typical engagement take?',
-    a: 'Most marketing campaigns launch within 2–4 weeks. IT builds ship in 8–14 weeks depending on complexity. We share weekly progress and a public roadmap.',
+    a: 'Most marketing campaigns launch within 2-4 weeks. IT builds ship in 8-14 weeks depending on complexity. We share weekly progress and a public roadmap.',
   },
   {
     category: 'process',
@@ -51,7 +51,7 @@ const FAQS = [
   {
     category: 'it',
     q: 'What stack do you use for IT projects?',
-    a: 'Modern, type-safe stacks: Next.js / React, Node.js, Python, Postgres, and managed cloud (AWS/Vercel). We choose the right tool for the problem — never the trendiest one.',
+    a: 'Modern, type-safe stacks: Next.js / React, Node.js, Python, Postgres, and managed cloud (AWS/Vercel). We choose the right tool for the problem, never the trendiest one.',
   },
   {
     category: 'it',
@@ -61,7 +61,7 @@ const FAQS = [
   {
     category: 'billing',
     q: 'How do contracts and payments work?',
-    a: 'Monthly retainers are net-15 invoiced at the start of each cycle. Project work uses milestone billing. All contracts include a 30-day exit clause — we earn the renewal.',
+    a: 'Monthly retainers are net-15 invoiced at the start of each cycle. Project work uses milestone billing. All contracts include a 30-day exit clause, we earn the renewal.',
   },
   {
     category: 'billing',
@@ -115,10 +115,10 @@ const HelpPage = () => {
   return (
     <>
       <Helmet>
-        <title>Help Center — Descale Agency</title>
+        <title>Help Center | Descale Agency</title>
         <meta
           name="description"
-          content="Find answers about working with Descale Agency — services, pricing, process, IT engineering, billing, and support."
+          content="Find answers about working with Descale Agency, services, pricing, process, IT engineering, billing, and support."
         />
       </Helmet>
 
@@ -252,7 +252,7 @@ const HelpPage = () => {
                     No matches for "{query}"
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Try a different search term or reach out — we usually reply within 2 business hours.
+                    Try a different search term or reach out, we usually reply within 2 business hours.
                   </p>
                   <Button
                     variant="default"

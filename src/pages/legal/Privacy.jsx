@@ -42,10 +42,10 @@ const sections = [
       <>
         <p>We rely on the following legal bases under Article 6 GDPR:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Consent (Art. 6(1)(a))</strong> — for non-essential cookies, marketing emails, and call recordings.</li>
-          <li><strong>Contract performance (Art. 6(1)(b))</strong> — to respond to enquiries, deliver services, and invoice clients.</li>
-          <li><strong>Legal obligation (Art. 6(1)(c))</strong> — to comply with Polish accounting, tax (Ustawa o rachunkowości) and AML obligations.</li>
-          <li><strong>Legitimate interest (Art. 6(1)(f))</strong> — to operate, secure and improve our website, prevent fraud, and pursue lawful business interests, having balanced these against your rights.</li>
+          <li><strong>Consent (Art. 6(1)(a))</strong>: for non-essential cookies, marketing emails, and call recordings.</li>
+          <li><strong>Contract performance (Art. 6(1)(b))</strong>: to respond to enquiries, deliver services, and invoice clients.</li>
+          <li><strong>Legal obligation (Art. 6(1)(c))</strong>: to comply with Polish accounting, tax (Ustawa o rachunkowości) and AML obligations.</li>
+          <li><strong>Legitimate interest (Art. 6(1)(f))</strong>: to operate, secure and improve our website, prevent fraud, and pursue lawful business interests, having balanced these against your rights.</li>
         </ul>
       </>
     ),
@@ -97,10 +97,10 @@ const sections = [
           <li>Rectify inaccurate or incomplete data (Art. 16).</li>
           <li>Erasure / be forgotten (Art. 17), where applicable.</li>
           <li>Restrict processing (Art. 18).</li>
-          <li>Data portability (Art. 20) — receive your data in a structured, machine-readable format.</li>
+          <li>Data portability (Art. 20), receive your data in a structured, machine-readable format.</li>
           <li>Object to processing based on legitimate interest, including profiling and direct marketing (Art. 21).</li>
           <li>Withdraw consent at any time without affecting prior lawful processing (Art. 7(3)).</li>
-          <li>Lodge a complaint with the Polish Data Protection Authority — <strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warszawa, www.uodo.gov.pl.</li>
+          <li>Lodge a complaint with the Polish Data Protection Authority, <strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warszawa, www.uodo.gov.pl.</li>
         </ul>
         <p>To exercise any right, write to <a className="text-primary hover:underline" href="mailto:Info@travomate.com.pl">Info@travomate.com.pl</a>. We respond within one month (Art. 12(3) GDPR).</p>
       </>
@@ -175,7 +175,7 @@ const Privacy = () => {
   return (
     <LegalLayout
       title="Privacy Policy"
-      description="How Descale Agency (Travomate Sp. z o.o.) collects, uses and protects your personal data — under the EU GDPR and Polish law."
+      description="How Descale Agency (Travomate Sp. z o.o.) collects, uses and protects your personal data, under the EU GDPR and Polish law."
       lastUpdated="10 May 2026"
       jsonLd={jsonLd}
     >

@@ -14,7 +14,7 @@ const OriginStory = () => {
     {
       year: "2020",
       title: "The Formation",
-      description: `DESCALE was born from the belief that growth isn't about doing more—it's about amplifying what truly matters through strategic precision and creative boldness.`,
+      description: `DESCALE was born from the belief that growth isn't about doing more, it's about amplifying what truly matters through strategic precision and creative boldness.`,
       icon: "Rocket"
     },
     {
@@ -45,7 +45,7 @@ const OriginStory = () => {
 
   const founderStory = {
     challenge: "The Gap We Discovered",
-    insight: `Most agencies focus on incremental improvements—5% here, 10% there. But ambitious brands need exponential growth. They need partners who understand that scaling isn't just about more traffic or more leads; it's about fundamental transformation of how brands connect with their markets.`,
+    insight: `Most agencies focus on incremental improvements, 5% here, 10% there. But ambitious brands need exponential growth. They need partners who understand that scaling isn't just about more traffic or more leads; it's about fundamental transformation of how brands connect with their markets.`,
     solution: "Our \'Aha Moment'",
     approach: `We realized that true scaling happens at the intersection of three forces: strategic precision (knowing exactly what moves the needle), creative boldness (breaking through market noise), and data-driven execution (measuring what matters). This became our foundation.`
   };

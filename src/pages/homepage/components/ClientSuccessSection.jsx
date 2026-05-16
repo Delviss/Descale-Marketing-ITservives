@@ -15,7 +15,7 @@ const ClientSuccessSection = () => {
       id: 1,
       name: "Blitzon Consulting",
       logo: `${base}assets/images/partners/blitzon.png`,
-      industry: "D2D Sales — Munich",
+      industry: "D2D Sales, Munich",
       growth: "#1",
       metric: "D2D Sales Company",
       timeframe: "Munich",
@@ -51,7 +51,7 @@ const ClientSuccessSection = () => {
 
   const testimonials = [
     {
-      quote: "DESCALE didn\'t just scale our campaigns—they transformed our entire approach to growth. The results speak for themselves.",
+      quote: "DESCALE didn\'t just scale our campaigns, they transformed our entire approach to growth. The results speak for themselves.",
       author: "Blitzon Consulting",
       position: "#1 D2D Sales Company, Munich",
       avatar: `${base}assets/images/partners/blitzon.png`

@@ -5,13 +5,13 @@ import Icon from '../../../components/AppIcon';
 const testimonials = [
   {
     quote:
-      "They didn't ship a website — they shipped a system. Two years later it still scales without us touching it.",
+      "They didn't ship a website, they shipped a system. Two years later it still scales without us touching it.",
     author: 'CTO',
     company: 'Series-B SaaS',
   },
   {
     quote:
-      "The design–engineering loop is so tight it feels like one team. We launched in half the time we'd budgeted.",
+      "The design-engineering loop is so tight it feels like one team. We launched in half the time we'd budgeted.",
     author: 'Head of Product',
     company: 'D2C brand',
   },

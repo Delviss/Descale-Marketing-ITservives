@@ -50,14 +50,32 @@ const HeroSection = () => {
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
+    // Skip the parallax mousemove on touch devices and when the user prefers
+    // reduced motion. On desktop, coalesce to rAF and use pointer events so
+    // we are not pushing a state update on every CSS pixel of movement.
+    if (typeof window === 'undefined') return;
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia?.('(pointer: fine)').matches;
+    if (reduceMotion || !finePointer) return;
+
+    let frame = 0;
+    let pendingX = 0;
+    let pendingY = 0;
     const handler = (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-      mouseX.set(x);
-      mouseY.set(y);
+      pendingX = (e.clientX / window.innerWidth - 0.5) * 30;
+      pendingY = (e.clientY / window.innerHeight - 0.5) * 30;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        mouseX.set(pendingX);
+        mouseY.set(pendingY);
+        frame = 0;
+      });
     };
-    window.addEventListener('mousemove', handler);
-    return () => window.removeEventListener('mousemove', handler);
+    window.addEventListener('pointermove', handler, { passive: true });
+    return () => {
+      window.removeEventListener('pointermove', handler);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [mouseX, mouseY]);
 
   return (
@@ -65,7 +83,7 @@ const HeroSection = () => {
       ref={ref}
       className="relative min-h-[100dvh] overflow-hidden bg-[#050505] noise-overlay"
     >
-      {/* Animated gradient mesh — video-style ambient background */}
+      {/* Animated gradient mesh, video-style ambient background */}
       <motion.div
         style={{ y, scale }}
         className="absolute inset-0 bg-mesh-dark"
@@ -175,7 +193,7 @@ const HeroSection = () => {
           className="mt-8 max-w-2xl text-lg md:text-xl text-white/70 leading-relaxed"
         >
           We build growth systems, cinematic creative, and interactive taxi-ad campaigns
-          that compound revenue — not ad spend. Premium marketing for ambitious brands.
+          that compound revenue, not ad spend. Premium marketing for ambitious brands.
         </motion.p>
 
         {/* CTAs */}

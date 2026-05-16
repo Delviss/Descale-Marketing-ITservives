@@ -8,7 +8,7 @@ const studies = [
     type: 'Platform',
     title: 'Multi-tenant SaaS dashboard',
     summary:
-      'A finance ops platform with role-based access, real-time charts, and 99.9% uptime — built and shipped in 14 weeks.',
+      'A finance ops platform with role-based access, real-time charts, and 99.9% uptime, built and shipped in 14 weeks.',
     accent: 'from-primary/30 to-accent/20',
     icon: 'LayoutDashboard',
   },

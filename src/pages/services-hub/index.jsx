@@ -383,7 +383,7 @@ const ServicesHub = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-white noise-overlay relative">
       <Header />
-      {/* Hero Section — cinematic dark */}
+      {/* Hero Section, cinematic dark */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-28 overflow-hidden">
         <div aria-hidden className="absolute inset-0 bg-mesh-dark" />
         <div aria-hidden className="absolute top-24 right-[-10%] w-[520px] h-[520px] bg-primary/30 blur-[140px] rounded-full animate-aurora" />

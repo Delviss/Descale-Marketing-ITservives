@@ -1,7 +1,7 @@
 // Lightweight email submission helper for the marketing site.
 //
 // Strategy:
-//  1. If VITE_WEB3FORMS_KEY is set, POST the inquiry to Web3Forms — a free,
+//  1. If VITE_WEB3FORMS_KEY is set, POST the inquiry to Web3Forms, a free,
 //     account-based relay that forwards submissions to info@travomate.com.pl.
 //     Register the destination address at https://web3forms.com to obtain a
 //     key, then drop it in `.env.local` as VITE_WEB3FORMS_KEY=...
@@ -58,9 +58,9 @@ function humanize(key) {
 }
 
 function formatValue(value) {
-  if (value === null || value === undefined || value === '') return '—';
+  if (value === null || value === undefined || value === '') return '-';
   if (typeof value === 'boolean') return value ? 'Yes' : 'No';
-  if (Array.isArray(value)) return value.length ? value.join(', ') : '—';
+  if (Array.isArray(value)) return value.length ? value.join(', ') : '-';
   if (typeof value === 'object') return JSON.stringify(value);
   return String(value);
 }
@@ -115,7 +115,7 @@ async function postToCustomEndpoint({ endpoint, subject, formType, summary, data
 export async function sendInquiryEmail({ formType, subject, data = {} }) {
   const summary = buildSummary(data);
   const fullSubject = subject || `New ${formType || 'website'} inquiry`;
-  const body = `${summary}\n\n— Sent from descale.agency`;
+  const body = `${summary}\n\n- Sent from descale.agency`;
   const replyTo = typeof data.email === 'string' ? data.email : undefined;
 
   const web3Key = import.meta.env.VITE_WEB3FORMS_KEY;
@@ -144,14 +144,14 @@ export async function sendInquiryEmail({ formType, subject, data = {} }) {
       return { delivered: true, transport: 'custom' };
     }
   } catch (err) {
-    // Network/relay failed — fall back to mailto so the inquiry isn't lost.
+    // Network/relay failed, fall back to mailto so the inquiry isn't lost.
     if (typeof window !== 'undefined') {
       window.location.href = buildMailtoUrl({ subject: fullSubject, body });
     }
     return { delivered: false, transport: 'mailto-fallback', error: err.message };
   }
 
-  // No relay configured — open the visitor's mail client with the summary
+  // No relay configured, open the visitor's mail client with the summary
   // pre-filled so they can send it in one click.
   if (typeof window !== 'undefined') {
     window.location.href = buildMailtoUrl({ subject: fullSubject, body });

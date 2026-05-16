@@ -91,7 +91,7 @@ const ContactForm = ({ selectedService, isOpen = true, onClose }) => {
 
     const result = await sendInquiryEmail({
       formType: 'services-hub-contact',
-      subject: `Services Inquiry — ${formData?.company || formData?.name}`,
+      subject: `Services Inquiry: ${formData?.company || formData?.name}`,
       data: {
         name: formData?.name,
         email: formData?.email,
@@ -110,7 +110,7 @@ const ContactForm = ({ selectedService, isOpen = true, onClose }) => {
     if (result?.delivered) {
       alert("Thank you for your interest! We'll be in touch within 24 hours to schedule your strategy call.");
     } else {
-      alert("Your email client has opened with your inquiry — just hit send and we'll get back to you within 24 hours.");
+      alert("Your email client has opened with your inquiry, just hit send and we'll get back to you within 24 hours.");
     }
 
     onClose();

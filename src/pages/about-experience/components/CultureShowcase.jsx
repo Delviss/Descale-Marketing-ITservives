@@ -8,7 +8,7 @@ const CultureShowcase = () => {
     {
       icon: "Target",
       title: "Exponential Mindset",
-      description: "We don't think in increments—we think in multipliers. Every strategy, every campaign, every decision is evaluated for its exponential potential.",
+      description: "We don't think in increments, we think in multipliers. Every strategy, every campaign, every decision is evaluated for its exponential potential.",
       example: "When a client wanted 20% growth, we delivered 400% by reimagining their entire funnel architecture."
     },
     {
@@ -20,7 +20,7 @@ const CultureShowcase = () => {
     {
       icon: "Users",
       title: "Client-First Partnership",
-      description: "We don't just work for our clients—we become an extension of their team, sharing their vision and celebrating their wins.",
+      description: "We don't just work for our clients, we become an extension of their team, sharing their vision and celebrating their wins.",
       example: "Our team members regularly attend client board meetings and contribute to strategic planning beyond marketing."
     },
     {
@@ -131,7 +131,7 @@ const CultureShowcase = () => {
             </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            Our culture isn't just about how we work—it's about how we think, innovate,
+            Our culture isn't just about how we work, it's about how we think, innovate,
             and deliver transformational growth for our clients.
           </p>
         </motion.div>

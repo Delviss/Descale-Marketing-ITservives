@@ -236,7 +236,7 @@ const QualificationForm = ({ onComplete, onClose, assessmentData }) => {
 
     sendInquiryEmail({
       formType: 'qualification',
-      subject: `Qualification — ${qualificationData.segment} (score ${qualificationScore})`,
+      subject: `Qualification: ${qualificationData.segment} (score ${qualificationScore})`,
       data: {
         companyStage: labelFor('companyStage', formData?.companyStage),
         companySize: labelFor('companySize', formData?.companySize),

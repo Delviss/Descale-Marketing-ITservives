@@ -75,7 +75,7 @@ const ITCapabilities = () => {
             <span className="font-serif-accent italic">matters.</span>
           </h2>
           <p className="mt-5 text-lg text-foreground/70 leading-relaxed">
-            One senior team across engineering, design, platforms, and cloud — so you don't ship
+            One senior team across engineering, design, platforms, and cloud, so you don't ship
             seams between specialists.
           </p>
         </div>
