@@ -3,6 +3,7 @@ import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import Icon from '../../../components/AppIcon';
+import { sendInquiryEmail } from '../../../utils/emailService';
 
 const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -79,19 +80,58 @@ const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
     { value: 'planning', label: 'Just planning ahead' }
   ];
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleOptionSelect = (optionId) => {
     setSelectedOption(optionId);
     setFormType(optionId);
     setShowForm(true);
   };
 
-  const handleFormSubmit = (e) => {
+  const formTypeLabels = {
+    'strategy-call': 'Strategy Call Booking',
+    'detailed-proposal': 'Detailed Proposal Request',
+    'quick-question': 'Quick Question',
+  };
+
+  const handleFormSubmit = async (e) => {
     e?.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', { formType, formData, assessmentData, qualificationData });
-    
-    // Show success message
-    alert('Thank you! We\'ll be in touch soon.');
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    const preferredTimeLabel =
+      timeSlots?.find((o) => o?.value === formData?.preferredTime)?.label ||
+      formData?.preferredTime;
+    const urgencyLabel =
+      urgencyOptions?.find((o) => o?.value === formData?.urgency)?.label || formData?.urgency;
+
+    const result = await sendInquiryEmail({
+      formType: `contact-${formType}`,
+      subject: `${formTypeLabels[formType] || 'Contact'} — ${formData?.company || formData?.name}`,
+      data: {
+        requestType: formTypeLabels[formType] || formType,
+        name: formData?.name,
+        email: formData?.email,
+        phone: formData?.phone,
+        company: formData?.company,
+        preferredTime: formType === 'strategy-call' ? preferredTimeLabel : undefined,
+        urgency: formType === 'strategy-call' ? urgencyLabel : undefined,
+        message: formData?.message,
+        leadScore,
+        assessmentSummary: assessmentData ? JSON.stringify(assessmentData) : undefined,
+        qualificationSummary: qualificationData
+          ? JSON.stringify(qualificationData)
+          : undefined,
+      },
+    });
+
+    setIsSubmitting(false);
+
+    if (result?.delivered) {
+      alert("Thank you! We'll be in touch soon.");
+    } else {
+      alert("Your email client has opened with the request — hit send and we'll be in touch soon.");
+    }
     setShowForm(false);
   };
 
@@ -236,7 +276,7 @@ const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
                 )}
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium text-gray-900 mb-2">
                     {formType === 'quick-question' ? 'Your Question' : 'Additional Details'}
                     {formType === 'quick-question' && <span className="text-destructive ml-1">*</span>}
                   </label>
@@ -245,9 +285,9 @@ const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
                     value={formData?.message}
                     onChange={(e) => handleInputChange('message', e?.target?.value)}
                     rows="4"
-                    className="w-full p-3 border border-border rounded-lg resize-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full p-3 border border-border rounded-lg bg-white text-gray-900 placeholder:text-gray-400 resize-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     placeholder={
-                      formType === 'quick-question' 
+                      formType === 'quick-question'
                         ? "What specific growth challenge can we help you with?"
                         : "Any additional context about your goals, challenges, or specific areas of interest..."
                     }
@@ -267,10 +307,12 @@ const ContactOptions = ({ assessmentData, qualificationData, leadScore }) => {
                     type="submit"
                     variant="default"
                     className="flex-1"
+                    loading={isSubmitting}
+                    disabled={isSubmitting}
                     iconName="Send"
                     iconPosition="right"
                   >
-                    Send Request
+                    {isSubmitting ? 'Sending…' : 'Send Request'}
                   </Button>
                 </div>
               </form>

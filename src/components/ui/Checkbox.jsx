@@ -65,7 +65,7 @@ const Checkbox = React.forwardRef(({
                             htmlFor={checkboxId}
                             className={cn(
                                 "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer",
-                                error ? "text-destructive" : "text-foreground"
+                                error ? "text-destructive" : "text-gray-900"
                             )}
                         >
                             {label}
@@ -74,7 +74,7 @@ const Checkbox = React.forwardRef(({
                     )}
 
                     {description && !error && (
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-gray-500">
                             {description}
                         </p>
                     )}

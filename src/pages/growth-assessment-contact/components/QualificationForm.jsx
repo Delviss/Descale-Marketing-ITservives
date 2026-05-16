@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
+import { sendInquiryEmail } from '../../../utils/emailService';
 
 
 const QualificationForm = ({ onComplete, onClose, assessmentData }) => {
@@ -180,6 +181,9 @@ const QualificationForm = ({ onComplete, onClose, assessmentData }) => {
     }
   };
 
+  const labelFor = (fieldName, value) =>
+    fieldConfigs?.[fieldName]?.options?.find((o) => o?.value === value)?.label || value;
+
   const handleComplete = () => {
     // Calculate lead score based on qualification
     let qualificationScore = 0;
@@ -229,6 +233,26 @@ const QualificationForm = ({ onComplete, onClose, assessmentData }) => {
       segment: qualificationScore >= 70 ? 'high-value' : qualificationScore >= 50 ? 'qualified' : 'nurture',
       completedAt: new Date()?.toISOString()
     };
+
+    sendInquiryEmail({
+      formType: 'qualification',
+      subject: `Qualification — ${qualificationData.segment} (score ${qualificationScore})`,
+      data: {
+        companyStage: labelFor('companyStage', formData?.companyStage),
+        companySize: labelFor('companySize', formData?.companySize),
+        industry: labelFor('industry', formData?.industry),
+        currentRevenue: labelFor('currentRevenue', formData?.currentRevenue),
+        budgetRange: labelFor('budgetRange', formData?.budgetRange),
+        timeline: labelFor('timeline', formData?.timeline),
+        decisionMaker: labelFor('decisionMaker', formData?.decisionMaker),
+        primaryChallenge: labelFor('primaryChallenge', formData?.primaryChallenge),
+        previousExperience: labelFor('previousExperience', formData?.previousExperience),
+        priorityLevel: labelFor('priorityLevel', formData?.priorityLevel),
+        qualificationScore,
+        segment: qualificationData.segment,
+        assessmentSummary: assessmentData ? JSON.stringify(assessmentData) : undefined,
+      },
+    });
 
     onComplete(qualificationData);
   };

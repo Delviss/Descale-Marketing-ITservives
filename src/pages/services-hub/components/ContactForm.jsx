@@ -4,6 +4,7 @@ import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import { Checkbox } from '../../../components/ui/Checkbox';
+import { sendInquiryEmail } from '../../../utils/emailService';
 
 const ContactForm = ({ selectedService, isOpen = true, onClose }) => {
   const [formData, setFormData] = useState({
@@ -77,16 +78,41 @@ const ContactForm = ({ selectedService, isOpen = true, onClose }) => {
 
   const handleSubmit = async (e) => {
     e?.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    alert('Thank you for your interest! We\'ll be in touch within 24 hours to schedule your strategy call.');
+
+    const budgetLabel =
+      budgetOptions?.find((o) => o?.value === formData?.budget)?.label || formData?.budget;
+    const timelineLabel =
+      timelineOptions?.find((o) => o?.value === formData?.timeline)?.label ||
+      formData?.timeline;
+
+    const result = await sendInquiryEmail({
+      formType: 'services-hub-contact',
+      subject: `Services Inquiry — ${formData?.company || formData?.name}`,
+      data: {
+        name: formData?.name,
+        email: formData?.email,
+        company: formData?.company,
+        phone: formData?.phone,
+        service: formData?.service,
+        budget: budgetLabel,
+        timeline: timelineLabel,
+        message: formData?.message,
+        newsletter: formData?.newsletter,
+      },
+    });
+
     setIsSubmitting(false);
+
+    if (result?.delivered) {
+      alert("Thank you for your interest! We'll be in touch within 24 hours to schedule your strategy call.");
+    } else {
+      alert("Your email client has opened with your inquiry — just hit send and we'll get back to you within 24 hours.");
+    }
+
     onClose();
   };
 
@@ -193,13 +219,13 @@ const ContactForm = ({ selectedService, isOpen = true, onClose }) => {
 
           {/* Message */}
           <div>
-            <label className="block text-sm font-medium text-text-primary mb-2">
+            <label className="block text-sm font-medium text-gray-900 mb-2">
               Tell us about your goals
             </label>
             <textarea
               name="message"
               rows={4}
-              className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+              className="w-full px-3 py-2 border border-border rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
               placeholder="Describe your current challenges and what you'd like to achieve..."
               value={formData?.message}
               onChange={handleInputChange}
