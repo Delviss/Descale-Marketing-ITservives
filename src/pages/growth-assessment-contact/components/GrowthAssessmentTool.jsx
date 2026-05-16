@@ -3,6 +3,7 @@ import Button from '../../../components/ui/Button';
 import Select from '../../../components/ui/Select';
 
 import Icon from '../../../components/AppIcon';
+import { sendInquiryEmail } from '../../../utils/emailService';
 
 const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPersonalizedPlan }) => {
   const [step, setStep] = useState(1);
@@ -139,6 +140,26 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
       timeToValue: score >= 60 ? '4-8 weeks' : score >= 40 ? '6-10 weeks' : '8-12 weeks'
     };
 
+    const labelFor = (fieldId, value) =>
+      assessmentQuestions
+        ?.find((q) => q?.id === fieldId)
+        ?.options?.find((o) => o?.value === value)?.label || value;
+
+    sendInquiryEmail({
+      formType: 'growth-assessment',
+      subject: `Growth Assessment — score ${score}/100`,
+      data: {
+        currentRevenue: labelFor('currentRevenue', formData?.currentRevenue),
+        growthTarget: labelFor('growthTarget', formData?.growthTarget),
+        primaryChallenge: labelFor('primaryChallenge', formData?.primaryChallenge),
+        marketingBudget: labelFor('marketingBudget', formData?.marketingBudget),
+        biggestPainPoint: formData?.biggestPainPoint,
+        score,
+        estimatedROI: calculatedResults.estimatedROI,
+        timeToValue: calculatedResults.timeToValue,
+      },
+    });
+
     setResults(calculatedResults);
     onComplete(formData, score);
   };
@@ -269,7 +290,7 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
               onChange={(e) => handleInputChange(assessmentQuestions?.[step - 1]?.id, e?.target?.value)}
               placeholder={assessmentQuestions?.[step - 1]?.placeholder}
               rows="4"
-              className="w-full p-3 border border-border rounded-lg resize-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="w-full p-3 border border-border rounded-lg bg-white text-gray-900 placeholder:text-gray-400 resize-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
           </div>
         )}

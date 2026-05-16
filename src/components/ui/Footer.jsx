@@ -26,11 +26,16 @@ const footerLinks = {
 };
 
 const socials = [
-  { name: 'Twitter', icon: 'Twitter', href: 'https://twitter.com' },
-  { name: 'LinkedIn', icon: 'Linkedin', href: 'https://linkedin.com' },
-  { name: 'Instagram', icon: 'Instagram', href: 'https://instagram.com' },
-  { name: 'YouTube', icon: 'Youtube', href: 'https://youtube.com' },
-  { name: 'GitHub', icon: 'Github', href: 'https://github.com' },
+  {
+    name: 'Instagram',
+    icon: 'Instagram',
+    href: 'https://www.instagram.com/descale_services?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'Linkedin',
+    href: 'https://www.linkedin.com/company/descale-agency/?viewAsMember=true',
+  },
 ];
 
 const Footer = () => {

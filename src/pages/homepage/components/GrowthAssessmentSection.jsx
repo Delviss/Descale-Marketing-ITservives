@@ -5,10 +5,12 @@ import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
+import { sendInquiryEmail } from '../../../utils/emailService';
 
 const GrowthAssessmentSection = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     company: '',
     industry: '',
@@ -65,10 +67,34 @@ const GrowthAssessmentSection = () => {
     }
   };
 
-  const handleSubmit = () => {
-    // Simulate form submission
-    console.log('Growth Assessment Submitted:', formData);
-    navigate('/get-started');
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    try {
+      await sendInquiryEmail({
+        formType: 'homepage-growth-assessment',
+        subject: `Growth Assessment — ${formData?.company || 'New inquiry'}`,
+        data: {
+          company: formData?.company,
+          industry:
+            industryOptions?.find((o) => o?.value === formData?.industry)?.label ||
+            formData?.industry,
+          revenue:
+            revenueOptions?.find((o) => o?.value === formData?.revenue)?.label ||
+            formData?.revenue,
+          growthGoal:
+            goalOptions?.find((o) => o?.value === formData?.growthGoal)?.label ||
+            formData?.growthGoal,
+          timeline:
+            timelineOptions?.find((o) => o?.value === formData?.timeline)?.label ||
+            formData?.timeline,
+          email: formData?.email,
+        },
+      });
+    } finally {
+      setIsSubmitting(false);
+      navigate('/get-started');
+    }
   };
 
   const getStepContent = () => {
@@ -275,11 +301,13 @@ const GrowthAssessmentSection = () => {
                 <Button
                   variant="default"
                   onClick={handleSubmit}
+                  loading={isSubmitting}
+                  disabled={isSubmitting}
                   iconName="Send"
                   iconPosition="right"
                   className="bg-accent hover:bg-accent/90"
                 >
-                  Get My Assessment
+                  {isSubmitting ? 'Sending…' : 'Get My Assessment'}
                 </Button>
               )}
             </div>
