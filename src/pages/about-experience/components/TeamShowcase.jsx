@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+
+const base = import.meta.env.BASE_URL;
 
 const teamMembers = [
   {
@@ -9,7 +11,7 @@ const teamMembers = [
     name: 'Elvis Dushimimana',
     role: 'Founder & CEO',
     initials: 'ED',
-    photo: '/assets/images/team/elvis-dushimimana.jpg',
+    photo: `${base}assets/images/team/elvis-dushimimana.jpg`,
     accent: 'from-primary via-accent to-secondary',
     expertise: 'Growth Strategy & Venture Building',
     description:
@@ -32,7 +34,7 @@ const teamMembers = [
     name: 'Divin Izere',
     role: 'COO',
     initials: 'DI',
-    photo: '/assets/images/team/divin-izere.jpg',
+    photo: `${base}assets/images/team/divin-izere.jpg`,
     accent: 'from-secondary via-primary to-accent',
     expertise: 'Operations, Marketing & Engineering',
     description: 'Digital Strategist, SEO Expert, Content Creator and Video-Editor-Pro',
@@ -53,6 +55,13 @@ const teamMembers = [
 
 const TeamShowcase = () => {
   const [selectedMember, setSelectedMember] = useState(null);
+
+  useEffect(() => {
+    document.body.style.overflow = selectedMember ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedMember]);
 
   return (
     <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
