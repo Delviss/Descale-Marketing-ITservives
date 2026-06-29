@@ -9,8 +9,11 @@ const teamMembers = [
     name: 'Elvis Dushimimana',
     role: 'Founder & CEO',
     initials: 'ED',
+    photo: '/assets/images/team/elvis-dushimimana.jpg',
     accent: 'from-primary via-accent to-secondary',
     expertise: 'Growth Strategy & Venture Building',
+    description:
+      'Innovative Entrepreneur | Transforming Transport, Education, and Marketing with Vision & Strategy | Passionate About Building Impactful Businesses',
     tags: ['Growth Strategy', 'Venture Building', 'Brand'],
     philosophy:
       'Scaling what truly matters means saying no to noise. Every decision must compound, in revenue, in trust, in clarity.',
@@ -29,8 +32,10 @@ const teamMembers = [
     name: 'Divin Izere',
     role: 'COO',
     initials: 'DI',
+    photo: '/assets/images/team/divin-izere.jpg',
     accent: 'from-secondary via-primary to-accent',
     expertise: 'Operations, Marketing & Engineering',
+    description: 'Digital Strategist, SEO Expert, Content Creator and Video-Editor-Pro',
     tags: ['Operations', 'Marketing', 'Engineering'],
     philosophy:
       'Operations is where strategy meets reality. We turn ambition into repeatable systems that ship and scale.',
@@ -95,10 +100,14 @@ const TeamShowcase = () => {
             >
               <div className="flex items-start gap-5">
                 <div
-                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-gradient-to-br ${member.accent} shadow-brand flex-shrink-0`}
+                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden flex items-center justify-center text-white font-bold text-xl sm:text-2xl bg-gradient-to-br ${member.accent} shadow-brand flex-shrink-0`}
                   aria-hidden
                 >
-                  {member.initials}
+                  {member.photo ? (
+                    <img src={member.photo} alt="" className="w-full h-full object-cover" />
+                  ) : (
+                    member.initials
+                  )}
                   <span className="absolute -bottom-1.5 -right-1.5 w-7 h-7 rounded-full bg-[#050505] border border-white/20 flex items-center justify-center shadow">
                     <Icon name="Plus" size={14} className="text-accent" />
                   </span>
@@ -106,7 +115,7 @@ const TeamShowcase = () => {
                 <div className="flex-1 min-w-0">
                   <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">{member.name}</h3>
                   <p className="text-accent font-semibold mt-0.5">{member.role}</p>
-                  <p className="text-sm text-white/70 mt-3 leading-relaxed">{member.expertise}</p>
+                  <p className="text-sm text-white/70 mt-3 leading-relaxed">{member.description || member.expertise}</p>
 
                   <div className="flex flex-wrap gap-2 mt-4">
                     {member.tags.map((tag) => (
@@ -150,10 +159,14 @@ const TeamShowcase = () => {
                   <div className="flex justify-between items-start gap-3 mb-6">
                     <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                       <div
-                        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-white font-bold text-lg sm:text-xl bg-gradient-to-br ${selectedMember.accent} flex-shrink-0`}
+                        className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden flex items-center justify-center text-white font-bold text-lg sm:text-xl bg-gradient-to-br ${selectedMember.accent} flex-shrink-0`}
                         aria-hidden
                       >
-                        {selectedMember.initials}
+                        {selectedMember.photo ? (
+                          <img src={selectedMember.photo} alt="" className="w-full h-full object-cover" />
+                        ) : (
+                          selectedMember.initials
+                        )}
                       </div>
                       <div className="min-w-0">
                         <h3 className="text-xl sm:text-2xl font-bold text-white truncate">{selectedMember.name}</h3>
@@ -166,6 +179,9 @@ const TeamShowcase = () => {
                   </div>
 
                   <div className="space-y-6">
+                    {selectedMember.description && (
+                      <p className="text-accent font-medium leading-relaxed">{selectedMember.description}</p>
+                    )}
                     <div>
                       <h4 className="text-base sm:text-lg font-semibold text-white mb-2">About</h4>
                       <p className="text-white/70 leading-relaxed">{selectedMember.bio}</p>
