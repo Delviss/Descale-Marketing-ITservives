@@ -1,34 +1,23 @@
 import { useEffect } from "react";
 
+const CALENDLY_URL = "https://calendly.com/travomate/30min";
 const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
 const CALENDLY_JS = "https://assets.calendly.com/assets/external/widget.js";
 
-// Matches the brand-supplied badge snippet. The Calendly badge widget
-// pins itself to the bottom-right of the viewport on every page.
-const BADGE_OPTIONS = {
-  url: "https://calendly.com/travomate/30min",
-  text: "Schedule time with me",
-  color: "#913d1b",
-  textColor: "#ffffff",
-  branding: true,
-};
-
-// Loads the official Calendly badge widget once (CSS + JS) and initialises
-// the "Schedule time with me" CTA. Guarded so it never double-injects across
-// route changes or fast refresh.
+// Custom, fully controllable "Book a free consultation" CTA pinned to the
+// bottom-right of every page. It replaces Calendly's native badge widget so
+// clickability and z-index are guaranteed regardless of the host page.
+//
+// Behaviour:
+//  - It is a real <a href> to the Calendly URL, so it ALWAYS navigates to the
+//    booking page even if the Calendly script fails to load.
+//  - When Calendly's script has loaded, the click instead opens the branded
+//    in-page popup (nicer UX) via initPopupWidget.
 const CalendlyBadge = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.__descaleCalendlyBadgeInit) return;
 
-    const initBadge = () => {
-      if (window.__descaleCalendlyBadgeInit) return;
-      if (!window.Calendly || typeof window.Calendly.initBadgeWidget !== "function") return;
-      window.Calendly.initBadgeWidget(BADGE_OPTIONS);
-      window.__descaleCalendlyBadgeInit = true;
-    };
-
-    // Stylesheet — inject only if not already present.
+    // Stylesheet — required for the popup modal to render correctly.
     if (!document.querySelector(`link[href="${CALENDLY_CSS}"]`)) {
       const link = document.createElement("link");
       link.rel = "stylesheet";
@@ -36,22 +25,43 @@ const CalendlyBadge = () => {
       document.head.appendChild(link);
     }
 
-    // Script — reuse an existing tag if the widget was loaded elsewhere.
-    const existing = document.querySelector(`script[src="${CALENDLY_JS}"]`);
-    if (existing) {
-      if (window.Calendly) initBadge();
-      else existing.addEventListener("load", initBadge, { once: true });
-      return;
+    // Script — powers the in-page popup. If it never loads, the anchor's href
+    // still takes the visitor straight to Calendly.
+    if (!document.querySelector(`script[src="${CALENDLY_JS}"]`)) {
+      const script = document.createElement("script");
+      script.src = CALENDLY_JS;
+      script.async = true;
+      document.body.appendChild(script);
     }
-
-    const script = document.createElement("script");
-    script.src = CALENDLY_JS;
-    script.async = true;
-    script.addEventListener("load", initBadge, { once: true });
-    document.body.appendChild(script);
   }, []);
 
-  return null;
+  const handleClick = (e) => {
+    // Prefer the branded in-page popup when the widget is available;
+    // otherwise let the default anchor navigation to CALENDLY_URL happen.
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === "function") {
+      e.preventDefault();
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    }
+  };
+
+  return (
+    <a
+      href={CALENDLY_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={handleClick}
+      aria-label="Book a free consultation on Calendly"
+      className="fixed bottom-5 right-5 z-[9998] flex flex-col items-center gap-0.5 rounded-full px-6 py-3 text-center text-white shadow-brand-strong transition-transform duration-brand-fast ease-brand hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#913d1b]/40 print:hidden"
+      style={{ backgroundColor: "#913d1b" }}
+    >
+      <span className="text-brand-sm font-bold uppercase tracking-wide leading-none">
+        Book a Free Consultation
+      </span>
+      <span className="text-[10px] font-medium leading-none opacity-80">
+        powered by Calendly
+      </span>
+    </a>
+  );
 };
 
 export default CalendlyBadge;
