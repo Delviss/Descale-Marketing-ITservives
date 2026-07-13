@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 import ErrorBoundary from "components/ErrorBoundary";
+import FloatingWidgets from "components/FloatingWidgets";
 import Homepage from './pages/homepage';
 
 // Define lazy imports as named factories so we can also expose them for
@@ -130,6 +131,7 @@ const Routes = () => {
             <Route path="*" element={<NotFound />} />
           </RouterRoutes>
         </Suspense>
+        <FloatingWidgets />
       </ErrorBoundary>
     </BrowserRouter>
   );
