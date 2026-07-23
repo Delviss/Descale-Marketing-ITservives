@@ -13,6 +13,7 @@ const importITPlatforms = () => import('./pages/it/platforms');
 const importITApplications = () => import('./pages/it/applications');
 const importITWebsites = () => import('./pages/it/websites');
 const importITDesign = () => import('./pages/it/design');
+const importBuilders = () => import('./pages/builders');
 const importGrowthAssessment = () => import('./pages/growth-assessment-contact');
 const importAbout = () => import('./pages/about-experience');
 const importServices = () => import('./pages/services-hub');
@@ -30,6 +31,7 @@ const ITPlatforms = lazy(importITPlatforms);
 const ITApplications = lazy(importITApplications);
 const ITWebsites = lazy(importITWebsites);
 const ITDesign = lazy(importITDesign);
+const Builders = lazy(importBuilders);
 const GrowthAssessmentContact = lazy(importGrowthAssessment);
 const AboutExperience = lazy(importAbout);
 const ServicesHub = lazy(importServices);
@@ -47,6 +49,7 @@ export const routePrefetch = {
   '/it/applications': importITApplications,
   '/it/websites': importITWebsites,
   '/it/design': importITDesign,
+  '/builders': importBuilders,
   '/get-started': importGrowthAssessment,
   '/about': importAbout,
   '/about-experience': importAbout,
@@ -110,6 +113,10 @@ const Routes = () => {
             <Route path="/it/applications" element={<ITApplications />} />
             <Route path="/it/websites" element={<ITWebsites />} />
             <Route path="/it/design" element={<ITDesign />} />
+
+            {/* Builder Network */}
+            <Route path="/builders" element={<Builders />} />
+            <Route path="/builder" element={<Navigate to="/builders" replace />} />
 
             {/* Resources */}
             <Route path="/about" element={<AboutExperience />} />
