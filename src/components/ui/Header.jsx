@@ -73,10 +73,10 @@ const Header = ({ className = '' }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-fixed transition-all duration-brand-fast bg-background/90 backdrop-blur-brand ${
+      className={`fixed top-0 left-0 right-0 z-fixed transition-all duration-brand-fast bg-[#0B0B0F]/90 backdrop-blur-brand ${
         isScrolled
-          ? 'shadow-brand-md border-b border-border'
-          : 'border-b border-border/40'
+          ? 'shadow-brand-md border-b border-white/10'
+          : 'border-b border-white/5'
       } ${className}`}
     >
       <div className="w-full">
@@ -99,8 +99,8 @@ const Header = ({ className = '' }) => {
                 onTouchStart={() => warm(item?.path)}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-brand-fast hover-lift ${
                   isActivePath(item)
-                    ? 'bg-primary text-primary-foreground shadow-brand'
-                    : 'text-foreground hover:bg-muted hover:text-primary'
+                    ? 'bg-primary text-white shadow-brand'
+                    : 'text-white/85 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {item?.name}
@@ -130,7 +130,7 @@ const Header = ({ className = '' }) => {
               variant="ghost"
               size="icon"
               onClick={toggleMenu}
-              className="hover-brand text-foreground"
+              className="hover-brand text-white"
               aria-label="Toggle menu"
             >
               <Icon
@@ -146,10 +146,10 @@ const Header = ({ className = '' }) => {
         <div
           className={`lg:hidden transition-all duration-brand-normal overflow-hidden ${
             isMenuOpen
-              ? 'max-h-[80vh] opacity-100 border-t border-border overflow-y-auto' :'max-h-0 opacity-0'
+              ? 'max-h-[80vh] opacity-100 border-t border-white/10 overflow-y-auto' :'max-h-0 opacity-0'
           }`}
         >
-          <div className="bg-background/98 backdrop-blur-brand px-4 py-6 space-y-2">
+          <div className="bg-[#0B0B0F]/98 backdrop-blur-brand px-4 py-6 space-y-2">
             {navigationItems?.map((item) => (
               <Link
                 key={item?.path}
@@ -157,8 +157,8 @@ const Header = ({ className = '' }) => {
                 onTouchStart={() => warm(item?.path)}
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-brand-fast ${
                   isActivePath(item)
-                    ? 'bg-primary text-primary-foreground shadow-brand'
-                    : 'text-foreground hover:bg-muted hover:text-primary'
+                    ? 'bg-primary text-white shadow-brand'
+                    : 'text-white/85 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 <Icon name={item?.icon} size={20} />
@@ -166,11 +166,11 @@ const Header = ({ className = '' }) => {
               </Link>
             ))}
 
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4 border-t border-white/10">
               <Link
                 to="/get-started"
                 onTouchStart={() => warm('/get-started')}
-                className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg text-base font-semibold bg-primary text-primary-foreground shadow-brand hover:opacity-95 transition-all duration-brand-fast"
+                className="flex items-center justify-center space-x-2 px-4 py-3 rounded-lg text-base font-semibold bg-primary text-white shadow-brand hover:opacity-95 transition-all duration-brand-fast"
               >
                 <span>Get Started</span>
                 <Icon name="ArrowUpRight" size={18} />
