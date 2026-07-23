@@ -26,6 +26,7 @@ const Header = ({ className = '' }) => {
   const navigationItems = [
     { name: 'Marketing', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
     { name: 'IT Services', path: '/it', icon: 'Cpu', matches: ['/it'] },
+    { name: 'Builders', path: '/builders', icon: 'Hammer', matches: ['/builders', '/builder'] },
     { name: 'About', path: '/about', icon: 'Users', matches: ['/about', '/about-experience'] },
     { name: 'Help', path: '/help', icon: 'LifeBuoy', matches: ['/help', '/faq'] },
   ];

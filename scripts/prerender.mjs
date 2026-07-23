@@ -26,6 +26,7 @@ const ROUTES = [
   "/it/applications",
   "/it/websites",
   "/it/design",
+  "/builders",
   "/about",
   "/get-started",
   "/contact",
