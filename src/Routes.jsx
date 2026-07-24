@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
+import CanonicalTag from "components/CanonicalTag";
 import ErrorBoundary from "components/ErrorBoundary";
 import FloatingWidgets from "components/FloatingWidgets";
 import Homepage from './pages/homepage';
@@ -93,6 +94,7 @@ const Routes = () => {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ErrorBoundary>
         <ScrollToTop />
+        <CanonicalTag />
         <IdleWarmup />
         <Suspense fallback={<RouteFallback />}>
           <RouterRoutes>

@@ -101,7 +101,7 @@ const ITDesign = () => {
     provider: {
       '@type': 'Organization',
       name: 'Descale Agency',
-      url: 'https://descale.agency',
+      url: 'https://www.descale.services',
       parentOrganization: {
         '@type': 'Organization',
         name: 'Travomate Sp. z o.o.',

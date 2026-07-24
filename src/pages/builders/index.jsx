@@ -74,11 +74,11 @@ const Builders = () => {
     name: 'Descale Builders — Join the Builder Network',
     description:
       'Join Descale Builders and turn your skills into products. You build websites, AI, apps, SaaS, and automations. Descale handles clients, contracts, sales, marketing, legal, payments, and project management.',
-    url: 'https://descale.agency/builders',
+    url: 'https://www.descale.services/builders',
     provider: {
       '@type': 'Organization',
       name: 'Descale Agency',
-      url: 'https://descale.agency',
+      url: 'https://www.descale.services',
     },
   };
 
