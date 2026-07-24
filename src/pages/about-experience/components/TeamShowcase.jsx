@@ -28,7 +28,7 @@ const teamMembers = [
       'Architected growth systems for ambitious B2B and consumer brands',
       'Speaker on growth, strategy, and creative leadership',
     ],
-    linkedinUrl: 'https://www.linkedin.com/in/elvis-dushimimana',
+    linkedinUrl: 'https://www.linkedin.com/in/elvis-dushimimana-935563184/',
   },
   {
     id: 'divin',
@@ -50,7 +50,7 @@ const teamMembers = [
       'Builds delivery systems that compound team velocity',
       'Hands-on technologist and digital strategist',
     ],
-    linkedinUrl: 'https://www.linkedin.com/in/divin-izere',
+    linkedinUrl: 'https://www.linkedin.com/in/divin-izere-8895962a2/',
   },
 ];
 
