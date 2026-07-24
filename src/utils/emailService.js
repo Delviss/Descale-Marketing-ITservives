@@ -115,7 +115,7 @@ async function postToCustomEndpoint({ endpoint, subject, formType, summary, data
 export async function sendInquiryEmail({ formType, subject, data = {} }) {
   const summary = buildSummary(data);
   const fullSubject = subject || `New ${formType || 'website'} inquiry`;
-  const body = `${summary}\n\n- Sent from descale.agency`;
+  const body = `${summary}\n\n- Sent from descale.services`;
   const replyTo = typeof data.email === 'string' ? data.email : undefined;
 
   const web3Key = import.meta.env.VITE_WEB3FORMS_KEY;
