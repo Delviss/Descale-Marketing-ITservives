@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
@@ -147,7 +148,11 @@ const TeamShowcase = () => {
           ))}
         </div>
 
-        {/* Member Modal */}
+      </div>
+
+      {/* Member Modal — rendered in a portal so the fixed site header
+          never overlaps it (the section wrapper caps its own stacking context) */}
+      {createPortal(
         <AnimatePresence>
           {selectedMember && (
             <motion.div
@@ -240,8 +245,9 @@ const TeamShowcase = () => {
               </motion.div>
             </motion.div>
           )}
-        </AnimatePresence>
-      </div>
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 };
