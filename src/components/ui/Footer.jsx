@@ -32,6 +32,7 @@ const footerLinks = {
     { name: 'Websites', href: '/it/websites' },
   ],
   resources: [
+    { name: 'Join Builders', href: '/builders' },
     { name: 'About', href: '/about' },
     { name: 'Help Center', href: '/help' },
     { name: 'Get Started', href: '/get-started' },

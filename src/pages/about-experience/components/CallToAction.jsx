@@ -199,18 +199,18 @@ const CallToAction = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-8">
             <a
-              href="mailto:hello@descaleagency.com"
+              href="mailto:Info@travomate.com.pl"
               className="flex items-center space-x-2 text-white hover:text-accent transition-colors duration-300"
             >
               <Icon name="Mail" size={20} />
-              <span>hello@descaleagency.com</span>
+              <span>Info@travomate.com.pl</span>
             </a>
             <a
-              href="tel:+1-555-DESCALE"
+              href="tel:+48222952055"
               className="flex items-center space-x-2 text-white hover:text-accent transition-colors duration-300"
             >
               <Icon name="Phone" size={20} />
-              <span>+1 (555) DESCALE</span>
+              <span>+48 22 295 20 55</span>
             </a>
           </div>
         </motion.div>
