@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
@@ -27,7 +28,7 @@ const teamMembers = [
       'Architected growth systems for ambitious B2B and consumer brands',
       'Speaker on growth, strategy, and creative leadership',
     ],
-    linkedinUrl: 'https://www.linkedin.com/in/elvis-dushimimana',
+    linkedinUrl: 'https://www.linkedin.com/in/elvis-dushimimana-935563184/',
   },
   {
     id: 'divin',
@@ -49,7 +50,7 @@ const teamMembers = [
       'Builds delivery systems that compound team velocity',
       'Hands-on technologist and digital strategist',
     ],
-    linkedinUrl: 'https://www.linkedin.com/in/divin-izere',
+    linkedinUrl: 'https://www.linkedin.com/in/divin-izere-8895962a2/',
   },
 ];
 
@@ -147,7 +148,11 @@ const TeamShowcase = () => {
           ))}
         </div>
 
-        {/* Member Modal */}
+      </div>
+
+      {/* Member Modal — rendered in a portal so the fixed site header
+          never overlaps it (the section wrapper caps its own stacking context) */}
+      {createPortal(
         <AnimatePresence>
           {selectedMember && (
             <motion.div
@@ -240,8 +245,9 @@ const TeamShowcase = () => {
               </motion.div>
             </motion.div>
           )}
-        </AnimatePresence>
-      </div>
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 };
