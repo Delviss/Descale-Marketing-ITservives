@@ -183,6 +183,13 @@ const Footer = () => {
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
             <Link to="/cookies" className="hover:text-white transition-colors">Cookies</Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+              className="hover:text-white transition-colors"
+            >
+              Cookie Preferences
+            </button>
           </div>
           <div className="flex items-center gap-2">
             {socials.map((s) => (

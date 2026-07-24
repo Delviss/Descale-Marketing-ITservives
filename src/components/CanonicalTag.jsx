@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { trackPageview } from "utils/analytics";
 
 // Canonical origin for the production site. Absolute URLs are required for
 // canonical/og:url so crawlers resolve them unambiguously.
@@ -21,7 +22,13 @@ const CANONICAL_ALIASES = {
 };
 
 const CanonicalTag = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+
+  // SPA route changes don't trigger GA4's automatic page_view, so send one
+  // manually on every navigation (no-ops until GA4 is loaded post-consent).
+  useEffect(() => {
+    trackPageview(pathname + search);
+  }, [pathname, search]);
 
   // Normalise: strip trailing slash (except root), then resolve aliases.
   let path = pathname.replace(/\/+$/, "") || "/";
