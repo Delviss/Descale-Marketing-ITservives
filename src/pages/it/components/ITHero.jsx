@@ -67,7 +67,7 @@ const ITHero = () => {
             </span>
           </Link>
           <Link
-            to="/marketing"
+            to="/"
             className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-foreground/15 text-foreground/80 hover:text-foreground hover:border-foreground/40 transition-all duration-300"
           >
             Looking for marketing?

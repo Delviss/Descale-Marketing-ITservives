@@ -19,7 +19,7 @@ const warm = (path) => {
 
 const footerLinks = {
   marketing: [
-    { name: 'Marketing Home', href: '/marketing' },
+    { name: 'Marketing Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'Our Work', href: '/work' },
     { name: 'Interactive Taxi Ads', href: '/taxi-ads' },
@@ -63,7 +63,7 @@ const Footer = () => {
   const location = useLocation();
   const onIT = location?.pathname?.startsWith('/it');
   const switchTarget = onIT
-    ? { href: '/marketing', label: 'Switch to Marketing Services' }
+    ? { href: '/', label: 'Switch to Marketing Services' }
     : { href: '/it', label: 'Switch to IT Services' };
 
   return (
@@ -120,6 +120,9 @@ const Footer = () => {
                 src={`${import.meta.env.BASE_URL}assets/images/descale-logo.png`}
                 alt=""
                 aria-hidden="true"
+                width={606}
+                height={182}
+                loading="lazy"
                 className="h-12 w-auto object-contain drop-shadow-[0_4px_20px_rgba(198,90,46,0.45)]"
               />
               <div className="flex flex-col">
@@ -137,7 +140,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.marketing.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group min-h-[44px] py-3 -my-3">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>
@@ -151,7 +154,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.projects.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group min-h-[44px] py-3 -my-3">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>
@@ -165,7 +168,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.it.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group min-h-[44px] py-3 -my-3">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>
@@ -179,7 +182,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.resources.map((l) => (
                 <li key={l.name}>
-                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group min-h-[44px] py-3 -my-3">
                     {l.name}
                     <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
                   </Link>
