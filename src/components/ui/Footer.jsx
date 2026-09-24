@@ -24,6 +24,12 @@ const footerLinks = {
     { name: 'Our Work', href: '/work' },
     { name: 'Interactive Taxi Ads', href: '/taxi-ads' },
   ],
+  projects: [
+    { name: 'All Projects', href: '/projects' },
+    { name: 'Descale MoveAds', href: '/moveads' },
+    { name: 'Couriers — earn extra', href: '/moveads/couriers' },
+    { name: 'Restaurants — get customers', href: '/moveads/restaurants' },
+  ],
   it: [
     { name: 'IT Home', href: '/it' },
     { name: 'Platforms', href: '/it/platforms' },
@@ -107,7 +113,7 @@ const Footer = () => {
         </motion.div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 py-16">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3 mb-5" aria-label="Descale Agency home">
               <img
@@ -130,6 +136,20 @@ const Footer = () => {
             <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">Marketing</h4>
             <ul className="space-y-3">
               {footerLinks.marketing.map((l) => (
+                <li key={l.name}>
+                  <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
+                    {l.name}
+                    <Icon name="ArrowUpRight" size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">Projects</h4>
+            <ul className="space-y-3">
+              {footerLinks.projects.map((l) => (
                 <li key={l.name}>
                   <Link to={l.href} onMouseEnter={() => warm(l.href)} onFocus={() => warm(l.href)} onTouchStart={() => warm(l.href)} className="text-sm text-white/80 hover:text-accent transition-colors inline-flex items-center gap-1.5 group">
                     {l.name}
