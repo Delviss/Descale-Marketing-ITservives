@@ -25,6 +25,14 @@ const importPrivacy = () => import('./pages/legal/Privacy');
 const importTerms = () => import('./pages/legal/Terms');
 const importCookies = () => import('./pages/legal/Cookies');
 const importHelp = () => import('./pages/help');
+const importProjects = () => import('./pages/projects');
+const importMoveAds = () => import('./pages/moveads');
+const importMoveAdsCouriers = () => import('./pages/moveads/couriers');
+const importMoveAdsRestaurants = () => import('./pages/moveads/restaurants');
+const importMoveAdsCourierTerms = () => import('./pages/moveads/legal/CourierTerms');
+const importMoveAdsCampaignTerms = () => import('./pages/moveads/legal/CampaignTerms');
+const importMoveAdsQrTerms = () => import('./pages/moveads/legal/QrOfferTerms');
+const importMoveAdsComplaints = () => import('./pages/moveads/legal/Complaints');
 
 const NotFound = lazy(importNotFound);
 const ITHome = lazy(importIT);
@@ -43,6 +51,14 @@ const Privacy = lazy(importPrivacy);
 const Terms = lazy(importTerms);
 const Cookies = lazy(importCookies);
 const Help = lazy(importHelp);
+const Projects = lazy(importProjects);
+const MoveAds = lazy(importMoveAds);
+const MoveAdsCouriers = lazy(importMoveAdsCouriers);
+const MoveAdsRestaurants = lazy(importMoveAdsRestaurants);
+const MoveAdsCourierTerms = lazy(importMoveAdsCourierTerms);
+const MoveAdsCampaignTerms = lazy(importMoveAdsCampaignTerms);
+const MoveAdsQrTerms = lazy(importMoveAdsQrTerms);
+const MoveAdsComplaints = lazy(importMoveAdsComplaints);
 
 export const routePrefetch = {
   '/it': importIT,
@@ -65,6 +81,14 @@ export const routePrefetch = {
   '/privacy': importPrivacy,
   '/terms': importTerms,
   '/cookies': importCookies,
+  '/projects': importProjects,
+  '/moveads': importMoveAds,
+  '/moveads/couriers': importMoveAdsCouriers,
+  '/moveads/restaurants': importMoveAdsRestaurants,
+  '/moveads/legal/courier-terms': importMoveAdsCourierTerms,
+  '/moveads/legal/campaign-terms': importMoveAdsCampaignTerms,
+  '/moveads/legal/qr-terms': importMoveAdsQrTerms,
+  '/moveads/legal/complaints': importMoveAdsComplaints,
 };
 
 const RouteFallback = () => (
@@ -108,6 +132,16 @@ const Routes = () => {
             <Route path="/work-portfolio" element={<WorkPortfolio />} />
             <Route path="/taxi-ads" element={<InteractiveTaxiAdsInnovationLab />} />
             <Route path="/interactive-taxi-ads-innovation-lab" element={<InteractiveTaxiAdsInnovationLab />} />
+
+            {/* Projects (own ventures, distinct from /work client case studies) */}
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/moveads" element={<MoveAds />} />
+            <Route path="/moveads/couriers" element={<MoveAdsCouriers />} />
+            <Route path="/moveads/restaurants" element={<MoveAdsRestaurants />} />
+            <Route path="/moveads/legal/courier-terms" element={<MoveAdsCourierTerms />} />
+            <Route path="/moveads/legal/campaign-terms" element={<MoveAdsCampaignTerms />} />
+            <Route path="/moveads/legal/qr-terms" element={<MoveAdsQrTerms />} />
+            <Route path="/moveads/legal/complaints" element={<MoveAdsComplaints />} />
 
             {/* IT Services */}
             <Route path="/it" element={<ITHome />} />
