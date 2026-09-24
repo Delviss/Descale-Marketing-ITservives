@@ -29,7 +29,7 @@ const Projects = () => {
     '@type': 'CollectionPage',
     name: 'Descale Projects',
     description: "What Descale is building beyond client work — our own ventures and products.",
-    url: 'https://www.descale.services/projects',
+    url: 'https://descale.services/projects',
   };
 
   return (

@@ -69,15 +69,15 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Marketing Services | Descale Agency · Descale the noise. Scale the signal.</title>
+        <title>Descale Agency | Descale the noise. Scale the signal.</title>
         <meta
           name="description"
-          content="Growth systems, cinematic creative, and interactive taxi-ad campaigns that compound revenue, not ad spend."
+          content="Descale Agency builds growth systems, cinematic creative, and interactive taxi-ad campaigns for ambitious brands that compound revenue instead of ad spend."
         />
-        <meta property="og:title" content="Marketing Services | Descale Agency" />
+        <meta property="og:title" content="Descale Agency | Descale the noise. Scale the signal." />
         <meta
           property="og:description"
-          content="Growth systems, cinematic creative, and interactive taxi-ad campaigns that compound revenue."
+          content="Growth systems, cinematic creative, and interactive taxi-ad campaigns that compound revenue, not ad spend."
         />
       </Helmet>
       <Header />

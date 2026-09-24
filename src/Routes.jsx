@@ -125,10 +125,10 @@ const Routes = () => {
         <IdleWarmup />
         <Suspense fallback={<RouteFallback />}>
           <RouterRoutes>
-            <Route path="/" element={<Navigate to="/marketing" replace />} />
-
-            {/* Marketing */}
-            <Route path="/marketing" element={<Homepage />} />
+            {/* Marketing homepage lives at "/" itself (not a redirect target)
+                so it isn't a duplicate of /marketing for SEO purposes. */}
+            <Route path="/" element={<Homepage />} />
+            <Route path="/marketing" element={<Navigate to="/" replace />} />
             <Route path="/services" element={<ServicesHub />} />
             <Route path="/services-hub" element={<ServicesHub />} />
             <Route path="/work" element={<WorkPortfolio />} />
@@ -172,7 +172,7 @@ const Routes = () => {
             <Route path="/cookies" element={<Cookies />} />
 
             {/* Legacy redirects */}
-            <Route path="/homepage" element={<Navigate to="/marketing" replace />} />
+            <Route path="/homepage" element={<Navigate to="/" replace />} />
             <Route path="/growth-assessment-contact" element={<Navigate to="/get-started" replace />} />
 
             <Route path="*" element={<NotFound />} />

@@ -14,4 +14,4 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemap location (absolute URL — required by the robots.txt spec)
-Sitemap: https://www.descale.services/sitemap.xml
+Sitemap: https://descale.services/sitemap.xml

@@ -2,16 +2,21 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { trackPageview } from "utils/analytics";
+import { SITE_URL } from "config/company";
 
 // Canonical origin for the production site. Absolute URLs are required for
-// canonical/og:url so crawlers resolve them unambiguously.
-const SITE_ORIGIN = "https://www.descale.services";
+// canonical/og:url so crawlers resolve them unambiguously. This MUST be the
+// apex domain: https://www.descale.services 301-redirects to it, so a
+// canonical pointing at www would conflict with that redirect.
+const SITE_ORIGIN = SITE_URL;
 
 // Map alias / duplicate routes to their single canonical path so every
-// variant points search engines at one authoritative URL.
+// variant points search engines at one authoritative URL. The marketing
+// homepage now renders at "/" itself (not "/marketing"), so "/marketing" is
+// the alias here, not the target.
 const CANONICAL_ALIASES = {
-  "/": "/marketing",
-  "/homepage": "/marketing",
+  "/homepage": "/",
+  "/marketing": "/",
   "/services-hub": "/services",
   "/work-portfolio": "/work",
   "/interactive-taxi-ads-innovation-lab": "/taxi-ads",

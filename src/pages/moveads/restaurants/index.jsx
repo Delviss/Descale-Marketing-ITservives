@@ -18,7 +18,7 @@ const RestaurantPage = () => {
     name: 'Descale MoveAds — Restaurants',
     description:
       'Launch a local courier-bag advertising campaign with a QR offer, targeted delivery zones, and clear reporting on scans, claims, and redemptions.',
-    url: 'https://www.descale.services/moveads/restaurants',
+    url: 'https://descale.services/moveads/restaurants',
   };
 
   return (

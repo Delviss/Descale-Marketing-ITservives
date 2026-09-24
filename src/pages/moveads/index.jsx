@@ -14,11 +14,11 @@ const MoveAds = () => {
     name: 'Descale MoveAds — local delivery-bag advertising',
     description:
       'Descale MoveAds connects local restaurants with active delivery couriers through QR-powered, opt-in bag-cover campaigns. Launching first in Kraków.',
-    url: 'https://www.descale.services/moveads',
+    url: 'https://descale.services/moveads',
     provider: {
       '@type': 'Organization',
       name: 'Descale Agency',
-      url: 'https://www.descale.services',
+      url: 'https://descale.services',
     },
   };
 

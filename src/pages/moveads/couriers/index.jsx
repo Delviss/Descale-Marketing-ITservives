@@ -60,7 +60,7 @@ const CourierPage = () => {
     name: 'Descale MoveAds — Couriers',
     description:
       'Apply to Descale MoveAds and earn extra income carrying approved local advertising campaigns on your delivery bag while you work.',
-    url: 'https://www.descale.services/moveads/couriers',
+    url: 'https://descale.services/moveads/couriers',
   };
 
   return (

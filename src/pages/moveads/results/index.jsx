@@ -19,7 +19,7 @@ const MoveAdsResults = () => {
     name: 'Descale MoveAds — pilot results',
     description:
       'Verified results from the Descale MoveAds Kraków pilot: campaign hours, QR scans, voucher claims, and confirmed redemptions.',
-    url: 'https://www.descale.services/moveads/results',
+    url: 'https://descale.services/moveads/results',
   };
 
   return (

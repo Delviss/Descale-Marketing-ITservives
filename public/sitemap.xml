@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.descale.services/</loc>
+    <loc>https://descale.services/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/marketing</loc>
+    <loc>https://descale.services/marketing</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/services</loc>
+    <loc>https://descale.services/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/work</loc>
+    <loc>https://descale.services/work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/taxi-ads</loc>
+    <loc>https://descale.services/taxi-ads</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/it</loc>
+    <loc>https://descale.services/it</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/it/platforms</loc>
+    <loc>https://descale.services/it/platforms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/it/applications</loc>
+    <loc>https://descale.services/it/applications</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/it/design</loc>
+    <loc>https://descale.services/it/design</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/it/websites</loc>
+    <loc>https://descale.services/it/websites</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/builders</loc>
+    <loc>https://descale.services/builders</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/about</loc>
+    <loc>https://descale.services/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/get-started</loc>
+    <loc>https://descale.services/get-started</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/contact</loc>
+    <loc>https://descale.services/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/privacy</loc>
+    <loc>https://descale.services/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/terms</loc>
+    <loc>https://descale.services/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.descale.services/cookies</loc>
+    <loc>https://descale.services/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
