@@ -2,15 +2,19 @@ import React from 'react';
 import LegalLayout from './_LegalLayout';
 import { COMPANY } from '../../config/company';
 
+// This table lists only what the site actually sets. It previously also
+// listed Plausible, PostHog, Meta, Google Ads and LinkedIn cookies that were
+// never implemented anywhere in the codebase — a cookie policy describing
+// trackers that don't exist is itself a transparency problem, not just an
+// inconsistency with the (also-fixed) consent banner. If any of these are
+// added for real, add a row here (and a matching banner category) at the
+// same time so the two can't drift apart again.
+// TODO(owner): if/when GTM, PostHog, Meta Pixel, Google Ads or LinkedIn
+// Insight Tag are actually added, add their real cookies here.
 const cookieTable = [
   { name: 'session_id', type: 'Strictly necessary', purpose: 'Maintains your session across pages.', duration: 'Session', provider: COMPANY.legalName },
   { name: 'cookie_consent', type: 'Strictly necessary', purpose: 'Stores your cookie preferences.', duration: '12 months', provider: COMPANY.legalName },
-  { name: '_ga, _ga_*', type: 'Analytics', purpose: 'Google Analytics 4, anonymised usage statistics.', duration: '14 months', provider: 'Google LLC' },
-  { name: 'plausible_*', type: 'Analytics', purpose: 'Privacy-friendly aggregated analytics.', duration: '24 hours', provider: 'Plausible Insights' },
-  { name: 'ph_*', type: 'Product analytics', purpose: 'PostHog, product usage and funnel measurement.', duration: '12 months', provider: 'PostHog Inc.' },
-  { name: '_fbp, _fbc', type: 'Marketing', purpose: 'Meta (Facebook) ad attribution.', duration: '90 days', provider: 'Meta Platforms Ireland Ltd' },
-  { name: '_gcl_au', type: 'Marketing', purpose: 'Google Ads conversion linker.', duration: '90 days', provider: 'Google LLC' },
-  { name: 'li_at, lidc, bcookie', type: 'Marketing', purpose: 'LinkedIn Insight Tag for B2B campaign measurement.', duration: 'Up to 12 months', provider: 'LinkedIn Ireland' },
+  { name: '_ga, _ga_*', type: 'Analytics', purpose: 'Google Analytics 4, anonymised usage statistics. Loaded only after you accept analytics cookies below.', duration: '14 months', provider: 'Google LLC' },
 ];
 
 const sections = [
@@ -29,10 +33,10 @@ const sections = [
     body: (
       <p>
         Strictly necessary cookies are loaded under our legitimate interest (Art. 6(1)(f) GDPR) and Article
-        173(3) of the Polish Telecommunications Act. All other cookies, analytics, product, marketing -
-        are loaded only after you give explicit, informed consent through our cookie banner, in line with
-        the EU ePrivacy Directive 2002/58/EC and the IAB Europe TCF v2.2 standard. You can withdraw consent
-        at any time by clicking &ldquo;Cookie Preferences&rdquo; in the footer.
+        173(3) of the Polish Telecommunications Act. Analytics cookies are loaded only after you give
+        explicit, informed consent through our cookie banner, in line with the EU ePrivacy Directive
+        2002/58/EC. You can withdraw consent at any time by clicking &ldquo;Cookie Preferences&rdquo; in the
+        footer.
       </p>
     ),
   },
@@ -41,15 +45,18 @@ const sections = [
     body: (
       <>
         <p>
-          We use four categories of cookies. The strictly necessary category is always active; all others
-          require your consent.
+          We use two categories of cookies. The strictly necessary category is always active; analytics
+          requires your consent.
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Strictly necessary</strong>: required to operate the website (session, security, consent storage).</li>
-          <li><strong>Analytics</strong>: anonymous, aggregated usage statistics (Google Analytics 4 with IP anonymisation, Plausible).</li>
-          <li><strong>Product</strong>: funnel and feature usage (PostHog) used to improve the product.</li>
-          <li><strong>Marketing</strong>: attribution and remarketing (Meta, Google Ads, LinkedIn).</li>
+          <li><strong>Analytics</strong>: anonymous, aggregated usage statistics (Google Analytics 4 with IP anonymisation).</li>
         </ul>
+        <p>
+          We don&rsquo;t currently use product-analytics or marketing/remarketing cookies (PostHog, Meta,
+          Google Ads, LinkedIn Insight Tag, etc.). If that changes, this page and the cookie banner will be
+          updated together before any such cookie is set.
+        </p>
       </>
     ),
   },
@@ -100,9 +107,9 @@ const sections = [
     title: '6. International transfers',
     body: (
       <p>
-        Some cookie providers (Google, Meta, PostHog, LinkedIn) transfer data to the United States. These
-        transfers are protected by the EU-US Data Privacy Framework adequacy decision and the 2021 EU
-        Standard Contractual Clauses, with supplementary technical measures. See our
+        Google (our analytics cookie provider) transfers data to the United States. This transfer is
+        protected by the EU-US Data Privacy Framework adequacy decision and the 2021 EU Standard Contractual
+        Clauses, with supplementary technical measures. See our
         <a className="text-primary hover:underline" href="/privacy"> Privacy Policy</a> for details.
       </p>
     ),

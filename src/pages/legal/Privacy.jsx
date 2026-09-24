@@ -72,9 +72,9 @@ const sections = [
       <>
         <p>We share personal data only with carefully selected processors and recipients:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Hosting &amp; infrastructure</strong>: Amazon Web Services (EU regions), Cloudflare, Vercel, Google Cloud.</li>
+          <li><strong>Hosting &amp; infrastructure</strong>: GitHub Pages.</li>
           <li><strong>Productivity &amp; communication</strong>: Google Workspace, Slack, Notion, Linear, Calendly.</li>
-          <li><strong>Analytics &amp; product</strong>: Google Analytics 4, Plausible, PostHog (with IP anonymisation).</li>
+          <li><strong>Analytics</strong>: Google Analytics 4 (with IP anonymisation), loaded only after you accept analytics cookies.</li>
           <li><strong>Email &amp; CRM</strong>: HubSpot, Resend, Postmark.</li>
           <li><strong>Payments &amp; accounting</strong>: Stripe, our certified Polish accounting office, banks.</li>
           <li><strong>Legal &amp; advisors</strong>: lawyers, auditors, tax advisors bound by professional secrecy.</li>
