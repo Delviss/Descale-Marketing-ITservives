@@ -24,7 +24,7 @@ const Header = ({ className = '' }) => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { name: 'Marketing', path: '/marketing', icon: 'Megaphone', matches: ['/', '/marketing'] },
+    { name: 'Marketing', path: '/', icon: 'Megaphone', matches: ['/', '/marketing'] },
     { name: 'IT Services', path: '/it', icon: 'Cpu', matches: ['/it'] },
     { name: 'Projects', path: '/projects', icon: 'Rocket', matches: ['/projects'] },
     { name: 'Builders', path: '/builders', icon: 'Hammer', matches: ['/builders', '/builder'] },
@@ -73,13 +73,24 @@ const Header = ({ className = '' }) => {
   );
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-fixed transition-all duration-brand-fast bg-[#0B0B0F]/90 backdrop-blur-brand ${
-        isScrolled
-          ? 'shadow-brand-md border-b border-white/10'
-          : 'border-b border-white/5'
-      } ${className}`}
-    >
+    <>
+      {/* Visually hidden until focused; jumps keyboard/screen-reader users
+          past the nav straight to the page content. The target is a
+          zero-size, tabIndex=-1 marker right after the header (below) since
+          not every page wraps its content in a <main id="main-content">. */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] focus:rounded-md focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium"
+      >
+        Skip to content
+      </a>
+      <header
+        className={`fixed top-0 left-0 right-0 z-fixed transition-all duration-brand-fast bg-[#0B0B0F]/90 backdrop-blur-brand ${
+          isScrolled
+            ? 'shadow-brand-md border-b border-white/10'
+            : 'border-b border-white/5'
+        } ${className}`}
+      >
       <div className="w-full">
         <div className="flex items-center justify-between h-16 md:h-20 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
@@ -180,7 +191,9 @@ const Header = ({ className = '' }) => {
           </div>
         </div>
       </div>
-    </header>
+      </header>
+      <span id="main-content" tabIndex={-1} className="sr-only" />
+    </>
   );
 };
 

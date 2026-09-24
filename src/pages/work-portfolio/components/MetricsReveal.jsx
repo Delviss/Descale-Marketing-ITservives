@@ -100,17 +100,24 @@ const MetricsReveal = () => {
 
         {/* Progress Indicators */}
         <div className="flex justify-center space-x-2 mt-8">
-          {metricSets?.map((_, index) => (
-            <motion.button
+          {metricSets?.map((set, index) => (
+            <button
               key={index}
+              type="button"
               onClick={() => setCurrentMetricSet(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentMetricSet 
-                  ? 'bg-accent' :'bg-white/20 hover:bg-white/40'
-              }`}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            />
+              aria-label={`Show metric set ${index + 1}: ${set?.title || ''}`.trim()}
+              aria-current={index === currentMetricSet ? 'true' : undefined}
+              className="p-2.5 flex items-center justify-center"
+            >
+              <motion.span
+                className={`block w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentMetricSet
+                    ? 'bg-accent' :'bg-white/20 hover:bg-white/40'
+                }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              />
+            </button>
           ))}
         </div>
 

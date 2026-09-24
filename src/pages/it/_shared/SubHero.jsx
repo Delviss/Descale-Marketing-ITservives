@@ -24,9 +24,9 @@ const SubHero = ({ eyebrow, title, italicWord, description, stats = [], primaryC
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-6"
+          className="flex items-center gap-3 mb-6 -ml-3"
         >
-          <Link to="/it" className="text-xs font-medium tracking-[0.2em] text-foreground/50 hover:text-foreground/80 uppercase transition-colors">
+          <Link to="/it" className="inline-flex items-center min-h-[44px] px-3 text-xs font-medium tracking-[0.2em] text-foreground/50 hover:text-foreground/80 uppercase transition-colors">
             IT Services
           </Link>
           <span className="text-foreground/30">/</span>

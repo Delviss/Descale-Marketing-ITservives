@@ -126,6 +126,11 @@ const Select = React.forwardRef(({
                     disabled={disabled}
                     aria-expanded={isOpen}
                     aria-haspopup="listbox"
+                    // Falls back to the placeholder as an accessible name when
+                    // no visible `label` is passed, so the trigger is never
+                    // left with no name at all (the shadcn Select pattern the
+                    // audit calls out).
+                    aria-label={!label ? props['aria-label'] || placeholder : undefined}
                     {...props}
                 >
                     <span className="truncate">{getSelectedDisplay()}</span>
@@ -153,13 +158,19 @@ const Select = React.forwardRef(({
                     </div>
                 </button>
 
-                {/* Hidden native select for form submission */}
+                {/* Hidden native select for form submission only. It must stay
+                    out of the accessibility tree (not just visually hidden):
+                    sr-only alone still exposes it to screen readers, giving
+                    an unlabeled, non-interactive duplicate control (its
+                    onChange is a no-op; the custom button above is the real,
+                    already-labeled control). */}
                 <select
                     name={name}
                     value={value || ''}
                     onChange={() => { }} // Controlled by our custom logic
                     className="sr-only"
                     tabIndex={-1}
+                    aria-hidden="true"
                     multiple={multiple}
                     required={required}
                 >

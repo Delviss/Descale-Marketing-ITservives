@@ -4,6 +4,28 @@ body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* Clip horizontal overflow (decorative blurred blobs positioned outside the
+   viewport, wide flex rows, etc.) at the app root instead of body/html:
+   overflow on body/html disables position:sticky in some browsers, and
+   `clip` (unlike `hidden`) doesn't create a new scroll container, so sticky
+   headers inside #root keep working. */
+#root {
+  overflow-x: clip;
+  /* Safari requires overflow-y to also be set to a non-default value for
+     overflow-x: clip to take effect reliably. */
+  overflow-y: visible;
+}
+
+/* Global focus-visible fallback: many custom interactive cards/buttons
+   across the site don't define their own focus ring. Rather than auditing
+   every one individually, guarantee a visible ring for keyboard/AT users on
+   anything focusable that doesn't already opt out with its own
+   focus-visible style (those still win via normal CSS specificity/order). */
+:focus-visible {
+  outline: 2px solid var(--color-ring, #A8431C);
+  outline-offset: 2px;
+}
+
 *,
 *::before,
 *::after {

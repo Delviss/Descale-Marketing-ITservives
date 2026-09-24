@@ -71,7 +71,7 @@ const ServiceCard = ({ service, onLearnMore, onGetStarted }) => {
             variant="outline"
             size="sm"
             onClick={() => onLearnMore(service)}
-            className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/40"
+            className="flex-1 min-h-[44px] border-white/20 text-white hover:bg-white/10 hover:border-white/40"
             iconName="ArrowRight"
             iconPosition="right"
           >
@@ -81,7 +81,7 @@ const ServiceCard = ({ service, onLearnMore, onGetStarted }) => {
             variant="default"
             size="sm"
             onClick={() => onGetStarted(service)}
-            className="flex-1 bg-accent text-white hover:bg-accent/90 hover-brand"
+            className="flex-1 min-h-[44px] bg-accent text-white hover:bg-accent/90 hover-brand"
             iconName="Eye"
             iconPosition="left"
           >

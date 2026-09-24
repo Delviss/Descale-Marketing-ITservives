@@ -47,7 +47,7 @@ const ITCaseStudies = () => {
           </div>
           <Link
             to="/get-started"
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+            className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 rounded-full border border-foreground/15 text-sm font-medium text-foreground/70 hover:text-primary hover:border-foreground/30 transition-colors"
           >
             Discuss your project <Icon name="ArrowUpRight" size={16} />
           </Link>
