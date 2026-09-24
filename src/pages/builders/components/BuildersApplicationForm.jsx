@@ -5,6 +5,7 @@ import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import Icon from '../../../components/AppIcon';
 import { sendInquiryEmail } from '../../../utils/emailService';
+import { trackEvent } from '../../../utils/analytics';
 
 const roleOptions = [
   { value: 'developer', label: 'Developer' },
@@ -64,6 +65,7 @@ const BuildersApplicationForm = forwardRef((_props, ref) => {
       });
       // sendInquiryEmail resolves for relay success and mailto fallback alike.
       setStatus('success');
+      trackEvent('form_submit', { page_path: window.location.pathname, form_type: 'builder-application' });
       void result;
     } catch (err) {
       setStatus('error');
@@ -98,7 +100,7 @@ const BuildersApplicationForm = forwardRef((_props, ref) => {
           className="rounded-3xl border border-border bg-white p-8 lg:p-10 shadow-brand"
         >
           {status === 'success' ? (
-            <div className="text-center py-8">
+            <div className="text-center py-8" role="status" aria-live="polite">
               <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
                 <Icon name="Check" size={28} />
               </div>
@@ -116,6 +118,7 @@ const BuildersApplicationForm = forwardRef((_props, ref) => {
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
                   placeholder="Jane Builder"
+                  autoComplete="name"
                   required
                 />
                 <Input
@@ -124,6 +127,7 @@ const BuildersApplicationForm = forwardRef((_props, ref) => {
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
                   placeholder="you@email.com"
+                  autoComplete="email"
                   required
                 />
               </div>
@@ -143,6 +147,7 @@ const BuildersApplicationForm = forwardRef((_props, ref) => {
                 value={formData.portfolio}
                 onChange={(e) => handleChange('portfolio', e.target.value)}
                 placeholder="https://github.com/you"
+                autoComplete="url"
                 required
               />
 
@@ -161,7 +166,7 @@ const BuildersApplicationForm = forwardRef((_props, ref) => {
               </div>
 
               {status === 'error' && (
-                <p className="text-sm text-destructive">{error}</p>
+                <p className="text-sm text-destructive" role="alert" aria-live="assertive">{error}</p>
               )}
 
               <Button

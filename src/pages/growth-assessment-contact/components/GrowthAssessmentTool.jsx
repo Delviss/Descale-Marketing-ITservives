@@ -4,6 +4,7 @@ import Select from '../../../components/ui/Select';
 
 import Icon from '../../../components/AppIcon';
 import { sendInquiryEmail } from '../../../utils/emailService';
+import { trackEvent } from '../../../utils/analytics';
 
 const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPersonalizedPlan }) => {
   const [step, setStep] = useState(1);
@@ -161,6 +162,12 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
     });
 
     setResults(calculatedResults);
+    trackEvent('roi_calculated', {
+      page_path: window.location.pathname,
+      calculator: 'growth_assessment',
+      score,
+      estimated_roi: calculatedResults.estimatedROI,
+    });
     onComplete(formData, score);
   };
 
@@ -271,10 +278,10 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
       </div>
       {/* Current Question */}
       <div className="bg-card p-8 rounded-xl shadow-brand border border-border mb-6">
-        <h3 className="text-xl font-semibold mb-6">
+        <h3 className="text-xl font-semibold mb-6" id="assessment-question-title">
           {assessmentQuestions?.[step - 1]?.title}
         </h3>
-        
+
         {assessmentQuestions?.[step - 1]?.type === 'select' ? (
           <Select
             options={assessmentQuestions?.[step - 1]?.options}
@@ -282,6 +289,7 @@ const GrowthAssessmentTool = ({ onComplete, currentStep, assessmentData, onGetPe
             onChange={(value) => handleInputChange(assessmentQuestions?.[step - 1]?.id, value)}
             placeholder="Select an option"
             className="mb-6"
+            aria-labelledby="assessment-question-title"
           />
         ) : (
           <div className="mb-6">

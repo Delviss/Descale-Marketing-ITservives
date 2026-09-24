@@ -110,3 +110,70 @@ export function trackPageview(path) {
     page_title: document.title,
   });
 }
+
+// Generic event push. No-ops until GA4 has actually loaded (i.e. consent was
+// granted), same as trackPageview above.
+export function trackEvent(name, params = {}) {
+  if (!GA_ID || !gaLoaded || !window.gtag) return;
+  window.gtag("event", name, params);
+}
+
+// CTA phrases the cookie policy / analytics spec calls out for cta_click
+// tracking. Matched against a clicked element's own text (not its
+// descendants', so a "Get Started" link inside a bigger card doesn't also
+// fire for the card's outer wrapper).
+const CTA_LABELS = ["get started", "contact", "discuss your project", "join builders"];
+
+function ownText(el) {
+  let text = "";
+  for (const node of el.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) text += node.textContent;
+  }
+  return text.trim();
+}
+
+// Delegated click tracking for cta_click: fires once per app lifetime,
+// listens on the whole document, so every current and future CTA whose
+// visible text matches one of CTA_LABELS is tracked with zero per-component
+// wiring. Matches on the closest <a>/<button> ancestor's own text (falling
+// back to its full textContent for buttons that wrap the label in a span).
+let ctaTrackingInitialized = false;
+export function initCtaTracking() {
+  if (typeof document === "undefined" || ctaTrackingInitialized) return;
+  ctaTrackingInitialized = true;
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target.closest?.("a, button");
+      if (!target) return;
+      const label = (ownText(target) || target.textContent || "").trim();
+      const normalized = label.toLowerCase();
+      if (!CTA_LABELS.some((candidate) => normalized === candidate || normalized.startsWith(candidate))) return;
+      trackEvent("cta_click", {
+        cta_label: label,
+        page_path: window.location.pathname,
+      });
+    },
+    { capture: true }
+  );
+}
+
+// Listens for Calendly's postMessage events and fires generate_lead when a
+// visitor actually books a slot (event_scheduled), not just opens the widget.
+let calendlyLeadTrackingInitialized = false;
+export function initCalendlyLeadTracking() {
+  if (typeof window === "undefined" || calendlyLeadTrackingInitialized) return;
+  calendlyLeadTrackingInitialized = true;
+
+  window.addEventListener("message", (event) => {
+    const data = event?.data;
+    if (typeof data?.event !== "string" || !data.event.startsWith("calendly.")) return;
+    if (data.event === "calendly.event_scheduled") {
+      trackEvent("generate_lead", {
+        source: "calendly",
+        page_path: window.location.pathname,
+      });
+    }
+  });
+}
