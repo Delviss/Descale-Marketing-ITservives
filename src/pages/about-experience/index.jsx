@@ -40,7 +40,7 @@ const AboutExperience = () => {
           <CultureShowcase />
           <CallToAction />
         </main>
-        <Footer />
+        <Footer hideGlobalCta />
       </div>
     </>
   );

@@ -53,7 +53,7 @@ const ITHome = () => {
         <ITTestimonials />
         <ITCtaBand />
       </main>
-      <Footer />
+      <Footer hideGlobalCta />
     </div>
   );
 };

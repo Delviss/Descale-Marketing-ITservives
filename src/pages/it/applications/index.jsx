@@ -117,6 +117,7 @@ const ITApplications = () => {
       ogTitle="Application Engineering | Descale Agency"
       jsonLd={jsonLd}
       breadcrumbLabel="Applications"
+      hideGlobalCta
     >
       <SubHero
         eyebrow="Applications"

@@ -5,7 +5,7 @@ import Header from '../../../components/ui/Header';
 import Footer from '../../../components/ui/Footer';
 import { SITE_URL } from '../../../config/company';
 
-const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, breadcrumbLabel, noindex, children }) => {
+const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, breadcrumbLabel, noindex, hideGlobalCta, children }) => {
   const { pathname } = useLocation();
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -77,7 +77,7 @@ const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, brea
       </Helmet>
       <Header />
       <main>{children}</main>
-      <Footer />
+      <Footer hideGlobalCta={hideGlobalCta} />
     </div>
   );
 };

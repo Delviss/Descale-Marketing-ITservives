@@ -59,7 +59,7 @@ const socials = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({ hideGlobalCta = false }) => {
   const location = useLocation();
   const onIT = location?.pathname?.startsWith('/it');
   const switchTarget = onIT
@@ -81,36 +81,40 @@ const Footer = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-16">
-        {/* Top CTA strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7 }}
-          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 pb-16 border-b border-white/10"
-        >
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] text-white/60 uppercase mb-6">
-              <span className="w-8 h-px bg-white/40" />
-              Let's build what compounds
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-white">
-              Ready to{' '}
-              <span className="font-serif-accent italic text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
-                descale the noise?
-              </span>
-            </h2>
-          </div>
-          <Link
-            to="/get-started"
-            className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-white text-black font-medium hover:bg-accent hover:text-white transition-all duration-300 shadow-lg"
+        {/* Top CTA strip — skipped on pages that already end with their own
+            closing CTA immediately above the footer, so visitors don't see
+            two "ready to get started?" banners back to back. */}
+        {!hideGlobalCta && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 pb-16 border-b border-white/10"
           >
-            Get Started
-            <span className="w-8 h-8 rounded-full bg-black/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
-              <Icon name="ArrowUpRight" size={16} />
-            </span>
-          </Link>
-        </motion.div>
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] text-white/60 uppercase mb-6">
+                <span className="w-8 h-px bg-white/40" />
+                Let's build what compounds
+              </span>
+              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-white">
+                Ready to{' '}
+                <span className="font-serif-accent italic text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
+                  descale the noise?
+                </span>
+              </h2>
+            </div>
+            <Link
+              to="/get-started"
+              className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-full bg-white text-black font-medium hover:bg-accent hover:text-white transition-all duration-300 shadow-lg"
+            >
+              Get Started
+              <span className="w-8 h-8 rounded-full bg-black/10 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                <Icon name="ArrowUpRight" size={16} />
+              </span>
+            </Link>
+          </motion.div>
+        )}
 
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 py-16">

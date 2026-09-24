@@ -361,7 +361,7 @@ const InteractiveTaxiAdsInnovationLab = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer hideGlobalCta />
     </div>
   );
 };

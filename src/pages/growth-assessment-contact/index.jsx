@@ -173,7 +173,7 @@ const GrowthAssessmentContact = () => {
           assessmentData={assessmentData}
         />
       )}
-      <Footer />
+      <Footer hideGlobalCta />
     </div>
   );
 };

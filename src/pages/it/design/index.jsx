@@ -117,6 +117,7 @@ const ITDesign = () => {
       ogTitle="Product Design | Descale Agency"
       jsonLd={jsonLd}
       breadcrumbLabel="Design"
+      hideGlobalCta
     >
       <SubHero
         eyebrow="Design"

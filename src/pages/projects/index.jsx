@@ -38,6 +38,7 @@ const Projects = () => {
       description="What Descale is building beyond client work: our own ventures and products, from Interactive Taxi Ads to Descale MoveAds."
       ogTitle="Projects | What we're building beyond client work"
       jsonLd={jsonLd}
+      hideGlobalCta
     >
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div aria-hidden className="absolute inset-0 bg-mesh-light opacity-90" />
