@@ -63,7 +63,7 @@ const sections = [
   {
     title: '4. Cookies in detail',
     body: (
-      <div className="overflow-x-auto rounded-2xl border border-border">
+      <div className="overflow-x-auto rounded-2xl border border-border" tabIndex={0} role="region" aria-label="Cookies in detail table">
         <table className="w-full text-sm">
           <thead className="bg-muted/50">
             <tr>

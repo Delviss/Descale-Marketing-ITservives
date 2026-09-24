@@ -106,7 +106,7 @@ const ServiceComparison = ({ services, onSelectService }) => {
 
         {/* Comparison Table */}
         {selectedServices?.length > 0 && (
-          <div className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl p-6 overflow-x-auto shadow-brand">
+          <div className="bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-2xl p-6 overflow-x-auto shadow-brand" tabIndex={0} role="region" aria-label="Service comparison table">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/10">

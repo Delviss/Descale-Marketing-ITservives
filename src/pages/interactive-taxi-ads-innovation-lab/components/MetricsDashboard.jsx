@@ -229,7 +229,7 @@ const MetricsDashboard = ({ metrics, isLive = false }) => {
       {activeTab === 'geographic' && (
         <div className="bg-white rounded-lg p-6">
           <h4 className="font-semibold text-gray-900 mb-4">Geographic Performance</h4>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto" tabIndex={0} role="region" aria-label="Geographic performance table">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-gray-200">

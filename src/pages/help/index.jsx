@@ -284,7 +284,7 @@ const HelpPage = () => {
                           aria-expanded={open}
                         >
                           <div className="min-w-0">
-                            <span className="block text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
+                            <span className="block text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-1">
                               {CATEGORIES.find((c) => c.id === item.category)?.label}
                             </span>
                             <span className="font-display text-base sm:text-lg font-semibold text-foreground">
