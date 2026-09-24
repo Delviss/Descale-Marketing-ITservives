@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../../components/ui/Header';
 import Footer from '../../../components/ui/Footer';
 
-const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, children }) => {
+const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, noindex, children }) => {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
     document.documentElement.classList.add('dark');
@@ -19,6 +19,19 @@ const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, chil
       document.body.style.backgroundColor = '';
     };
   }, []);
+
+  // index.html ships a single static <meta name="robots"> for the default
+  // "index, follow" case. Helmet only appends tags, it doesn't replace
+  // pre-existing static ones, so a noindex page mutates that tag in place
+  // instead of rendering a second, conflicting one.
+  useEffect(() => {
+    if (!noindex) return undefined;
+    const tag = document.querySelector('meta[name="robots"]');
+    if (!tag) return undefined;
+    const previous = tag.getAttribute('content');
+    tag.setAttribute('content', 'noindex, nofollow');
+    return () => tag.setAttribute('content', previous);
+  }, [noindex]);
 
   return (
     <div className="dark min-h-screen bg-background text-foreground">

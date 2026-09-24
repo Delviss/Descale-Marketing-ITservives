@@ -29,6 +29,7 @@ const importProjects = () => import('./pages/projects');
 const importMoveAds = () => import('./pages/moveads');
 const importMoveAdsCouriers = () => import('./pages/moveads/couriers');
 const importMoveAdsRestaurants = () => import('./pages/moveads/restaurants');
+const importMoveAdsResults = () => import('./pages/moveads/results');
 const importMoveAdsCourierTerms = () => import('./pages/moveads/legal/CourierTerms');
 const importMoveAdsCampaignTerms = () => import('./pages/moveads/legal/CampaignTerms');
 const importMoveAdsQrTerms = () => import('./pages/moveads/legal/QrOfferTerms');
@@ -55,6 +56,7 @@ const Projects = lazy(importProjects);
 const MoveAds = lazy(importMoveAds);
 const MoveAdsCouriers = lazy(importMoveAdsCouriers);
 const MoveAdsRestaurants = lazy(importMoveAdsRestaurants);
+const MoveAdsResults = lazy(importMoveAdsResults);
 const MoveAdsCourierTerms = lazy(importMoveAdsCourierTerms);
 const MoveAdsCampaignTerms = lazy(importMoveAdsCampaignTerms);
 const MoveAdsQrTerms = lazy(importMoveAdsQrTerms);
@@ -85,6 +87,7 @@ export const routePrefetch = {
   '/moveads': importMoveAds,
   '/moveads/couriers': importMoveAdsCouriers,
   '/moveads/restaurants': importMoveAdsRestaurants,
+  '/moveads/results': importMoveAdsResults,
   '/moveads/legal/courier-terms': importMoveAdsCourierTerms,
   '/moveads/legal/campaign-terms': importMoveAdsCampaignTerms,
   '/moveads/legal/qr-terms': importMoveAdsQrTerms,
@@ -138,6 +141,7 @@ const Routes = () => {
             <Route path="/moveads" element={<MoveAds />} />
             <Route path="/moveads/couriers" element={<MoveAdsCouriers />} />
             <Route path="/moveads/restaurants" element={<MoveAdsRestaurants />} />
+            <Route path="/moveads/results" element={<MoveAdsResults />} />
             <Route path="/moveads/legal/courier-terms" element={<MoveAdsCourierTerms />} />
             <Route path="/moveads/legal/campaign-terms" element={<MoveAdsCampaignTerms />} />
             <Route path="/moveads/legal/qr-terms" element={<MoveAdsQrTerms />} />

@@ -25,6 +25,7 @@ const ROUTES = [
   "/moveads",
   "/moveads/couriers",
   "/moveads/restaurants",
+  "/moveads/results",
   "/moveads/legal/courier-terms",
   "/moveads/legal/campaign-terms",
   "/moveads/legal/qr-terms",
