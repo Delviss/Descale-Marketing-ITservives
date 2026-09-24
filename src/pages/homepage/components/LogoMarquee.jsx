@@ -10,7 +10,7 @@ const LogoMarquee = () => {
   return (
     <section className="relative bg-[#FBFAF7] border-y border-black/5 py-14 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <p className="text-center text-xs font-medium tracking-[0.3em] text-black/50 uppercase mb-8">
+        <p className="text-center text-xs font-medium tracking-[0.3em] text-black/70 uppercase mb-8">
           Delivering growth across Rwanda and the world's largest economies
         </p>
       </div>
@@ -27,7 +27,7 @@ const LogoMarquee = () => {
           {[...countries, ...countries, ...countries].map((c, i) => (
             <span
               key={i}
-              className="mx-10 font-display text-3xl md:text-4xl font-semibold tracking-tight text-black/30 hover:text-black transition-colors"
+              className="mx-10 font-display text-3xl md:text-4xl font-semibold tracking-tight text-black/45 hover:text-black transition-colors"
             >
               {c}
             </span>

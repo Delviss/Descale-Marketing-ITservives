@@ -197,7 +197,7 @@ const MethodologyBreakdown = () => {
                   }`}>
                     <Icon name={phase?.icon} className="text-white" size={20} />
                   </div>
-                  <div className="text-xs text-gray-400 mt-2 text-center max-w-20">
+                  <div className="text-xs text-gray-100 mt-2 text-center max-w-20">
                     {phase?.duration}
                   </div>
                 </motion.div>

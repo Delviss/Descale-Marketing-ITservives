@@ -114,7 +114,7 @@ const CaseStudyShowcase = () => {
             }`}
           >
             <div className="font-semibold text-sm">{study?.client}</div>
-            <div className="text-xs opacity-75">{study?.industry}</div>
+            <div className="text-xs">{study?.industry}</div>
           </button>
         ))}
       </div>

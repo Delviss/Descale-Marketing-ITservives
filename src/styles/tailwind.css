@@ -27,14 +27,16 @@
     --color-accent: #C65A2E;
     --color-accent-foreground: #FFFFFF;
 
-    /* Status */
-    --color-success: #10B981;
+    /* Status. success/error/destructive are one shade darker than the
+       original #10B981/#EF4444 (still clearly green/red) — those failed
+       WCAG AA (4.5:1) as text on this theme's light surfaces. */
+    --color-success: #047857;
     --color-success-foreground: #FFFFFF;
     --color-warning: #F59E0B;
     --color-warning-foreground: #14131A;
-    --color-error: #EF4444;
+    --color-error: #DC2626;
     --color-error-foreground: #FFFFFF;
-    --color-destructive: #EF4444;
+    --color-destructive: #DC2626;
     --color-destructive-foreground: #FFFFFF;
 
     --color-surface: #F3F1EC;

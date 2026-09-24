@@ -87,7 +87,7 @@ const WhatsAppWidget = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={markSeen}
-            className="mt-3 inline-flex items-center gap-2 text-brand-sm font-semibold text-[#25D366] hover:underline"
+            className="mt-3 inline-flex items-center gap-2 text-brand-sm font-semibold text-[#0C7C63] hover:underline"
           >
             <WhatsAppIcon size={18} />
             {PHONE_DISPLAY}

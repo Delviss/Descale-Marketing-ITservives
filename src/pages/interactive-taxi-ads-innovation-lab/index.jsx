@@ -115,7 +115,7 @@ const InteractiveTaxiAdsInnovationLab = () => {
                   size="lg"
                   iconName="Play"
                   iconPosition="left"
-                  className="bg-accent hover:bg-accent/90"
+                  className="bg-primary hover:bg-primary/90"
                 >
                   Launch Interactive Demo
                 </Button>

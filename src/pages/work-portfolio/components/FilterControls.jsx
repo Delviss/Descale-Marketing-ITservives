@@ -41,7 +41,7 @@ const FilterControls = ({
       whileTap={{ scale: 0.95 }}
       className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-semibold transition-all duration-300 ${
         isActive
-          ? 'bg-accent text-white shadow-lg'
+          ? 'bg-primary text-white shadow-lg'
           : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white border border-gray-700'
       }`}
     >
