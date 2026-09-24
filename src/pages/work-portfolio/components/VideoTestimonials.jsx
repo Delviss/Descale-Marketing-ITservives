@@ -18,8 +18,8 @@ const VideoTestimonials = ({ caseStudies }) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            CLIENT TESTIMONIALS
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">
+            Client Testimonials
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Hear directly from founders and CMOs about their transformation journey with DESCALE

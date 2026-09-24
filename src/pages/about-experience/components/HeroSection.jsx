@@ -73,7 +73,7 @@ const HeroSection = () => {
             </motion.div>
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[1.02] tracking-[-0.03em]">
-              Where Strategy
+              <span className="block">Where Strategy</span>
               <span className="block font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
                 Meets Boldness
               </span>
