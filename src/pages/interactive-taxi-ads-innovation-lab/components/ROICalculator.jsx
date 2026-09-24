@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import { trackEvent } from '../../../utils/analytics';
+import { calculateCampaignROI, formatCurrency, formatNumber, safeNumber } from '../roiMath';
 
 const ROICalculator = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     budget: 50000,
     duration: 30,
@@ -45,41 +49,43 @@ const ROICalculator = () => {
 
   const calculateROI = () => {
     setIsCalculating(true);
-    
+
     setTimeout(() => {
       const audienceMultiplier = audienceOptions?.find(opt => opt?.value === formData?.targetAudience)?.multiplier || 1;
       const businessMultiplier = businessTypeOptions?.find(opt => opt?.value === formData?.businessType)?.multiplier || 1;
-      
-      // Base calculations
-      const baseImpressions = (formData?.budget / 0.12) * (formData?.duration / 30);
-      const adjustedImpressions = baseImpressions * audienceMultiplier * businessMultiplier;
-      
-      const estimatedReach = adjustedImpressions * 0.7; // Unique reach factor
-      const estimatedClicks = estimatedReach * (formData?.conversionRate / 100);
-      const estimatedConversions = estimatedClicks * 0.15; // Conversion rate from clicks
-      
-      const revenue = estimatedConversions * formData?.averageOrderValue;
-      const roi = ((revenue - formData?.budget) / formData?.budget) * 100;
-      const newCAC = formData?.budget / estimatedConversions;
-      const cacImprovement = ((formData?.currentCAC - newCAC) / formData?.currentCAC) * 100;
 
-      setResults({
-        impressions: Math.floor(adjustedImpressions),
-        reach: Math.floor(estimatedReach),
-        clicks: Math.floor(estimatedClicks),
-        conversions: Math.floor(estimatedConversions),
-        revenue: Math.floor(revenue),
-        roi: Math.floor(roi),
-        newCAC: Math.floor(newCAC),
-        cacImprovement: Math.floor(cacImprovement),
-        paybackPeriod: Math.ceil(formData?.budget / (revenue / formData?.duration))
+      const computed = calculateCampaignROI({
+        budget: formData?.budget,
+        duration: formData?.duration,
+        audienceMultiplier,
+        businessMultiplier,
+        averageOrderValue: formData?.averageOrderValue,
+        conversionRate: formData?.conversionRate,
+        currentCAC: formData?.currentCAC,
       });
-      
+      setResults(computed);
+      trackEvent('roi_calculated', {
+        page_path: window.location.pathname,
+        calculator: 'taxi_ads_roi',
+        budget: safeNumber(formData?.budget),
+        roi: computed.roi,
+      });
+
       setIsCalculating(false);
     }, 1500);
   };
 
-  const isFormValid = formData?.targetAudience && formData?.businessType && formData?.budget > 0;
+  const handleBookCall = () => {
+    const params = new URLSearchParams({
+      source: 'taxi-ads-roi-calculator',
+      budget: String(safeNumber(formData?.budget)),
+      roi: String(results?.roi ?? ''),
+      revenue: String(results?.revenue ?? ''),
+    });
+    navigate(`/get-started?${params.toString()}`);
+  };
+
+  const isFormValid = formData?.targetAudience && formData?.businessType && safeNumber(formData?.budget) > 0;
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
@@ -101,8 +107,11 @@ const ROICalculator = () => {
             <Input
               label="Campaign Budget ($)"
               type="number"
+              inputMode="decimal"
+              min="0"
+              step="100"
               value={formData?.budget}
-              onChange={(e) => handleInputChange('budget', parseInt(e?.target?.value) || 0)}
+              onChange={(e) => handleInputChange('budget', Math.max(0, parseInt(e?.target?.value, 10) || 0))}
               placeholder="50000"
               description="Total campaign investment"
             />
@@ -110,8 +119,9 @@ const ROICalculator = () => {
             <Input
               label="Duration (Days)"
               type="number"
+              inputMode="numeric"
               value={formData?.duration}
-              onChange={(e) => handleInputChange('duration', parseInt(e?.target?.value) || 0)}
+              onChange={(e) => handleInputChange('duration', Math.max(1, Math.min(365, parseInt(e?.target?.value, 10) || 1)))}
               placeholder="30"
               min="1"
               max="365"
@@ -140,8 +150,11 @@ const ROICalculator = () => {
             <Input
               label="Current CAC ($)"
               type="number"
+              inputMode="decimal"
+              min="0"
+              step="10"
               value={formData?.currentCAC}
-              onChange={(e) => handleInputChange('currentCAC', parseInt(e?.target?.value) || 0)}
+              onChange={(e) => handleInputChange('currentCAC', Math.max(0, parseInt(e?.target?.value, 10) || 0))}
               placeholder="150"
               description="Customer Acquisition Cost"
             />
@@ -149,8 +162,11 @@ const ROICalculator = () => {
             <Input
               label="Average Order Value ($)"
               type="number"
+              inputMode="decimal"
+              min="0"
+              step="10"
               value={formData?.averageOrderValue}
-              onChange={(e) => handleInputChange('averageOrderValue', parseInt(e?.target?.value) || 0)}
+              onChange={(e) => handleInputChange('averageOrderValue', Math.max(0, parseInt(e?.target?.value, 10) || 0))}
               placeholder="500"
             />
           </div>
@@ -158,8 +174,11 @@ const ROICalculator = () => {
           <Input
             label="Conversion Rate (%)"
             type="number"
+            inputMode="decimal"
+            min="0"
+            max="100"
             value={formData?.conversionRate}
-            onChange={(e) => handleInputChange('conversionRate', parseFloat(e?.target?.value) || 0)}
+            onChange={(e) => handleInputChange('conversionRate', Math.max(0, Math.min(100, parseFloat(e?.target?.value) || 0)))}
             placeholder="2.5"
             step="0.1"
             description="Current website conversion rate"
@@ -211,7 +230,7 @@ const ROICalculator = () => {
                   <div className="text-sm text-gray-600">ROI</div>
                 </div>
                 <div className="bg-success/5 rounded-lg p-4 text-center">
-                  <div className="text-2xl font-bold text-success">${results?.revenue?.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-success">{formatCurrency(results?.revenue)}</div>
                   <div className="text-sm text-gray-600">Revenue</div>
                 </div>
               </div>
@@ -220,19 +239,19 @@ const ROICalculator = () => {
               <div className="bg-gray-50 rounded-lg p-4 space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Estimated Impressions</span>
-                  <span className="font-semibold">{results?.impressions?.toLocaleString()}</span>
+                  <span className="font-semibold">{formatNumber(results?.impressions)}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Unique Reach</span>
-                  <span className="font-semibold">{results?.reach?.toLocaleString()}</span>
+                  <span className="font-semibold">{formatNumber(results?.reach)}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Estimated Clicks</span>
-                  <span className="font-semibold">{results?.clicks?.toLocaleString()}</span>
+                  <span className="font-semibold">{formatNumber(results?.clicks)}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Conversions</span>
-                  <span className="font-semibold">{results?.conversions?.toLocaleString()}</span>
+                  <span className="font-semibold">{formatNumber(results?.conversions)}</span>
                 </div>
               </div>
 
@@ -242,7 +261,7 @@ const ROICalculator = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">New CAC</span>
-                    <span className="font-semibold text-success">${results?.newCAC}</span>
+                    <span className="font-semibold text-success">{formatCurrency(results?.newCAC)}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">CAC Improvement</span>
@@ -250,7 +269,7 @@ const ROICalculator = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Payback Period</span>
-                    <span className="font-semibold">{results?.paybackPeriod} days</span>
+                    <span className="font-semibold">{results?.paybackPeriod > 0 ? `${results.paybackPeriod} days` : 'N/A'}</span>
                   </div>
                 </div>
               </div>
@@ -259,19 +278,12 @@ const ROICalculator = () => {
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <Button
                   variant="default"
-                  iconName="Download"
+                  iconName="Calendar"
                   iconPosition="left"
                   className="flex-1"
+                  onClick={handleBookCall}
                 >
-                  Download Report
-                </Button>
-                <Button
-                  variant="outline"
-                  iconName="MessageCircle"
-                  iconPosition="left"
-                  className="flex-1"
-                >
-                  Discuss Results
+                  Book a call to discuss these numbers
                 </Button>
               </div>
             </motion.div>
