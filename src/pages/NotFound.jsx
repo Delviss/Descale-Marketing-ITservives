@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from 'components/ui/Button';
@@ -21,12 +21,25 @@ const NotFound = () => {
     navigate('/');
   };
 
+  // index.html ships a single static <meta name="robots"> (index, follow).
+  // react-helmet-async only APPENDS tags, it never replaces a statically-
+  // authored one, so rendering a second <meta name="robots"> via Helmet
+  // here would leave two conflicting robots tags in the document instead of
+  // one noindex. Mutate the existing tag in place instead (same pattern
+  // ITPageLayout uses for its own noindex pages).
+  useEffect(() => {
+    const tag = document.querySelector('meta[name="robots"]');
+    if (!tag) return undefined;
+    const previous = tag.getAttribute('content');
+    tag.setAttribute('content', 'noindex, nofollow');
+    return () => tag.setAttribute('content', previous);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
         <title>Page not found | Descale Agency</title>
         <meta name="description" content="The page you're looking for doesn't exist. Find your way back to Descale Agency's marketing, IT services, or help center." />
-        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />
       <main className="flex-1 flex flex-col items-center justify-center p-4 pt-32 pb-16">
