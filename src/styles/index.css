@@ -16,6 +16,18 @@ body {
   overflow-y: visible;
 }
 
+/* Decorative elements (blurred background blobs, background grids, icon
+   glyphs inside buttons, etc.) are already marked aria-hidden="true"
+   throughout the site, but most don't also set pointer-events-none — an
+   absolutely positioned blob sitting on top of a button/link can silently
+   eat its clicks even though it's fully transparent. A click on any
+   aria-hidden element now passes through to whatever is beneath/behind it
+   (for an icon nested inside a button, that's the button itself, so this
+   never breaks a real click target). */
+[aria-hidden="true"] {
+  pointer-events: none;
+}
+
 /* Global focus-visible fallback: many custom interactive cards/buttons
    across the site don't define their own focus ring. Rather than auditing
    every one individually, guarantee a visible ring for keyboard/AT users on
