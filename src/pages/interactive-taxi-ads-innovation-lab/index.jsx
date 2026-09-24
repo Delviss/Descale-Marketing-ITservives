@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/ui/Header';
@@ -11,6 +12,20 @@ import MetricsDashboard from './components/MetricsDashboard';
 import CaseStudyShowcase from './components/CaseStudyShowcase';
 import ROICalculator from './components/ROICalculator';
 import TechnologyShowcase from './components/TechnologyShowcase';
+import { TAXI_ADS_STATS } from './statsConfig';
+import { SITE_URL } from '../../config/company';
+
+const TAXI_ADS_TITLE = 'Interactive Taxi Advertising Campaigns | Descale Agency';
+const TAXI_ADS_DESCRIPTION =
+  'GPS-triggered, interactive taxi advertising with real-time audience intelligence, dynamic creative, and an ROI calculator to model your campaign.';
+const taxiAdsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Interactive Taxi Advertising',
+  provider: { '@type': 'Organization', name: 'Descale Agency', url: SITE_URL },
+  areaServed: ['EU', 'US', 'UK', 'Poland'],
+  description: TAXI_ADS_DESCRIPTION,
+};
 
 const InteractiveTaxiAdsInnovationLab = () => {
   const navigate = useNavigate();
@@ -47,14 +62,21 @@ const InteractiveTaxiAdsInnovationLab = () => {
   };
 
   const heroStats = [
-    { label: "Cities Covered", value: "475+", icon: "MapPin" },
-    { label: "Daily Impressions", value: "2.4M", icon: "Eye" },
-    { label: "Average ROI", value: "340%", icon: "TrendingUp" },
-    { label: "Client Satisfaction", value: "98%", icon: "Heart" }
+    { label: "Cities Covered", value: TAXI_ADS_STATS.citiesCovered, icon: "MapPin" },
+    { label: "Daily Impressions", value: TAXI_ADS_STATS.dailyImpressions, icon: "Eye" },
+    { label: "Average ROI", value: TAXI_ADS_STATS.averageRoi, icon: "TrendingUp" },
+    { label: "Client Satisfaction", value: TAXI_ADS_STATS.clientSatisfaction, icon: "Heart" }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>{TAXI_ADS_TITLE}</title>
+        <meta name="description" content={TAXI_ADS_DESCRIPTION} />
+        <meta property="og:title" content={TAXI_ADS_TITLE} />
+        <meta property="og:description" content={TAXI_ADS_DESCRIPTION} />
+        <script type="application/ld+json">{JSON.stringify(taxiAdsJsonLd)}</script>
+      </Helmet>
       <Header />
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
@@ -72,11 +94,11 @@ const InteractiveTaxiAdsInnovationLab = () => {
             >
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
                 <Icon name="Zap" size={16} className="text-accent" />
-                <span className="text-sm font-medium">Patent-Pending Innovation</span>
+                <span className="text-sm font-medium">{TAXI_ADS_STATS.patentPendingLabel}</span>
               </div>
               
               <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                Interactive Taxi Ads
+                <span className="block">Interactive Taxi Ads</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
                   Innovation Lab
                 </span>

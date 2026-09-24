@@ -120,6 +120,11 @@ const HelpPage = () => {
           name="description"
           content="Find answers about working with Descale Agency, services, pricing, process, IT engineering, billing, and support."
         />
+        <meta property="og:title" content="Help Center | Descale Agency" />
+        <meta
+          property="og:description"
+          content="Find answers about working with Descale Agency, services, pricing, process, IT engineering, billing, and support."
+        />
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">

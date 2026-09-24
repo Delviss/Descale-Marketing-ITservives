@@ -6,21 +6,27 @@
     <meta name="theme-color" content="#C0370A" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0B0B0F" media="(prefers-color-scheme: dark)" />
 
+    <!-- Fallback <title> only: every route sets its own via react-helmet-async
+         (see src/components/CanonicalTag.jsx / each page's <Helmet>), which
+         properly overwrites document.title, so this is only ever seen for
+         the fraction of a second before hydration in local dev.
+         Deliberately NOT shipping a static meta description/og:*/twitter:*
+         here: react-helmet-async APPENDS tags rather than replacing
+         statically-authored ones, so a static <meta name="description"> here
+         would coexist with each page's own Helmet-rendered one — two tags
+         with the same name, and depending on DOM order, tools reading "the"
+         description could read this generic one instead of the page's own.
+         That was exactly the "same description on all pages" bug. -->
     <title>Descale Agency | Descale the noise. Scale the signal.</title>
-    <meta name="description" content="Descale Agency builds growth systems, interactive taxi-ad campaigns, and analytics infrastructure that compound revenue instead of ad spend." />
     <meta name="author" content="Descale Agency" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Descale Agency" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="Descale Agency" />
-    <meta property="og:description" content="Growth systems, interactive taxi-ad campaigns, and analytics infrastructure that compound revenue." />
     <meta property="og:image" content="https://descale.services/og-image.svg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Descale Agency" />
-    <meta name="twitter:description" content="Growth systems that compound revenue instead of ad spend." />
     <meta name="twitter:image" content="https://descale.services/og-image.svg" />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />

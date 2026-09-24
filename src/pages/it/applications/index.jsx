@@ -116,6 +116,7 @@ const ITApplications = () => {
       description="Web and mobile apps engineered by a senior team. React, Next.js, React Native, native iOS and Android. 12-week median launch. EU + US delivery."
       ogTitle="Application Engineering | Descale Agency"
       jsonLd={jsonLd}
+      breadcrumbLabel="Applications"
     >
       <SubHero
         eyebrow="Applications"

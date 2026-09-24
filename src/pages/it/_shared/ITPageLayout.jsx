@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import Header from '../../../components/ui/Header';
 import Footer from '../../../components/ui/Footer';
+import { SITE_URL } from '../../../config/company';
 
-const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, noindex, children }) => {
+const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, breadcrumbLabel, noindex, children }) => {
+  const { pathname } = useLocation();
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
     document.documentElement.classList.add('dark');
@@ -33,6 +36,30 @@ const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, noin
     return () => tag.setAttribute('content', previous);
   }, [noindex]);
 
+  // Nested /it/* pages get a BreadcrumbList generated from the current
+  // route rather than hand-written per page, so it can't drift from the
+  // actual URL structure. Only rendered below the top-level /it hub itself.
+  const segments = pathname.split('/').filter(Boolean);
+  const breadcrumbJsonLd =
+    segments.length > 1
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+            { '@type': 'ListItem', position: 2, name: 'IT Services', item: `${SITE_URL}/it` },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: breadcrumbLabel || segments[segments.length - 1],
+              item: `${SITE_URL}${pathname}`,
+            },
+          ],
+        }
+      : null;
+
+  const jsonLdBlocks = [jsonLd, breadcrumbJsonLd].filter(Boolean);
+
   return (
     <div className="dark min-h-screen bg-background text-foreground">
       <Helmet>
@@ -44,9 +71,9 @@ const ITPageLayout = ({ title, description, ogTitle, ogDescription, jsonLd, noin
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={ogTitle || title} />
         <meta name="twitter:description" content={ogDescription || description} />
-        {jsonLd && (
-          <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        )}
+        {jsonLdBlocks.map((block, i) => (
+          <script key={i} type="application/ld+json">{JSON.stringify(block)}</script>
+        ))}
       </Helmet>
       <Header />
       <main>{children}</main>

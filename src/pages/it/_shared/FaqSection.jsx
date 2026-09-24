@@ -1,12 +1,31 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 
 const FaqSection = ({ eyebrow = 'FAQ', title = 'Frequently asked', italicWord = 'questions.', items }) => {
   const [openIdx, setOpenIdx] = useState(0);
 
+  // Generated straight from the same `items` array rendered below, so the
+  // structured data can never drift from the visible FAQ text.
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <section className="relative py-24 lg:py-32">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Helmet>
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <div className="mb-16">
           <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] text-foreground/60 uppercase mb-4">
@@ -28,6 +47,7 @@ const FaqSection = ({ eyebrow = 'FAQ', title = 'Frequently asked', italicWord = 
                 className="rounded-2xl border border-border bg-card overflow-hidden"
               >
                 <button
+                  type="button"
                   onClick={() => setOpenIdx(open ? -1 : i)}
                   className="w-full flex items-center justify-between gap-6 px-6 py-5 text-left hover:bg-muted/40 transition-colors"
                   aria-expanded={open}

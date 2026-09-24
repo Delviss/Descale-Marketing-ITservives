@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
@@ -9,6 +10,10 @@ import InteractiveCalculators from './components/InteractiveCalculators';
 import QualificationForm from './components/QualificationForm';
 
 import Button from '../../components/ui/Button';
+
+const GET_STARTED_TITLE = 'Free Growth Potential Assessment | Descale Agency';
+const GET_STARTED_DESCRIPTION =
+  'Answer a few strategic questions to get a free, personalized growth score, an estimated ROI range, and a plan for scaling your brand.';
 
 const GrowthAssessmentContact = () => {
   const navigate = useNavigate();
@@ -39,6 +44,12 @@ const GrowthAssessmentContact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{GET_STARTED_TITLE}</title>
+        <meta name="description" content={GET_STARTED_DESCRIPTION} />
+        <meta property="og:title" content={GET_STARTED_TITLE} />
+        <meta property="og:description" content={GET_STARTED_DESCRIPTION} />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
@@ -46,7 +57,7 @@ const GrowthAssessmentContact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in">
-              Unlock Your
+              <span className="block">Unlock Your</span>
               <span className="block text-accent">Growth Potential</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed animate-slide-up">

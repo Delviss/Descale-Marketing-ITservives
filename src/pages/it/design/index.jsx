@@ -116,6 +116,7 @@ const ITDesign = () => {
       description="Product UX, design systems, and brand-in-product UX. WCAG 2.2 AA by default. Figma + Storybook shipped together."
       ogTitle="Product Design | Descale Agency"
       jsonLd={jsonLd}
+      breadcrumbLabel="Design"
     >
       <SubHero
         eyebrow="Design"

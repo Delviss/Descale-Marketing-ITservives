@@ -116,6 +116,7 @@ const ITPlatforms = () => {
       description="Multi-tenant SaaS, data platforms, internal tools, and AI-native features engineered to scale. Senior team. 12-14 week MVP. EU + US delivery."
       ogTitle="Platform Engineering | Descale Agency"
       jsonLd={jsonLd}
+      breadcrumbLabel="Platforms"
     >
       <SubHero
         eyebrow="Platforms"

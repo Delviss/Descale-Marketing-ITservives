@@ -45,6 +45,12 @@ const CanonicalTag = () => {
     <Helmet>
       <link rel="canonical" href={href} />
       <meta property="og:url" content={href} />
+      {/* Self-referencing hreflang: correct today (the whole site is
+          English-only, lang="en" on <html>). TODO(owner): if/when a Polish
+          version of any page ships, add an hreflang="pl-PL" alternate here
+          (and an x-default) pointing at that page's Polish URL — do not add
+          hreflang tags for locales that don't have real translated pages. */}
+      <link rel="alternate" hrefLang="en" href={href} />
     </Helmet>
   );
 };

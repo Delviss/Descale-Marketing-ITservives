@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
@@ -7,6 +8,10 @@ import FilterControls from './components/FilterControls';
 import MetricsReveal from './components/MetricsReveal';
 import VideoTestimonials from './components/VideoTestimonials';
 import MethodologyBreakdown from './components/MethodologyBreakdown';
+
+const WORK_TITLE = 'Case Studies & Client Results | Descale Agency';
+const WORK_DESCRIPTION =
+  'Real client case studies across FinTech, SaaS and e-commerce, with the growth metrics, methodology and testimonials behind each result.';
 
 const WorkPortfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -125,6 +130,12 @@ const WorkPortfolio = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <Helmet>
+        <title>{WORK_TITLE}</title>
+        <meta name="description" content={WORK_DESCRIPTION} />
+        <meta property="og:title" content={WORK_TITLE} />
+        <meta property="og:description" content={WORK_DESCRIPTION} />
+      </Helmet>
       {/* Header */}
       <Header />
       {/* Hero Section */}
@@ -140,10 +151,10 @@ const WorkPortfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight">
-              TRANSFORMATION
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight uppercase">
+              <span className="block">Transformation</span>
               <span className="block text-transparent bg-gradient-to-r from-primary to-accent bg-clip-text">
-                STORIES
+                Stories
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">

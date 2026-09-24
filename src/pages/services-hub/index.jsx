@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
@@ -9,6 +10,19 @@ import ServiceComparison from './components/ServiceComparison';
 import ContactForm from './components/ContactForm';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
+import { SITE_URL } from '../../config/company';
+
+const SERVICES_TITLE = 'Growth Marketing Services & Packages | Descale Agency';
+const SERVICES_DESCRIPTION =
+  'Five core marketing services, from brand strategy to performance media, each built to deliver measurable, compounding growth for ambitious brands.';
+const servicesJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Growth Marketing Services',
+  provider: { '@type': 'Organization', name: 'Descale Agency', url: SITE_URL },
+  areaServed: ['EU', 'US', 'UK', 'Poland'],
+  description: SERVICES_DESCRIPTION,
+};
 
 const ServicesHub = () => {
   const navigate = useNavigate();
@@ -382,6 +396,13 @@ const ServicesHub = () => {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white noise-overlay relative">
+      <Helmet>
+        <title>{SERVICES_TITLE}</title>
+        <meta name="description" content={SERVICES_DESCRIPTION} />
+        <meta property="og:title" content={SERVICES_TITLE} />
+        <meta property="og:description" content={SERVICES_DESCRIPTION} />
+        <script type="application/ld+json">{JSON.stringify(servicesJsonLd)}</script>
+      </Helmet>
       <Header />
       {/* Hero Section, cinematic dark */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-28 overflow-hidden">
@@ -412,7 +433,7 @@ const ServicesHub = () => {
               </span>
             </div>
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.02] tracking-[-0.03em] animate-fade-in">
-              Services That Scale
+              <span className="block">Services That Scale</span>
               <span className="block font-serif-accent italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
                 What Matters
               </span>

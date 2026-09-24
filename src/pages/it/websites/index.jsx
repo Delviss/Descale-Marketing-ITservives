@@ -116,6 +116,7 @@ const ITWebsites = () => {
       description="Marketing sites, e-commerce, and CMS builds engineered for performance, SEO, and GEO. Next.js, Sanity, Shopify. 6-8 week launch."
       ogTitle="Website Engineering | Descale Agency"
       jsonLd={jsonLd}
+      breadcrumbLabel="Websites"
     >
       <SubHero
         eyebrow="Websites"
