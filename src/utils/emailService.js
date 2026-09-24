@@ -2,7 +2,7 @@
 //
 // Strategy:
 //  1. If VITE_WEB3FORMS_KEY is set, POST the inquiry to Web3Forms, a free,
-//     account-based relay that forwards submissions to info@travomate.com.pl.
+//     account-based relay that forwards submissions to COMPANY.email.
 //     Register the destination address at https://web3forms.com to obtain a
 //     key, then drop it in `.env.local` as VITE_WEB3FORMS_KEY=...
 //  2. If a custom backend is preferred, set VITE_CONTACT_FORM_ENDPOINT to a
@@ -11,7 +11,9 @@
 //     pre-filled, guaranteeing the inquiry can still reach the inbox even
 //     when no relay is configured.
 
-const RECIPIENT = 'info@travomate.com.pl';
+import { COMPANY } from 'config/company';
+
+const RECIPIENT = COMPANY.email;
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 const HUMAN_LABELS = {

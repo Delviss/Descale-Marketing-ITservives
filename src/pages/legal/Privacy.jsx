@@ -1,5 +1,6 @@
 import React from 'react';
 import LegalLayout from './_LegalLayout';
+import { COMPANY, emailHref } from '../../config/company';
 
 const sections = [
   {
@@ -7,9 +8,9 @@ const sections = [
     body: (
       <>
         <p>
-          Descale Agency is a brand and trading name operated by <strong>Travomate Sp. z o.o.</strong>,
-          a limited liability company registered in Poland at ul. Nowogrodzka 31, 00-511 Warszawa,
-          NIP 7011239205 (the &ldquo;Controller&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;).
+          Descale Agency is a brand and trading name operated by <strong>{COMPANY.legalName}</strong>,
+          a limited liability company registered in Poland at {COMPANY.address.streetAddress}, {COMPANY.address.postalCode} Warszawa,
+          NIP {COMPANY.taxId} (the &ldquo;Controller&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;).
         </p>
         <p>
           This Privacy Policy explains how we collect, use, share and protect your personal data when you
@@ -102,7 +103,7 @@ const sections = [
           <li>Withdraw consent at any time without affecting prior lawful processing (Art. 7(3)).</li>
           <li>Lodge a complaint with the Polish Data Protection Authority, <strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warszawa, www.uodo.gov.pl.</li>
         </ul>
-        <p>To exercise any right, write to <a className="text-primary hover:underline" href="mailto:Info@travomate.com.pl">Info@travomate.com.pl</a>. We respond within one month (Art. 12(3) GDPR).</p>
+        <p>To exercise any right, write to <a className="text-primary hover:underline" href={emailHref}>{COMPANY.email}</a>. We respond within one month (Art. 12(3) GDPR).</p>
       </>
     ),
   },
@@ -159,23 +160,21 @@ const Privacy = () => {
     name: 'Privacy Policy',
     publisher: {
       '@type': 'Organization',
-      name: 'Travomate Sp. z o.o.',
+      name: 'Descale Agency',
+      legalName: COMPANY.legalName,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'ul. Nowogrodzka 31',
-        postalCode: '00-511',
-        addressLocality: 'Warsaw',
-        addressCountry: 'PL',
+        ...COMPANY.address,
       },
-      email: 'Info@travomate.com.pl',
-      telephone: '+48 506 762 423',
+      email: COMPANY.email,
+      telephone: COMPANY.phone.display,
     },
   };
 
   return (
     <LegalLayout
       title="Privacy Policy"
-      description="How Descale Agency (Travomate Sp. z o.o.) collects, uses and protects your personal data, under the EU GDPR and Polish law."
+      description={`How Descale Agency (${COMPANY.legalName}) collects, uses and protects your personal data, under the EU GDPR and Polish law.`}
       lastUpdated="10 May 2026"
       jsonLd={jsonLd}
     >

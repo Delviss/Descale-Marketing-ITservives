@@ -1,5 +1,6 @@
 import React from 'react';
 import MoveAdsLegalLayout from './_MoveAdsLegalLayout';
+import { COMPANY } from '../../../config/company';
 
 const sections = [
   {
@@ -7,7 +8,7 @@ const sections = [
     body: (
       <p>
         These Courier Programme Terms (&ldquo;Regulamin dla kuriera dla programu Descale MoveAds&rdquo;)
-        govern participation in the Descale MoveAds courier programme, operated by Travomate Sp. z o.o.
+        govern participation in the Descale MoveAds courier programme, operated by {COMPANY.legalName}{' '}
         trading as Descale Agency. They apply in addition to, and do not replace, your existing agreements
         with any delivery platform, fleet operator, or employer.
       </p>

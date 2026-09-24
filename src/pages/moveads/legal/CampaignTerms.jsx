@@ -1,5 +1,6 @@
 import React from 'react';
 import MoveAdsLegalLayout from './_MoveAdsLegalLayout';
+import { COMPANY } from '../../../config/company';
 
 const sections = [
   {
@@ -7,8 +8,8 @@ const sections = [
     body: (
       <p>
         These Advertiser Campaign Terms (&ldquo;Regulamin kampanii&rdquo;) govern a restaurant or business
-        (&ldquo;Advertiser&rdquo;) booking a Descale MoveAds courier-bag campaign, operated by Travomate Sp.
-        z o.o. trading as Descale Agency.
+        (&ldquo;Advertiser&rdquo;) booking a Descale MoveAds courier-bag campaign, operated by {COMPANY.legalName}{' '}
+        trading as Descale Agency.
       </p>
     ),
   },

@@ -1,9 +1,10 @@
 import React from 'react';
 import LegalLayout from './_LegalLayout';
+import { COMPANY } from '../../config/company';
 
 const cookieTable = [
-  { name: 'session_id', type: 'Strictly necessary', purpose: 'Maintains your session across pages.', duration: 'Session', provider: 'Travomate Sp. z o.o.' },
-  { name: 'cookie_consent', type: 'Strictly necessary', purpose: 'Stores your cookie preferences.', duration: '12 months', provider: 'Travomate Sp. z o.o.' },
+  { name: 'session_id', type: 'Strictly necessary', purpose: 'Maintains your session across pages.', duration: 'Session', provider: COMPANY.legalName },
+  { name: 'cookie_consent', type: 'Strictly necessary', purpose: 'Stores your cookie preferences.', duration: '12 months', provider: COMPANY.legalName },
   { name: '_ga, _ga_*', type: 'Analytics', purpose: 'Google Analytics 4, anonymised usage statistics.', duration: '14 months', provider: 'Google LLC' },
   { name: 'plausible_*', type: 'Analytics', purpose: 'Privacy-friendly aggregated analytics.', duration: '24 hours', provider: 'Plausible Insights' },
   { name: 'ph_*', type: 'Product analytics', purpose: 'PostHog, product usage and funnel measurement.', duration: '12 months', provider: 'PostHog Inc.' },
@@ -121,7 +122,7 @@ const Cookies = () => {
   return (
     <LegalLayout
       title="Cookie Policy"
-      description="How Descale Agency (Travomate Sp. z o.o.) uses cookies and similar technologies under EU ePrivacy Directive and Polish Telecommunications Law."
+      description={`How Descale Agency (${COMPANY.legalName}) uses cookies and similar technologies under EU ePrivacy Directive and Polish Telecommunications Law.`}
       lastUpdated="10 May 2026"
     >
       {sections.map((s) => (

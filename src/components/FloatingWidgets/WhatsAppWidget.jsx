@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { COMPANY } from "config/company";
 
-const PHONE_DISPLAY = "+48 506 762 423";
-const PHONE_E164 = "48506762423";
+const PHONE_DISPLAY = COMPANY.phone.display;
+const PHONE_E164 = COMPANY.phone.href.replace(/^tel:\+?/, "");
 const PREFILLED = "Hi Descale team, I'd like to know more about your services.";
 const WA_LINK = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(PREFILLED)}`;
 

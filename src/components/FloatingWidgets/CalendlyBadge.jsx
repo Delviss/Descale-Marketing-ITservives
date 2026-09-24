@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { COMPANY } from "config/company";
 
-const CALENDLY_URL = "https://calendly.com/travomate/30min";
+const CALENDLY_URL = COMPANY.calendlyUrl;
 const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
 const CALENDLY_JS = "https://assets.calendly.com/assets/external/widget.js";
 

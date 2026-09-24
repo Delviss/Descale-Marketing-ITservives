@@ -1,5 +1,6 @@
 import React from 'react';
 import LegalLayout from './_LegalLayout';
+import { COMPANY, emailHref } from '../../config/company';
 
 const sections = [
   {
@@ -7,10 +8,10 @@ const sections = [
     body: (
       <p>
         These Terms govern access to and use of the Descale Agency website and services. The provider is
-        <strong> Travomate Sp. z o.o.</strong>, a limited liability company registered in Poland, with its
-        registered office at ul. Nowogrodzka 31, 00-511 Warszawa, NIP 7011239205 (the &ldquo;Provider&rdquo;,
-        &ldquo;we&rdquo;, &ldquo;us&rdquo;). Contact: <a className="text-primary hover:underline" href="mailto:Info@travomate.com.pl">Info@travomate.com.pl</a>,
-        +48 506 762 423.
+        <strong> {COMPANY.legalName}</strong>, a limited liability company registered in Poland, with its
+        registered office at {COMPANY.address.streetAddress}, {COMPANY.address.postalCode} Warszawa, NIP {COMPANY.taxId} (the &ldquo;Provider&rdquo;,
+        &ldquo;we&rdquo;, &ldquo;us&rdquo;). Contact: <a className="text-primary hover:underline" href={emailHref}>{COMPANY.email}</a>,
+        {' '}{COMPANY.phone.display}.
       </p>
     ),
   },
@@ -67,7 +68,7 @@ const sections = [
     body: (
       <p>
         All content on the website, including text, graphics, logos, the &ldquo;Descale&rdquo; mark, source
-        code, layouts and motion design, is owned by or licensed to Travomate Sp. z o.o. and is protected
+        code, layouts and motion design, is owned by or licensed to {COMPANY.legalName} and is protected
         by Polish and international copyright law (Ustawa o prawie autorskim i prawach pokrewnych of 4
         February 1994), trademark law, and the EU Copyright Directive (EU) 2019/790. You may view and share
         content for personal, non-commercial purposes with attribution. Any other use requires our prior
@@ -155,7 +156,7 @@ const Terms = () => {
   return (
     <LegalLayout
       title="Terms of Service"
-      description="The terms governing the use of the Descale Agency website and services, operated by Travomate Sp. z o.o. under Polish and EU law."
+      description={`The terms governing the use of the Descale Agency website and services, operated by ${COMPANY.legalName} under Polish and EU law.`}
       lastUpdated="10 May 2026"
     >
       {sections.map((s) => (

@@ -1,5 +1,6 @@
 import React from 'react';
 import MoveAdsLegalLayout from './_MoveAdsLegalLayout';
+import { COMPANY, emailHref } from '../../../config/company';
 
 const sections = [
   {
@@ -17,7 +18,7 @@ const sections = [
       <p>
         Send details (your name, your role &mdash; courier, restaurant, or customer &mdash; and what
         happened) via the <a className="text-primary hover:underline" href="/contact">Contact</a> page or to{' '}
-        <a className="text-primary hover:underline" href="mailto:Info@travomate.com.pl">Info@travomate.com.pl</a>.
+        <a className="text-primary hover:underline" href={emailHref}>{COMPANY.email}</a>.
         Include any reference (campaign name, order or voucher reference) if you have one.
       </p>
     ),

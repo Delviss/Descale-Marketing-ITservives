@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import { COMPANY, emailHref } from '../../../config/company';
 
 const CallToAction = () => {
   const navigate = useNavigate();
@@ -199,18 +200,18 @@ const CallToAction = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-8">
             <a
-              href="mailto:Info@travomate.com.pl"
+              href={emailHref}
               className="flex items-center space-x-2 text-white hover:text-accent transition-colors duration-300"
             >
               <Icon name="Mail" size={20} />
-              <span>Info@travomate.com.pl</span>
+              <span>{COMPANY.email}</span>
             </a>
             <a
-              href="tel:+48222952055"
+              href={COMPANY.phone.href}
               className="flex items-center space-x-2 text-white hover:text-accent transition-colors duration-300"
             >
               <Icon name="Phone" size={20} />
-              <span>+48 22 295 20 55</span>
+              <span>{COMPANY.phone.display}</span>
             </a>
           </div>
         </motion.div>

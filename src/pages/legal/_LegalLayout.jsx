@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import Icon from '../../components/AppIcon';
+import { COMPANY, emailHref } from '../../config/company';
 
 const LegalLayout = ({ title, description, lastUpdated, children, jsonLd }) => {
   useEffect(() => {
@@ -53,18 +54,18 @@ const LegalLayout = ({ title, description, lastUpdated, children, jsonLd }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-foreground/75">
               <div>
                 <div className="text-xs uppercase tracking-wider text-foreground/50 mb-2">Company</div>
-                <div className="font-semibold text-foreground">Travomate Sp. z o.o.</div>
-                <div>ul. Nowogrodzka 31</div>
-                <div>00-511 Warszawa, Poland</div>
-                <div className="mt-2">NIP: 7011239205</div>
+                <div className="font-semibold text-foreground">{COMPANY.legalName}</div>
+                <div>{COMPANY.address.streetAddress}</div>
+                <div>{COMPANY.address.postalCode} Warszawa, Poland</div>
+                <div className="mt-2">NIP: {COMPANY.taxId}</div>
               </div>
               <div>
                 <div className="text-xs uppercase tracking-wider text-foreground/50 mb-2">Contact</div>
-                <a href="mailto:Info@travomate.com.pl" className="block text-foreground hover:text-primary transition-colors">
-                  Info@travomate.com.pl
+                <a href={emailHref} className="block text-foreground hover:text-primary transition-colors">
+                  {COMPANY.email}
                 </a>
-                <a href="tel:+48506762423" className="block text-foreground/80 hover:text-primary transition-colors">
-                  +48 506 762 423
+                <a href={COMPANY.phone.href} className="block text-foreground/80 hover:text-primary transition-colors">
+                  {COMPANY.phone.display}
                 </a>
                 <div className="mt-2 text-xs text-foreground/50">EU GDPR Article 4(7) data controller</div>
               </div>

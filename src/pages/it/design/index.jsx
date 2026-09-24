@@ -6,6 +6,7 @@ import StackSection from '../_shared/StackSection';
 import ProcessTimeline from '../_shared/ProcessTimeline';
 import FaqSection from '../_shared/FaqSection';
 import CtaBand from '../_shared/CtaBand';
+import { COMPANY, SITE_URL } from 'config/company';
 
 const features = [
   {
@@ -101,18 +102,8 @@ const ITDesign = () => {
     provider: {
       '@type': 'Organization',
       name: 'Descale Agency',
-      url: 'https://www.descale.services',
-      parentOrganization: {
-        '@type': 'Organization',
-        name: 'Travomate Sp. z o.o.',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'ul. Nowogrodzka 31',
-          postalCode: '00-511',
-          addressLocality: 'Warsaw',
-          addressCountry: 'PL',
-        },
-      },
+      legalName: COMPANY.legalName,
+      url: SITE_URL,
     },
     areaServed: ['EU', 'US', 'UK', 'Poland'],
     description:

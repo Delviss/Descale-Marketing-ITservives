@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import Icon from '../../components/AppIcon';
+import { COMPANY, SITE_URL, emailHref } from '../../config/company';
 
 const Contact = () => {
   useEffect(() => {
@@ -23,18 +24,14 @@ const Contact = () => {
       'Contact Descale Agency in Warsaw, Poland. Marketing and IT services for EU and US clients.',
     publisher: {
       '@type': 'Organization',
-      name: 'Travomate Sp. z o.o.',
-      legalName: 'Travomate Sp. z o.o.',
-      taxID: '7011239205',
-      email: 'Info@travomate.com.pl',
-      telephone: '+48 506 762 423',
+      name: 'Descale Agency',
+      legalName: COMPANY.legalName,
+      taxID: COMPANY.taxId,
+      email: COMPANY.email,
+      telephone: COMPANY.phone.display,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'ul. Nowogrodzka 31',
-        postalCode: '00-511',
-        addressLocality: 'Warszawa',
-        addressRegion: 'Mazowieckie',
-        addressCountry: 'PL',
+        ...COMPANY.address,
       },
       areaServed: ['EU', 'US', 'UK', 'Poland'],
     },
@@ -111,10 +108,10 @@ const Contact = () => {
                   Project briefs, partnerships, press. We reply within one business day.
                 </p>
                 <a
-                  href="mailto:Info@travomate.com.pl"
+                  href={emailHref}
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
                 >
-                  Info@travomate.com.pl
+                  {COMPANY.email}
                   <Icon name="ArrowUpRight" size={14} />
                 </a>
               </motion.div>
@@ -134,10 +131,10 @@ const Contact = () => {
                   Mon-Fri, 09:00-18:00 CET. Calls in English, Polish, French and Spanish.
                 </p>
                 <a
-                  href="tel:+48506762423"
+                  href={COMPANY.phone.href}
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
                 >
-                  +48 506 762 423
+                  {COMPANY.phone.display}
                   <Icon name="ArrowUpRight" size={14} />
                 </a>
               </motion.div>
@@ -155,8 +152,8 @@ const Contact = () => {
                 <h3 className="font-display text-xl font-bold mb-2">Office</h3>
                 <p className="text-foreground/70 text-sm mb-4">Walk-ins by appointment.</p>
                 <address className="not-italic text-foreground font-medium">
-                  ul. Nowogrodzka 31<br />
-                  00-511 Warszawa, Poland
+                  {COMPANY.address.streetAddress}<br />
+                  {COMPANY.address.postalCode} Warszawa, Poland
                 </address>
               </motion.div>
             </div>
@@ -211,21 +208,21 @@ const Contact = () => {
                 <dl className="space-y-3 text-sm">
                   <div className="flex justify-between gap-4">
                     <dt className="text-foreground/60">Legal name</dt>
-                    <dd className="text-foreground font-medium">Travomate Sp. z o.o.</dd>
+                    <dd className="text-foreground font-medium">{COMPANY.legalName}</dd>
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-foreground/60">Trading as</dt>
-                    <dd className="text-foreground font-medium">Descale Agency</dd>
+                    <dd className="text-foreground font-medium">{COMPANY.brandName}</dd>
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-foreground/60">Registered office</dt>
                     <dd className="text-foreground font-medium text-right">
-                      ul. Nowogrodzka 31<br />00-511 Warszawa, Poland
+                      {COMPANY.address.streetAddress}<br />{COMPANY.address.postalCode} Warszawa, Poland
                     </dd>
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-foreground/60">NIP (tax ID)</dt>
-                    <dd className="text-foreground font-medium">7011239205</dd>
+                    <dd className="text-foreground font-medium">{COMPANY.taxId}</dd>
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-foreground/60">Country</dt>

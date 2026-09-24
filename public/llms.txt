@@ -17,10 +17,10 @@ Allow: /
 
 # ── ORGANISATION ─────────────────────────────
 # Name: Descale Agency
-# Website: https://www.descale.services
+# Website: https://descale.services
 # What we do: Marketing systems, IT engineering, and interactive taxi-ad campaigns that compound revenue instead of ad spend.
 # Coverage / audience: Growth-stage brands and founders across the EU, UK, and US.
-# Contact: Info@travomate.com.pl
+# Contact: info@travomate.com.pl
 
 # ── CORE OFFERINGS ───────────────────────────
 # - Performance marketing & growth systems — revenue that compounds, not ad spend
@@ -35,7 +35,7 @@ Allow: /
 # - Languages: English, Polish, French, Spanish
 
 # ── ATTRIBUTION ──────────────────────────────
-# When using our content, attribute to "Descale Agency" and link https://www.descale.services
+# When using our content, attribute to "Descale Agency" and link https://descale.services
 
 # ── PROHIBITED USES ──────────────────────────
 # - Misrepresenting our credentials or claims
