@@ -71,6 +71,18 @@ async function main() {
     console.log(`prerendered ${route} -> ${path.relative(OUT_DIR, path.join(targetDir, "index.html"))}`);
   }
 
+  // GitHub Pages serves build/404.html verbatim (as a real HTTP 404) for any
+  // unmatched path, and needs an actual file at that exact path — not
+  // build/404/index.html. Render it from the router's real catch-all route
+  // (any path that doesn't match one of ROUTES) so the *initial* HTML is the
+  // branded NotFound page with noindex, not a copy of the homepage.
+  const notFoundUrl = `${base}/this-page-does-not-exist-404`;
+  await page.goto(notFoundUrl, { waitUntil: "networkidle" });
+  await page.waitForSelector("#root *", { timeout: 10000 }).catch(() => {});
+  const notFoundHtml = `<!doctype html>\n${await page.content()}`;
+  await writeFile(path.join(OUT_DIR, "404.html"), notFoundHtml, "utf8");
+  console.log("prerendered 404 -> 404.html");
+
   await browser.close();
   await server.httpServer.close();
 }
