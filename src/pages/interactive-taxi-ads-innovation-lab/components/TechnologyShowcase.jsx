@@ -3,6 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import { TAXI_ADS_STATS } from '../statsConfig';
+
+// TODO(owner): the "Strategic Partnerships" section used to show Uber,
+// Lyft, Yellow Cab Co. and Via Transportation as verified partners, all
+// four rendered with the SAME stock photo and no real, authorized logos or
+// partnership agreements behind them. That implied trademark-infringing,
+// fabricated partnerships and has been removed. Populate this array with
+// real partner names + logos you're authorized to display (or leave it
+// empty to keep the section hidden) before re-enabling it.
+const PARTNERSHIPS = [];
 
 const TechnologyShowcase = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -86,32 +96,6 @@ const TechnologyShowcase = () => {
     }
   ];
 
-  const partnerships = [
-    {
-      name: "Uber Technologies",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop",
-      description: "Exclusive partnership for premium ride advertising",
-      coverage: "150+ cities"
-    },
-    {
-      name: "Lyft Network",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop",
-      description: "Strategic alliance for shared mobility advertising",
-      coverage: "200+ markets"
-    },
-    {
-      name: "Yellow Cab Co.",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop",
-      description: "Traditional taxi fleet integration",
-      coverage: "50+ major cities"
-    },
-    {
-      name: "Via Transportation",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=100&fit=crop",
-      description: "Micro-transit and shuttle advertising",
-      coverage: "75+ regions"
-    }
-  ];
 
   const currentTech = technologies?.[activeFeature];
 
@@ -133,12 +117,12 @@ const TechnologyShowcase = () => {
         </div>
 
         {/* Technology Navigation */}
-        <div className="flex overflow-x-auto border-b border-gray-200">
+        <div className="flex overflow-x-auto snap-x snap-mandatory border-b border-gray-200">
           {technologies?.map((tech, index) => (
             <button
               key={tech?.id}
               onClick={() => setActiveFeature(index)}
-              className={`flex items-center space-x-3 px-6 py-4 whitespace-nowrap transition-all ${
+              className={`flex items-center space-x-3 px-6 py-4 whitespace-nowrap transition-all snap-start shrink-0 ${
                 activeFeature === index
                   ? 'bg-primary text-white border-b-2 border-primary' :'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
@@ -223,53 +207,57 @@ const TechnologyShowcase = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-      {/* Strategic Partnerships */}
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900">Strategic Partnerships</h3>
-            <p className="text-gray-600 mt-1">Exclusive access to premium taxi networks</p>
-          </div>
-          <div className="flex items-center space-x-2 text-sm text-success">
-            <Icon name="Shield" size={16} />
-            <span>Verified Partners</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {partnerships?.map((partner, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-50 rounded-lg p-4 text-center hover:shadow-md transition-shadow"
-              whileHover={{ y: -2 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                <Image
-                  src={partner?.logo}
-                  alt={partner?.name}
-                  className="w-12 h-12 object-contain"
-                />
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">{partner?.name}</h4>
-              <p className="text-sm text-gray-600 mb-2">{partner?.description}</p>
-              <div className="text-xs text-primary font-medium">{partner?.coverage}</div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg">
-          <div className="flex items-center justify-between">
+      {/* Strategic Partnerships — hidden until PARTNERSHIPS has real,
+          authorized entries (see TODO(owner) above). Previously rendered
+          four "verified partners" that were all the same stock photo. */}
+      {PARTNERSHIPS.length > 0 && (
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h4 className="font-semibold text-gray-900">Total Network Coverage</h4>
-              <p className="text-sm text-gray-600">Combined reach across all partnerships</p>
+              <h3 className="text-xl font-bold text-gray-900">Strategic Partnerships</h3>
+              <p className="text-gray-600 mt-1">Exclusive access to premium taxi networks</p>
             </div>
-            <div className="text-right">
-              <div className="text-2xl font-bold text-primary">475+</div>
-              <div className="text-sm text-gray-600">Cities & Markets</div>
+            <div className="flex items-center space-x-2 text-sm text-success">
+              <Icon name="Shield" size={16} />
+              <span>Verified Partners</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {PARTNERSHIPS.map((partner, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-50 rounded-lg p-4 text-center hover:shadow-md transition-shadow"
+                whileHover={{ y: -2 }}
+              >
+                <div className="w-16 h-16 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={partner?.logo}
+                    alt={partner?.name}
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">{partner?.name}</h4>
+                <p className="text-sm text-gray-600 mb-2">{partner?.description}</p>
+                <div className="text-xs text-primary font-medium">{partner?.coverage}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg">
+            <div className="flex items-center justify-between">
+              <div>
+                <h4 className="font-semibold text-gray-900">Total Network Coverage</h4>
+                <p className="text-sm text-gray-600">Combined reach across all partnerships</p>
+              </div>
+              <div className="text-right">
+                <div className="text-2xl font-bold text-primary">{TAXI_ADS_STATS.citiesCovered}</div>
+                <div className="text-sm text-gray-600">Cities & Markets</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
       {/* Innovation Pipeline */}
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl text-white p-6">
         <div className="flex items-center justify-between mb-6">
